@@ -62,11 +62,12 @@ const Address = ({navigation, dispatch,addressData}) => {
     );
 
   return (
-    <View>
-         <MyStatusBar backgroundColor={Colors.primaryDark} barStyle={'light-content'} />
+    <View style={{flex:1}}>
+         <MyStatusBar backgroundColor={Colors.background_theme2} barStyle={'light-content'} />
          <MyHeader title={'Address'} navigation={navigation} />
-       
-       <FlatList
+
+         <View style={{flex:1}}>
+         <FlatList
                 data={addressData?.data}
                 renderItem={renderAddressItem}
                 keyExtractor={item => item.id}
@@ -78,6 +79,10 @@ const Address = ({navigation, dispatch,addressData}) => {
             <TouchableOpacity style={styles.addButton} onPress={addNewAddress}>
                 <Icon name="add" size={30} color="white" />
             </TouchableOpacity>
+
+         </View>
+       
+       
            
     </View>
   )
@@ -127,7 +132,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
         right: 20,
-        backgroundColor: Colors.primaryDark,
+        backgroundColor: Colors.background_theme2,
         borderRadius: 50,
         width: 60,
         height: 60,
@@ -138,6 +143,6 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.3,
         shadowRadius: 4,
-        top:SCREEN_HEIGHT * 0.9
+        top:SCREEN_HEIGHT * 0.7
     },
 })

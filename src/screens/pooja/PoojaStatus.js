@@ -281,7 +281,7 @@ const PoojaStatus = ({ navigation, route, dispatch, customerData }) => {
                 <TouchableOpacity
                 disabled={true}
                     // onPress={bookPujaHandle}
-                    style={{ backgroundColor: colors.background_theme2, paddingVertical: SCREEN_HEIGHT * 0.015, borderRadius: 100, marginHorizontal: SCREEN_WIDTH * 0.1 }}>
+                    style={{ backgroundColor: colors.background_theme5, paddingVertical: SCREEN_HEIGHT * 0.015, borderRadius: 100, marginHorizontal: SCREEN_WIDTH * 0.1 }}>
                     <Text style={{ color: "white", textAlign: "center", fontSize: getFontSize(2), fontWeight: "400" }}>{Pooja?.status}</Text>
                 </TouchableOpacity>
             </View>

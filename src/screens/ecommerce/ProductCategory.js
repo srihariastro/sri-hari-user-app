@@ -24,7 +24,7 @@ const ProductCategory = ({ navigation, productCategoryData, dispatch,cartData })
 
     return (
         <View style={{ flex: 1, backgroundColor: Colors.whiteDark }}>
-            <MyStatusBar backgroundColor={Colors.primaryLight} barStyle={'light-content'} />
+            <MyStatusBar backgroundColor={Colors.background_theme2} barStyle={'light-content'} />
             {/* <MyHeader title={'Astro Mall'} navigation={navigation} /> */}
             <View style={{ flex: 1 }}>
                 {header()}
@@ -61,7 +61,7 @@ const ProductCategory = ({ navigation, productCategoryData, dispatch,cartData })
     }
     function header() {
         return(
-            <View style={{backgroundColor:Colors.primaryLight,flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingBottom:Sizes.fixPadding * 0.7}}>
+            <View style={{backgroundColor:Colors.background_theme2,flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingBottom:Sizes.fixPadding * 0.7}}>
                    <TouchableOpacity
           onPress={() => {
             navigation.goBack();

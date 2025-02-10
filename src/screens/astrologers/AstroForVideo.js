@@ -51,11 +51,10 @@ const AstroForVideo = ({
   );
 
   const searchFilterFunction = text => {
-    const trimmedText = text.trim().replace(/\s+/g, ' ');
-    setSearch(trimmedText);
+    setSearch(text);
     clearTimeout(timeout);
     timeout = setTimeout(() => {
-      dispatch(AstrologerActions.getVideoCallAstrologers(trimmedText));
+      dispatch(AstrologerActions.getVideoCallAstrologers(text));
       clearTimeout(timeout);
     }, 1500);
   };
@@ -90,7 +89,7 @@ const AstroForVideo = ({
         language: astroData?.language,
         astrologerId: astroData?._id,
         chatPrice: parseFloat(astroData?.normal_video_call_price) + parseFloat(astroData?.commission_normal_video_call_price),
-        astrostatus: astroData?.video_call_status,
+        astrostatus:astroData?.video_call_status,
       };
       dispatch(ChatActions.onChatNow(payload));
     };
@@ -149,7 +148,7 @@ const AstroForVideo = ({
                   borderWidth: 0.5,
                   borderColor: colors.black_color8,
                   resizeMode: 'cover',
-                  marginBottom: 5,
+                  marginBottom:5,
                 }}
               />
               <View style={{ flex: 0.3, alignItems: 'center' }}>
@@ -176,20 +175,20 @@ const AstroForVideo = ({
                   halfStar={<Ionicons size={14} name={'star-half'} style={{ color: Colors.primaryLight }} />}
                 />
                 <Text
-                  allowFontScaling={false}
-                  style={{
-                    fontSize: 9,
-                    color: "#bababa",
-                    fontFamily: fonts.medium,
-                    marginTop: 1,
-                    textAlign: 'center',
-                  }}>
-                  Review:{item?.totalRating}
+                allowFontScaling={false}
+                style={{
+                  fontSize:9,
+                  color: "#bababa",
+                  fontFamily: fonts.medium,
+                  marginTop:1,
+                  textAlign: 'center',
+                }}>
+                Review:{item?.totalRating}
                 </Text>
               </View>
             </View>
           </View>
-          <View style={{ flex: 0, width: '70%', padding: 20, paddingBottom: 5, }}>
+          <View style={{ flex: 0, width: '70%', padding: 20,paddingBottom:5, }}>
             <Text
               allowFontScaling={false}
               style={{

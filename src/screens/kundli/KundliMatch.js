@@ -138,7 +138,7 @@ const KundliMatch = ({ navigation, matchingAshtakootPointsData, maleKundliData, 
       console.log(uri);
       let options = {
         title:
-          'Checkout the AstroRemedy marriage compatibility report for Ranjeet and xxx.',
+          'Checkout the Sri Hari Astro marriage compatibility report for Ranjeet and xxx.',
         url: uri,
       };
       Share.open(options)
@@ -599,7 +599,7 @@ const KundliMatch = ({ navigation, matchingAshtakootPointsData, maleKundliData, 
                   fontFamily: fonts.semi_bold,
                   marginLeft: 5,
                 }}>
-                AstroRemedy
+                Sri Hari Astro
               </Text>
             </View>
             <View

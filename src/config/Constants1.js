@@ -223,10 +223,15 @@ export const colors = {
   red_color1: '#ff5a5f',
   background_theme1: '#fff',
   // background_theme2: '#FA5D08',
-  background_theme2: '#F45F4B',
+  background_theme2: '#FC4B00',
+  
   background_theme4: '#F2805F',
   background_theme3: '#bdd3ff',
+  background_theme5:"#FC4B00",
+  background_theme6:"#EFECEC",
+  cards_background:"#F7F7F7",
   orange_color: '#7d0300',
+  gray_color:"#FC4B00",
 };
 
 export const fonts = {

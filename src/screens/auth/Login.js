@@ -36,6 +36,7 @@ import { success_toast, warnign_toast } from '../../components/MyToastMessage';
 import * as AuthActions from '../../redux/actions/AuthActions'
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen';
 import { logo, mainlogo } from '../../assets/images/Images';
+import Astro_Logo from '../../assets/svg/Logo.svg'
 
 const { width, height } = Dimensions.get('screen');
 
@@ -75,28 +76,34 @@ const Login = props => {
   return (
     <View style={{ flex: 1, backgroundColor: colors.background_theme2 }}>
       <MyStatusBar
-        backgroundColor={colors.background_theme2}
+        backgroundColor={colors.background_theme5}
         barStyle="light-content"
       />
       <MyLoader isVisible={isLoading} />
-      <ScrollView showsVerticalScrollIndicator={false} style={{backgroundColor:"#fff"}}>
-        
-      <Image source={mainlogo}
-            style={{
-               width: SCREEN_WIDTH * 0.8,
-              height: SCREEN_HEIGHT * 0.22,
-              alignSelf: 'center', 
-              resizeMode: 'contain',
-              marginTop: 5, 
-              borderRadius: 25, 
-              alignSelf: 'center', 
-              marginTop: SCREEN_HEIGHT * 0.02,
-              borderWidth:1 }} />
-          
+
+      <ScrollView showsVerticalScrollIndicator={false} style={{ backgroundColor: "#fff",}}>
+
+        <Image source={mainlogo}
+          style={{
+            width: SCREEN_WIDTH * 0.8,
+            height: SCREEN_HEIGHT * 0.22,
+            alignSelf: 'center',
+            resizeMode: 'contain',
+            marginTop: 5,
+            borderRadius: 25,
+            alignSelf: 'center',
+            marginTop: SCREEN_HEIGHT * 0.02,
+            borderWidth: 1
+          }} />
+
+        {/* <View style={styles.Imagecontainer}>
+          <Astro_Logo />
+        </View> */}
+
         <View
           style={{
-            backgroundColor: '#F45F4B',
-            marginTop: 15,
+            backgroundColor: '#FC4B00',
+            marginTop: 35,
             borderTopLeftRadius: 40,
             borderTopRightRadius: 40,
             shadowColor: "#000000",
@@ -107,159 +114,170 @@ const Login = props => {
             shadowOpacity: 0.20,
             shadowRadius: 5.62,
             elevation: 7,
-            height: height*0.7,
-            display:"flex",
-            flexDirection:"column",
-            justifyContent:"center",
-            alignItems:"center",
+            height: height * 0.7,
+            paddingTop: height * 0.075,
+            flex:1,
+            display: "flex",
+            flexDirection: "column",
+            // justifyContent: "space-between",
+            alignItems: "center",
           }}>
 
-           <View >
-            <Text style={{
-              backgroundColor: "yellow", color: "#F45F4B",
-              textAlign: 'center',
-              fontSize: getFontSize(1.3),
-              color: "#000",
-              fontFamily: fonts.medium,
-              fontWeight: "700",
-              textTransform: "uppercase",
-              letterSpacing: 0.7,
-              marginBottom: 30,
-              paddingVertical:6,
-            }}>Guiding your journey through stars.</Text>
-          <Text allowFontScaling={false}
-            style={{
-              textAlign: 'center',
-              fontSize: getFontSize(2.3),
-          color: "#fff",
-              fontFamily: fonts.medium,
-              fontWeight:"700",
-              textTransform:"uppercase",
-              letterSpacing:0.7
-            }}>
-            Welcome To {'\n'}AstroRemedy
-          </Text>
-          
-          <Text allowFontScaling={false}
-            style={{
-              textAlign: 'center',
-              fontSize: getFontSize(1.3),
+          <View >
+            
 
-              color: "#fff",
-              fontFamily: fonts.medium,
-              marginTop:10,
-            }}>
-            Enter Your Mobile Number To Continue
-          </Text>
-          <KeyboardAvoidingView
-            behavior={Platform.OS == 'android' ? 'padding' : 'height'}>
+              <Text style={{
+                
+                backgroundColor: "yellow", color: "#000000",
+                textAlign: 'center',
+                fontSize: getFontSize(1.4),
+                width:450,
+                fontFamily: fonts.medium,
+                fontWeight: "700",
+                textTransform: "uppercase",
+                letterSpacing: 0.7,
+                marginBottom: 30,
+                paddingVertical: 6,
+              }}>Guiding your journey through stars.</Text>
+
+           
+
+
+            <Text allowFontScaling={false}
+              style={{
+                textAlign: 'center',
+                fontSize: getFontSize(2.5),
+                fontFamily: fonts.medium,
+                fontWeight: "700",
+                textTransform: "uppercase",
+                letterSpacing: 0.7,
+                color: "black"
+              }}>
+              Welcome To {'\n'}Sri Hari Astro
+            </Text>
+
+            <Text allowFontScaling={false}
+              style={{
+                textAlign: 'center',
+                fontSize: getFontSize(2.0),
+
+                color: "#fff",
+                fontFamily: fonts.medium,
+                marginTop: 10,
+              }}>
+              Enter Your Mobile Number To Continue
+            </Text>
+            <KeyboardAvoidingView
+              behavior={Platform.OS == 'android' ? 'padding' : 'height'}>
+              <View
+                style={{
+                  flex: 0,
+                  width: '75%',
+                  alignSelf: 'center',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  borderWidth: 1,
+                  borderColor: "#fff",
+                  borderRadius: 25,
+                  marginBottom: 5,
+                  marginTop: 30,
+                  color:"black",
+                  backgroundColor:"white"
+                }}>
+
+                <Text allowFontScaling={false} style={{ fontSize: getFontSize(1.4), fontWeight: 'bold', paddingRight: 5, paddingLeft: 10, color: "black", fontFamily: fonts.medium }}>
+                  {` +${code.callingCode}`}
+                </Text>
+                <View>
+                  <Text allowFontScaling={false} style={{ borderRightWidth: 1, borderColor: "black", height: getFontSize(1.8) }}></Text>
+                </View>
+                <TextInput
+                  placeholder="Enter Your Mobile Number"
+                  placeholderTextColor="#000"
+                  keyboardType="numeric"
+                  onChangeText={text => {
+
+                    if (text.length > 0 && text[0] === '0') {
+
+                      setPhoneNumber(text.slice(1));
+                    } else {
+                      setPhoneNumber(text);
+                    }
+
+                    if (text.length >= 10) {
+                      Keyboard.dismiss();
+                    }
+                  }}
+                  style={{ width: '100%', fontSize: getFontSize(1.4), padding: 8, color: '#000' }}
+                  maxLength={10}
+                  onTouchEndCapture={() => console.log('bye')}
+                  underlineColorAndroid='transparent'
+                  onSubmitEditing={() => login()}
+                  cursorColor={colors.background_theme2}
+                  disableFullscreenUI={false}
+                />
+              </View>
+            </KeyboardAvoidingView>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={login}
+              style={{
+                backgroundColor: "#E9FFBC",
+                width: "100%",
+                alignSelf: "center",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 10,
+                paddingHorizontal: 40,
+                paddingVertical: 6,
+                marginVertical: 10,
+                borderRadius: 100,
+
+              }}>
+              <Text allowFontScaling={false} style={{ fontSize: getFontSize(1.8), fontWeight: 'bold', color: "#000", }}>
+                GET OTP
+              </Text>
+              <AntDesign
+                name="rightcircle"
+                color={"#04579C"}
+                size={18}
+              />
+            </TouchableOpacity>
             <View
               style={{
                 flex: 0,
-                width: '85%',
-                alignSelf: 'center',
                 flexDirection: 'row',
+                width: '75%',
+                alignSelf: 'center',
                 alignItems: 'center',
-                borderWidth: 1,
-                borderColor: "#fff",
-                borderRadius: 25,
-                marginBottom: 5,
-                marginTop: 30
+                justifyContent: 'center',
+                marginBottom: 10
               }}>
-
-              <Text allowFontScaling={false} style={{ fontSize: getFontSize(1.4), fontWeight: 'bold', paddingRight: 5, paddingLeft: 10, color:"#fff", fontFamily: fonts.medium }}>
-                {` +${code.callingCode}`}
+              <Text allowFontScaling={false}
+                style={{
+                  fontSize: getFontSize(1.2),
+                  color: '#fff',
+                  fontFamily: 'medium',
+                  marginTop: 2,
+                  textAlign: 'center',
+                }}>
+                By Signing up, you agree to our{' '}
+                <Text allowFontScaling={false}
+                  style={{ fontSize: getFontSize(1.2), color: '#fff', paddingTop: 10 }}
+                  onPress={handlePress}
+                >
+                  Terms And Conditions
+                </Text>{' '}
+                and{' '}
+                <Text allowFontScaling={false}
+                  style={{ fontSize: getFontSize(1.2), color: '#fff' }}
+                  onPress={() => Linking.openURL('https://astroremedy.com/privacy-policy')}
+                >
+                  Privacy Policy
+                </Text>
               </Text>
-              <View>
-                <Text allowFontScaling={false} style={{ borderRightWidth: 1, borderColor:"#fff", height: getFontSize(1.8) }}></Text>
-              </View>
-              <TextInput
-                placeholder="Enter Your Mobile Number"
-                placeholderTextColor="#fff"
-                keyboardType="numeric"
-                onChangeText={text => {
-
-                  if (text.length > 0 && text[0] === '0') {
-
-                    setPhoneNumber(text.slice(1));
-                  } else {
-                    setPhoneNumber(text);
-                  }
-
-                  if (text.length >= 10) {
-                    Keyboard.dismiss();
-                  }
-                }}
-                style={{ width: '100%', fontSize: getFontSize(1.4), padding: 8, color: '#fff' }}
-                maxLength={10}
-                onTouchEndCapture={() => console.log('bye')}
-                underlineColorAndroid='transparent'
-                onSubmitEditing={() => login()}
-                cursorColor={colors.background_theme2}
-                disableFullscreenUI={false}
-              />
             </View>
-          </KeyboardAvoidingView>
-          <TouchableOpacity
-            activeOpacity={0.8}
-            onPress={login}
-            style={{
-              backgroundColor:"#fff",
-              width:"100%",
-              alignSelf:"center",
-              display:"flex",
-              flexDirection:"row",
-              alignItems:"center",
-              gap:10,
-              paddingHorizontal:40,
-              paddingVertical:6,
-              marginVertical:10,
-              borderRadius:100,
-
-            }}>
-            <Text allowFontScaling={false} style={{ fontSize: getFontSize(1.8),  fontWeight: 'bold', color: "#F45F4B", }}>
-              GET OTP
-            </Text>
-            <AntDesign
-              name="rightcircle"
-              color={"#F45F4B"}
-              size={18}
-            />
-          </TouchableOpacity>
-          <View
-            style={{
-              flex: 0,
-              flexDirection: 'row',
-              width: '75%',
-              alignSelf: 'center',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: 10
-            }}>
-            <Text allowFontScaling={false}
-              style={{
-                fontSize: getFontSize(1.2),
-                color: 'black',
-                fontFamily: 'medium',
-                marginTop: 2,
-                textAlign: 'center',
-              }}>
-              By Signing up, you agree to our{' '}
-              <Text allowFontScaling={false}
-                style={{ fontSize: getFontSize(1.2), color: '#fff', paddingTop: 10 }}
-                onPress={handlePress}
-              >
-                Terms And Conditions
-              </Text>{' '}
-              and{' '}
-              <Text allowFontScaling={false}
-                style={{ fontSize: getFontSize(1.2), color: '#fff' }}
-                onPress={() => Linking.openURL('https://astroremedy.com/privacy-policy')}
-              >
-                Privacy Policy
-              </Text>
-            </Text>
-          </View>
           </View>
         </View>
       </ScrollView>
@@ -289,4 +307,18 @@ const styles = StyleSheet.create({
     color: colors.background_theme4,
     fontFamily: fonts.medium,
   },
+  Imagecontainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    width: SCREEN_WIDTH * 0.8,
+    height: SCREEN_HEIGHT * 0.22,
+    alignSelf: 'center',
+    resizeMode: 'contain',
+    marginTop: 5,
+    borderRadius: 25,
+    alignSelf: 'center',
+    marginTop: SCREEN_HEIGHT * 0.02,
+  }
 });

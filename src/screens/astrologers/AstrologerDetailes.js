@@ -113,7 +113,7 @@ const AstrologerDetailes = ({
     const noreviewFound = () => {
       return (
         <View>
-          <Text style={{ color: Colors.grayDarkA, textAlign: 'center' }}>No Review Found</Text>
+          <Text style={{ color: Colors.black, textAlign: 'center' }}>No Review Found</Text>
         </View>
       )
     }
@@ -430,7 +430,7 @@ const AstrologerDetailes = ({
         <View style={{ padding: Sizes.fixPadding * 0.4, backgroundColor: Colors.grayLight, marginTop: Sizes.fixPadding * 1.5 }}>
         </View>
         <View style={{ marginTop: Sizes.fixPadding * 0.7, justifyContent: 'center', alignItems: 'center', borderBottomWidth: 1, borderColor: Colors.grayMedium, paddingBottom: Sizes.fixPadding * 0.5 }}>
-          <Text style={{ ...Fonts.primaryDark18RobotoMedium, color: Colors.primaryLight, paddingVertical: Sizes.fixPadding * 0.2 }}> {t('about')}</Text>
+          <Text style={{ ...Fonts.primaryDark18RobotoMedium, color: Colors.black, paddingVertical: Sizes.fixPadding * 0.2 }}> {t('about')}</Text>
         </View>
         {astroData?.long_bio ? (<Text
           textBreakStrategy='highQuality'
@@ -517,32 +517,36 @@ const AstrologerDetailes = ({
       <View style={{ padding: Sizes.fixPadding * 0.5, backgroundColor: Colors.grayLight }}>
       </View>
       <View style={{ marginVertical: Sizes.fixPadding * 1.5, borderBottomWidth: 1, borderColor: Colors.grayMedium }}>
-        <Text style={{ ...Fonts.primaryDark18RobotoMedium, marginBottom: Sizes.fixPadding * 0.5, color: Colors.primaryLight, textAlign: 'center' }}>{t('consultent_charge')}</Text>
+        <Text style={{ ...Fonts.primaryDark18RobotoMedium, marginBottom: Sizes.fixPadding * 0.5, color: Colors.black, textAlign: 'center' }}>{t('consultent_charge')}</Text>
       </View>
 
-      <View style={{ flexDirection: 'row', marginHorizontal: Sizes.fixPadding }}>
+      <View style={{ flexDirection: 'row', marginHorizontal: Sizes.fixPadding, alignItems:"center",justifyContent:"center" }}>
         <LinearGradient
-          colors={['#F87956', '#FF452C']}
+          colors={['#fff', '#fff']}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
-          style={{ width: '30%', paddingVertical: Sizes.fixPadding * 0.6, borderRadius: 10 }}
+          style={{
+            width: '30%',
+            paddingVertical: Sizes.fixPadding * 0.6,
+            //borderRadius: 10 
+          }}
         >
           <TouchableOpacity
             onPress={() => onCallNow()}>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
 
               <View style={{
-                height: SCREEN_WIDTH * 0.08, width: SCREEN_WIDTH * 0.08, borderRadius: 100, justifyContent: 'center', alignItems: 'center', backgroundColor: Colors.white, marginLeft: Sizes.fixPadding * 0.6
+                height: SCREEN_WIDTH * 0.08, width: SCREEN_WIDTH * 0.08, borderRadius: 100, justifyContent: 'center', alignItems: 'center', backgroundColor: "#FC4B00", marginLeft: Sizes.fixPadding * 0.6
               }}>
                 <Ionicons
                   name={'call'}
                   size={17}
-                  color={Colors.primaryLight}
+                  color={Colors.white}
                 />
               </View>
-              <View style={{ backgroundColor: colors.white_color, paddingHorizontal: Sizes.fixPadding * 1.5, borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
+              {/* <View style={{ backgroundColor: colors.white_color, paddingHorizontal: Sizes.fixPadding * 1.5, borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
                 <Text style={{ ...Fonts.black14InterMedium, color: Colors.primaryLight }}>Call</Text>
-              </View>
+              </View> */}
 
             </View>
             <View style={{ marginVertical: Sizes.fixPadding }}>
@@ -552,26 +556,31 @@ const AstrologerDetailes = ({
           </TouchableOpacity>
         </LinearGradient>
         <LinearGradient
-          colors={['#F87956', '#FF452C']}
+          colors={['#fff', '#fff']}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
-          style={{ width: '30%', paddingVertical: Sizes.fixPadding * 0.6, borderRadius: 10, marginHorizontal: Sizes.fixPadding * 1.5 }}
+          style={{
+            width: '30%',
+            paddingVertical: Sizes.fixPadding * 0.6,
+            //borderRadius: 10, 
+            marginHorizontal: Sizes.fixPadding * 1.5
+          }}
         >
           <TouchableOpacity onPress={() => onChatNow()} >
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
 
               <View style={{
-                height: SCREEN_WIDTH * 0.08, width: SCREEN_WIDTH * 0.08, borderRadius: 100, justifyContent: 'center', alignItems: 'center', backgroundColor: Colors.white, marginLeft: Sizes.fixPadding * 0.6
+                height: SCREEN_WIDTH * 0.08, width: SCREEN_WIDTH * 0.08, borderRadius: 100, justifyContent: 'center', alignItems: 'center', backgroundColor: "#FC4B00", marginLeft: Sizes.fixPadding * 0.6
               }}>
                 <Ionicons
                   name={'chatbubbles-outline'}
                   size={17}
-                  color={Colors.primaryLight}
+                  color={Colors.white}
                 />
               </View>
-              <View style={{ backgroundColor: colors.white_color, paddingHorizontal: Sizes.fixPadding * 1.2, borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
+              {/* <View style={{ backgroundColor: colors.white_color, paddingHorizontal: Sizes.fixPadding * 1.2, borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
                 <Text style={{ ...Fonts.black14InterMedium, color: Colors.primaryLight }}>Chat</Text>
-              </View>
+              </View> */}
 
             </View>
             <View style={{ marginVertical: Sizes.fixPadding }}>
@@ -580,29 +589,31 @@ const AstrologerDetailes = ({
             </View>
           </TouchableOpacity>
         </LinearGradient>
-        <LinearGradient
-          colors={['#F87956', '#FF452C']}
+        {/* <LinearGradient
+          colors={['#fff', '#fff']}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
-          style={{ width: '30%', paddingVertical: Sizes.fixPadding * 0.6, borderRadius: 10 }}
+          style={{
+            width: '30%',
+            paddingVertical: Sizes.fixPadding * 0.6,
+            
+          }}
         >
           <TouchableOpacity onPress={onVideoCallNow} >
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
 
 
 
               <View style={{
-                height: SCREEN_WIDTH * 0.08, width: SCREEN_WIDTH * 0.08, borderRadius: 100, justifyContent: 'center', alignItems: 'center', backgroundColor: Colors.white, marginLeft: Sizes.fixPadding * 0.6
+                height: SCREEN_WIDTH * 0.08, width: SCREEN_WIDTH * 0.08, borderRadius: 100, justifyContent: 'center', alignItems: 'center', backgroundColor: "#FC4B00", marginLeft: Sizes.fixPadding * 0.6
               }}>
                 <Ionicons
                   name={'videocam'}
                   size={17}
-                  color={Colors.primaryLight}
+                  color={Colors.white}
                 />
               </View>
-              <View style={{ backgroundColor: colors.white_color, paddingHorizontal: Sizes.fixPadding * 1, borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
-                <Text style={{ ...Fonts.black14InterMedium, color: Colors.primaryLight }}>Video</Text>
-              </View>
+              
 
             </View>
             <View style={{ marginVertical: Sizes.fixPadding }}>
@@ -610,7 +621,7 @@ const AstrologerDetailes = ({
               <Text style={styles.servicesCol3}>{showNumber(videocall2)} /min</Text>
             </View>
           </TouchableOpacity>
-        </LinearGradient>
+        </LinearGradient> */}
       </View>
 
     </View>;
@@ -618,8 +629,11 @@ const AstrologerDetailes = ({
 
   function astroDetailInfo() {
     return (
-      <ImageBackground
-        source={require('../../assets/images/astrologer_background.png')}
+      <LinearGradient
+        //source={require('../../assets/images/astrologer_background.png')}
+        colors={['#FF5811', '#FFFFFF']}
+        start={{ x: 0.5, y: 0 }}
+        end={{ x: 0.5, y: 1 }}
         style={{
           flex: 0,
           paddingHorizontal: 15,
@@ -628,142 +642,92 @@ const AstrologerDetailes = ({
 
         <View
           style={{
-            flex: 0,
-            flexDirection: 'row',
+             width:"100%",
+            //flexDirection: 'row',
             alignItems: 'center',
-            justifyContent: 'space-around',
-            position: 'relative',
-            bottom: -20,
-            zIndex: 1,
-          }}>
-        </View>
-        <View
-          style={{
-            flex: 0,
-            width: '80%',
-            alignSelf: 'center',
-
-            backgroundColor: 'rgba(0.741, 0.741, 0.741, 0.451)',
-            // backgroundColor:'red',
-            borderRadius: 20,
-            paddingVertical: width * 0.12,
-            marginTop: 10,
-          }}>
-
-          <Text style={{ ...Fonts.white16RobotoMedium, position: 'absolute', top: 10, left: 10 }}>{astroData?.astrologerName}</Text>
-
-          <View style={{
-            flexDirection: 'row',
             justifyContent: 'center',
+            // position: 'relative',
+            // bottom: -20,
+            // zIndex: 1,
           }}>
-            <Image
-              source={{ uri: base_url + astroData?.profileImage }}
-              style={{
-                width: width * 0.25,
-                height: width * 0.25,
-                borderWidth: 2,
-                borderRadius: (width * 0.25) / 2,
-                borderColor: colors.background_theme2,
-                position: 'relative',
-                left: (-width * 0.25) / 2,
-                marginLeft: 10,
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 4,
-                },
-                shadowOpacity: 0.3,
-                shadowRadius: 4.65,
-              }}
-            />
-            <View
-              style={{
-                flex: 1,
-                position: 'relative',
-                justifyContent: 'center',
-                left: (-width * 0.25) / 2.5,
-              }}>
+          <Image
+            source={{ uri: base_url + astroData?.profileImage }}
+            style={{
+              width: width * 0.25,
+              height: width * 0.25,
+              borderWidth: 2,
+              borderRadius: (width * 0.25) / 2,
+              borderColor: colors.background_theme2,
+              // position: 'relative',
+              // left: (-width * 0.25) / 2,
+              // marginLeft: 10,
+              shadowColor: '#000',
+              shadowOffset: {
+                width: 0,
+                height: 4,
+              },
+              shadowOpacity: 0.3,
+              shadowRadius: 4.65,
+            }}
+          />
 
-              <View style={{ flex: 0, flexDirection: 'row', marginBottom: 2 }}>
-                <Ionicons
-                  name="people-circle-sharp"
-                  color={colors.white_color}
-                  size={15}
-                />
-                {/* <Text
-                  allowFontScaling={false}
-                  style={{
-                    width: '100%',
-                    marginLeft: 5,
-                    fontSize: getFontSize(1.4),
-                    color: colors.white_color,
-                    fontFamily: fonts.medium,
-                  }}>
-                  {astroData?.expertise && astroData?.expertise.map(item => item.expertise).join(', ')}
-                </Text> */}
-                <Text
-                  allowFontScaling={false}
-                  style={{
-                    // width: '150%',
-                    flex: 1,
-                    // marginLeft: 5,
-                    fontSize: getFontSize(1.4),
-                    color: colors.white_color,
-                    fontFamily: fonts.medium,
-                    // borderWidth:2,
-                    alignItems: 'center',
-                    // right: 5
-                  }}>{astroData?.skill && astroData?.skill.map(item => item?.skill).join(',')}</Text>
-              </View>
-
-              <View style={{ flex: 0, flexDirection: 'row', marginBottom: 2 }}>
-                <MaterialCommunityIcons
-                  name="google-translate"
-                  color={colors.white_color}
-                  size={15}
-                />
-                <Text
-                  allowFontScaling={false}
-                  style={{
-                    width: '100%',
-                    marginLeft: 5,
-                    fontSize: getFontSize(1.4),
-                    color: colors.white_color,
-                    fontFamily: fonts.medium,
-                  }}>
-                  {[...astroData?.language].join(',')}
-                </Text>
-              </View>
-
-              <View style={{ flex: 0, flexDirection: 'row', marginBottom: 2 }}>
-                <MaterialIcons
-                  name="explicit"
-                  color={colors.white_color}
-                  size={15}
-                />
-                <Text
-                  allowFontScaling={false}
-                  style={{
-                    width: '100%',
-                    marginLeft: 5,
-                    fontSize: getFontSize(1.3),
-                    color: colors.white_color,
-                    fontFamily: fonts.medium,
-                  }}>
-                  {`${t('experience')}: ${astroData?.experience}-Years`}
-                </Text>
-              </View>
-            </View>
-          </View>
         </View>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: "column",
+            width: '100%',
+            alignItems: 'center',
+            justifyContent:"center",
+            marginTop:10,
+            marginBottom:5
+
+
+          }}
+
+        >
+          <Text style={{ ...Fonts.white16RobotoMedium,color:colors.black }}>{astroData?.astrologerName}</Text>
+
+          <Text
+
+            style={{
+
+              fontSize: getFontSize(1.4),
+              color: colors.black,
+              fontFamily: fonts.medium,
+              alignItems: 'center',
+            }}>{astroData?.skill && astroData?.skill.map(item => item?.skill).join(',')}</Text>
+
+          <Text
+
+            style={{
+              fontSize: getFontSize(1.4),
+              color: colors.black,
+              fontFamily: fonts.medium,
+            }}>
+            {[...astroData?.language].join(',')}
+          </Text>
+          <Text
+
+            style={{
+
+              fontSize: getFontSize(1.3),
+              color: colors.black,
+              fontFamily: fonts.medium,
+            }}>
+            {`${t('experience')}: ${astroData?.experience}-Years`}
+          </Text>
+
+        </View>
+
         <View
           style={{
             flex: 0,
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'space-around',
-            position: 'relative',
-            bottom: 12,
+            // position: 'relative',
+            // bottom: 12,
           }}>
           <TouchableOpacity
             onPress={() => dispatch(AstrologerActions.onFollowUnfollowAstrologer(route?.params?._id))}
@@ -771,14 +735,14 @@ const AstrologerDetailes = ({
               flex: 0,
               width: '30%',
               paddingVertical: 2,
-              backgroundColor: colors.background_theme2,
+              backgroundColor: "#29BE12",
               borderRadius: 20,
             }}>
             <Text
               allowFontScaling={false}
               style={{
                 fontSize: getFontSize(1.3),
-                color: colors.black_color,
+                color: "#fff",
                 fontFamily: fonts.medium,
                 textAlign: 'center',
               }}>
@@ -811,7 +775,7 @@ const AstrologerDetailes = ({
               </TouchableOpacity>
             )} */}
         </View>
-      </ImageBackground>
+      </LinearGradient>
     );
   }
 
@@ -914,9 +878,9 @@ const AstrologerDetailes = ({
             onPress={() => onCallNow()}
             style={{
               paddingVertical: Sizes.fixPadding,
-              backgroundColor: '#ffffff', // White background for consistency
+              backgroundColor: '#FC4B00', // White background for consistency
               borderWidth: 1,
-              borderColor: '#fff',
+              borderColor: '#FC4B00',
               width: '30%',
               borderRadius: 10,
               shadowColor: '#000',
@@ -931,8 +895,8 @@ const AstrologerDetailes = ({
               justifyContent: 'space-around'
             }}
           >
-            <FontAwesome name="phone" size={20} color="#E15602" />
-            <Text style={{ fontSize: 18, textAlign: 'center', color: '#E15602', fontWeight: '800', fontFamily: 'sans-serif', marginLeft: 5 }}>
+            <FontAwesome name="phone" size={20} color="#fff" />
+            <Text style={{ fontSize: 18, textAlign: 'center', color: '#fff', fontWeight: '800', fontFamily: 'sans-serif', marginLeft: 5 }}>
               Call
             </Text>
           </TouchableOpacity>
@@ -943,9 +907,9 @@ const AstrologerDetailes = ({
             onPress={() => onChatNow()}
             style={{
               paddingVertical: Sizes.fixPadding,
-              backgroundColor: '#ffffff', // White button background
+              backgroundColor: '#FC4B00', // White button background
               borderWidth: 1,
-              borderColor: '#fff', // Border color for all buttons
+              borderColor: '#FC4B00', // Border color for all buttons
               width: '30%',
               borderRadius: 10,
               shadowColor: '#000',
@@ -960,21 +924,21 @@ const AstrologerDetailes = ({
               justifyContent: 'space-around'
             }}
           >
-            <FontAwesome name="comments" size={20} color="#E15602" />
-            <Text style={{ fontSize: 18, textAlign: 'center', color: '#E15602', fontWeight: '800', fontFamily: 'sans-serif', marginLeft: 5 }}>
+            <FontAwesome name="comments" size={20} color="#fff" />
+            <Text style={{ fontSize: 18, textAlign: 'center', color: '#fff', fontWeight: '800', fontFamily: 'sans-serif', marginLeft: 5 }}>
               Chat
             </Text>
           </TouchableOpacity>
 
           {/* Video Button */}
-          <TouchableOpacity
+          {/* <TouchableOpacity
             activeOpacity={0.8}
             onPress={onVideoCallNow}
             style={{
               paddingVertical: Sizes.fixPadding,
-              backgroundColor: '#ffffff',
+              backgroundColor: '#FC4B00',
               borderWidth: 1,
-              borderColor: '#fff',
+              borderColor: '#FC4B00',
               width: '30%',
               borderRadius: 10,
               shadowColor: '#000',
@@ -982,18 +946,18 @@ const AstrologerDetailes = ({
               shadowOpacity: 0.3,
               shadowRadius: 4,
               elevation: 6,
-              alignItems: 'center', // Center the content inside the button
-              justifyContent: 'center', // Center vertically
-              paddingHorizontal: 10, // Add padding for spacing
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              paddingHorizontal: 10, 
               flexDirection: 'row',
               justifyContent: 'space-around'
             }}
           >
-            <FontAwesome name="video-camera" size={20} color="#E15602" />
-            <Text style={{ textAlign: 'center', color: '#E15602', fontWeight: '800', fontFamily: 'sans-serif', marginLeft: 5, fontSize: 18 }}>
+            <FontAwesome name="video-camera" size={20} color="#fff" />
+            <Text style={{ textAlign: 'center', color: '#fff', fontWeight: '800', fontFamily: 'sans-serif', marginLeft: 5, fontSize: 18 }}>
               Video
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
 
@@ -1030,12 +994,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 14,
     flex: 0.4,
-    color: colors.white_color,
+    color: colors.black,
     textAlign: 'center'
 
   },
   servicesCol3: {
-    color: colors.white_color,
+    color: colors.black,
     fontSize: 12,
     flex: 0.4,
     textDecorationLine: 'line-through',

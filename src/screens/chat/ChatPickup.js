@@ -120,7 +120,7 @@ const ChatPickup = ({ dispatch, route, navigation }) => {
               fontFamily: fonts.bold,
               textAlign: 'center',
             }}>
-              AstroRemedy
+              Sri Hari Astro
           </Text>
         </View>
       </View>

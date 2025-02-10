@@ -1,1 +1,1 @@
-export const mainlogo = require('../images/AstroRemedyLogoN.png')
+export const mainlogo = require('../images/SriHariAstro.png')

@@ -177,11 +177,12 @@ const ChatIntakeForm = ({
                 {placeOfBirthInfo()}
                 {maritalStatusInfo()}
                 {descriptionInfo()}
+                {startChatInfo()}
               </>
             }
             style={{ height: SCREEN_HEIGHT * 0.8 }}
           />
-          {startChatInfo()}
+          {/*  */}
         </KeyboardAvoidingView>
         <ConnectingModal visible={modalVisible1} onClose={() => setModalVisible1(false)} astroData={route.params?.astrostatus} />
         {dateVisible && (
@@ -969,6 +970,7 @@ const linkeddelete = () => {
             color: colors.white_color,
             marginLeft: Sizes.fixPadding
           }}>Intake Details</Text>
+          
         </View>
         <TouchableOpacity
           activeOpacity={0.8}

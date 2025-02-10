@@ -35,7 +35,7 @@ const PoojaDetails = ({ navigation, route, dispatch }) => {
         return (
             <TouchableOpacity activeOpacity={0.8}
             //  onPress={() => dispatch(AstromallActions.orederAstrologerPooja({data: poojaData?._id, amount: poojaData?.price}))}
-              style={{ backgroundColor: colors.background_theme2, paddingVertical: Sizes.fixPadding }}>
+              style={{ backgroundColor: colors.background_theme5, paddingVertical: Sizes.fixPadding }}>
                 <Text style={{ ...Fonts.black16RobotoMedium, color: Colors.white, textAlign: 'center' }}>Book Now</Text>
             </TouchableOpacity>
         )

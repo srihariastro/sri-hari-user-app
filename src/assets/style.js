@@ -1,12 +1,13 @@
 export const Colors = {
-    primaryDark: '#F45F4B',
-    primaryLight: '#F45F4B',
+    primaryDark: '#7D8A97',
+    primaryLight: '#7D8A97',
     white: '#fff',
     whiteDark: '#F5F5F5',
     grayLight: '#ECEAEA',
     gray: '#A3A3A3',
     grayDark: '#9C9797',
     grayDarkA: '#5A5A5A',
+    black:"#000000",
     grayMedium: '#9B9696',
     grayA: '#7B7B7B',
     grayB: '#E6E4E4',
@@ -21,7 +22,8 @@ export const Colors = {
     orange: '#F27806',
     orange_light: '#FFF2E5',
     bodyColor: '#fff',
-    background_theme2: '#F45F4B', //friendsastro
+    background_theme2: '#FC4B00', //friendsastro
+    background_theme5:"#636d79",
     gray4: '#FCFCFC',
 
   };
@@ -45,7 +47,8 @@ export const Colors = {
   
     primaryDark18RobotoMedium: {
       fontSize: 18,
-      color: Colors.primaryDark,
+      color: Colors.black,
+      fontWeight:"bold",
       fontFamily: 'Roboto-Medium',
     },
   

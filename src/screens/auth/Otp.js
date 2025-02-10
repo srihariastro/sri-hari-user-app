@@ -97,7 +97,7 @@ const Otp = props => {
   return (
     <View style={{ flex: 1, backgroundColor: colors.background_theme1 }}>
       <MyStatusBar
-        backgroundColor={colors.background_theme2}
+        backgroundColor={colors.background_theme5}
         barStyle="light-content"
       />
       <MyLoader isVisible={isLoading} />
@@ -217,7 +217,7 @@ const Otp = props => {
                             <Text allowFontScaling={false}
                               style={{
                                 fontSize: 14,
-                                color: colors.background_theme4,
+                                color: "#04579C",
                                 fontFamily: fonts.medium,
                               }}>
                               Resend
@@ -235,7 +235,7 @@ const Otp = props => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         paddingVertical: 9,
-                        backgroundColor: colors.background_theme2,
+                        backgroundColor: colors.background_theme5,
                         marginTop: 10,
                         borderRadius: 25,
                       }}>
@@ -256,7 +256,7 @@ const Otp = props => {
                       <Text allowFontScaling={false}
                         style={{
                           fontSize: getFontSize(1.4),
-                          color: colors.background_theme4,
+                          color: "black",
                           fontFamily: fonts.bold,
                           paddingRight: 5
                         }}>
@@ -264,7 +264,7 @@ const Otp = props => {
                       </Text>
                       <FontAwesome
                         name="edit"
-                        color={colors.background_theme4}
+                        color={"black"}
                         size={getFontSize(1.4)}
                       />
                     </TouchableOpacity>
@@ -295,11 +295,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderBottomWidth: 3,
     borderRadius: 5,
-    borderColor: "#F45F4B",
+    borderColor: "#FC4B00",
     textAlign: 'center',
     marginRight: 5,
     marginHorizontal: 20,
-    shadowColor: "#F45F4B",
+    shadowColor: "#FC4B00",
     shadowOffset: {
       width: 0,
       height: 1,
@@ -311,6 +311,6 @@ const styles = StyleSheet.create({
   
   },
   focusCell: {
-    borderColor: colors.background_theme4,
+    borderColor: colors.background_theme5,
   },
 });

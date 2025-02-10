@@ -68,7 +68,7 @@ const AddAddress = ({ navigation, dispatch,customerData }) => {
 
     return (
         <View>
-            <MyStatusBar backgroundColor={Colors.primaryDark} barStyle={'light-content'} />
+            <MyStatusBar backgroundColor={Colors.background_theme2} barStyle={'light-content'} />
             <MyHeader title={'Add Address'} navigation={navigation} />
             <ScrollView contentContainerStyle={styles.container}>
 
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
         color: '#000', // Explicitly set text color
     },
     submitButton: {
-        backgroundColor: Colors.primaryDark,
+        backgroundColor: Colors.background_theme2,
         padding: 15,
         borderRadius: 8,
         alignItems: 'center',

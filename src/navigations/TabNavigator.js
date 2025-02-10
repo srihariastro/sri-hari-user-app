@@ -27,6 +27,7 @@ import * as AstrologerActions from '../redux/actions/AstrologerActions'
 import AstroForVideo from '../screens/astrologers/AstroForVideo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { Colors } from '../assets/style';
+import TabHomeSignal from "../assets/svg/TabHome_Signal.svg"
 
 const Tab = createBottomTabNavigator();
 
@@ -81,52 +82,53 @@ function MyTabBar({ state, descriptors, navigation }) {
             {label == 'home3' ? (
               <Image
                 source={require('../assets/images/icon/home.png')}
-                style={{ width: width * 0.06, height: width * 0.06, tintColor: isFocused ? colors.background_theme2 : 'grey' }}
+                style={{ width: width * 0.06, height: width * 0.06, tintColor: isFocused ? colors.white_color : 'grey' }}
               />
             ) : label == 'astroForCall' ? (
               <Image
                 source={require('../assets/images/icon/call.png')}
-                style={{ width: width * 0.06, height: width * 0.06, tintColor: isFocused ? colors.background_theme2 : 'grey' }}
+                style={{ width: width * 0.06, height: width * 0.06, tintColor: isFocused ? colors.white_color : 'grey' }}
               />
             ) : label == 'astroForChat' ? (
               <View
                 style={{
                   flex: 0,
-                  width: width * 0.14,
-                  height: width * 0.14,
-                  borderRadius: (width * 0.14) / 2,
+                  width: width * 0.18,
+                  height: width * 0.18,
+                  borderRadius: (width * 0.18) / 2,
                   justifyContent: 'center',
                   alignItems: 'center',
                   elevation:1,
                   borderColor: colors.white_color,  
-                  borderWidth:2,
+                  borderWidth:2, 
                   borderColor:'lightgrey', 
                   borderBottomWidth:0,              
                   backgroundColor: isFocused ?   'white' : 'white'
                 }}>
-                <Image
+                {/* <Image
                   source={require('../assets/images/icon/live.png')}
-                  style={{ width: width * 0.06, height: width * 0.06, tintColor: isFocused ? colors.background_theme2 : 'grey' }}
-                />
+                  style={{ width: width * 0.06, height: width * 0.06, tintColor: isFocused ? "white" : 'white' }}
+                /> */}
+                <TabHomeSignal/>
               </View>
             ) : label == 'astroLive' ? (
               <Image
-                source={require('../assets/images/icon/chat.png')}
-                style={{ width: width * 0.06, height: width * 0.06, tintColor: isFocused ? colors.background_theme2 : 'grey' }}
+                source={require('../assets/images/icon/Chat_icons.png')}
+                style={{ width: width * 0.07, height: width * 0.07, tintColor: isFocused ? "white" : 'white' }}
               />
             ) : (
 
-              // <Image
-              //   source={require('../assets/images/icon/25.png')}
-              //   style={{ width: width * 0.06, height: width * 0.08, tintColor: isFocused ? colors.background_theme2 : 'grey', resizeMode: 'contain' }}
-              // />
-              <FontAwesome name='video-camera' size={20} color={isFocused?colors.background_theme2:'grey'}/>
+              <Image
+                source={require('../assets/images/icon/Video_Icons.png')}
+                style={{ width: width * 0.07, height: width * 0.08, tintColor: isFocused ? 'white' : 'white', resizeMode: 'contain' }}
+              />
+              // <FontAwesome name='video-camera' size={24} color={isFocused? "white":'white'}/>
             )
             }
             {label != 'astroForChat' ? (
               <Text allowFontScaling={false}
                 style={{
-                  color: isFocused ? colors.background_theme2 : 'grey',
+                  color: isFocused ? colors.white_color : 'grey',
                   fontFamily: fonts.medium,
                   fontSize: getFontSize(1.4),
 
@@ -161,11 +163,11 @@ const TabNavigator = (props) => {
       tabBar={props => <MyTabBar {...props} />}
       screenOptions={{ headerShown: false, headerShadowVisible: false }}>
       <Tab.Screen name="home3" component={Home} />
-      <Tab.Screen name="astroForCall" component={AstroForCall} />
+      {/* <Tab.Screen name="astroForCall" component={AstroForCall} /> */}
       <Tab.Screen name="astroForChat" component={LiveList} />
       <Tab.Screen name="astroLive" component={AstroForChat} />
       {/* <Tab.Screen name="astroblogs" component={AstroBlogs} /> */}
-      <Tab.Screen name="astroForVideo" component={AstroForVideo} />
+      {/* <Tab.Screen name="astroForVideo" component={AstroForVideo} /> */}
     </Tab.Navigator>
   );
 };
@@ -181,10 +183,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(TabNavigator);
 const styles = StyleSheet.create({
   tabContainer: {
     flexDirection: 'row',
-    backgroundColor: colors.white_color,
+    backgroundColor: colors.background_theme5,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    shadowColor: colors.background_theme2,
+    shadowColor: colors.white_color,
     shadowOffset: { width: 2, height: 1 },
     shadowOpacity: 0.3,
     paddingHorizontal: 5,
@@ -193,7 +195,7 @@ const styles = StyleSheet.create({
   tabButton: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+     alignItems: 'center',
     paddingTop: 10,
     paddingBottom: 5
   },

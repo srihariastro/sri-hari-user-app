@@ -99,7 +99,7 @@ function CustomDrawerContent(props) {
   const share_app = async () => {
     let options = {
       title: 'Share friend the app',
-      message: 'Check out the AstroRemedy app for personalized astrology remedies and predictions!',
+      message: 'Check out the Sri Hari Astro app for personalized astrology remedies and predictions!',
       url: 'https://play.google.com/store/apps/details?id=com.goodguys.sriHari', // Replace with your actual URL
     };
 
@@ -233,7 +233,7 @@ function CustomDrawerContent(props) {
                 alignItems:'center'
               }}>
               <Image
-                source={require('../assets/drawericons/wallet.png')}
+                source={require('../assets/drawericons/Wallet1.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -257,7 +257,7 @@ function CustomDrawerContent(props) {
                 alignItems:'center'
               }}>
               <Image
-                 source={require('../assets/drawericons/paytmenthistory.png')}
+                 source={require('../assets/drawericons/paymentbil2.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -279,7 +279,7 @@ function CustomDrawerContent(props) {
                 alignItems:'center'
               }}>
               <Image
-                 source={require('../assets/drawericons/orderhistory.png')}
+                 source={require('../assets/drawericons/orderHistory2.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -324,7 +324,7 @@ function CustomDrawerContent(props) {
               }}>
               <Image
                
-               source={require('../assets/drawericons/myOrder.png')}
+               source={require('../assets/drawericons/myorder3.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -385,7 +385,7 @@ function CustomDrawerContent(props) {
                 alignItems:'center'
               }}>
               <Image
-                source={require('../assets/drawericons/following.png')}
+                source={require('../assets/drawericons/following2.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -407,7 +407,7 @@ function CustomDrawerContent(props) {
                 alignItems:'center'
               }}>
               <Image
-               source={require('../assets/drawericons/howtousethisapp.png')}
+               source={require('../assets/drawericons/Howtouseourapp2.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -429,7 +429,7 @@ function CustomDrawerContent(props) {
                 alignItems:'center'
               }}>
               <Image
-               source={require('../assets/images/icon/25.png')}
+               source={require('../assets/drawericons/astrologerBlog5.png')}
                 style={{...styles.buttonImage,tintColor:Colors.white,height:SCREEN_WIDTH * 0.06}}
               />
             </LinearGradient>
@@ -451,7 +451,7 @@ function CustomDrawerContent(props) {
                 alignItems:'center'
               }}>
               <Image
-                source={require('../assets/drawericons/astrologer_icon.png')}
+                source={require('../assets/drawericons/AstrologerSignup3.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -473,7 +473,7 @@ function CustomDrawerContent(props) {
                 alignItems:'center'
               }}>
               <Image
-                source={require('../assets/drawericons/Helpandsuppoort.png')}
+                source={require('../assets/drawericons/helpandsupport2.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -495,7 +495,7 @@ function CustomDrawerContent(props) {
                 alignItems:'center'
               }}>
               <Image
-                source={require('../assets/drawericons/rateus.png')}
+                source={require('../assets/drawericons/rateus2.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -544,7 +544,7 @@ function CustomDrawerContent(props) {
                 alignItems:'center'
               }}>
               <Image
-                source={require('../assets/drawericons/share.png')}
+                source={require('../assets/drawericons/share2.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -588,7 +588,7 @@ function CustomDrawerContent(props) {
                 alignItems:'center'
               }}>
               <Image
-                source={require('../assets/drawericons/logout.png')}
+                source={require('../assets/drawericons/exite2.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -624,7 +624,7 @@ function CustomDrawerContent(props) {
                 alignItems:'center'
               }}>
               <Image
-                source={require('../assets/drawericons/delete.png')}
+                source={require('../assets/drawericons/dustbin2.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -649,7 +649,7 @@ const DrawerNavigator = props => {
         drawerStyle: {
           width: width * 0.85,
           alignSelf: 'center',
-          backgroundColor: colors.background_theme4,
+          backgroundColor: colors.background_theme5,
           elevation: 8,
           borderTopRightRadius: 40,
           borderBottomRightRadius: 40,
@@ -685,7 +685,7 @@ const styles = StyleSheet.create({
   buttonImage: {
     width: width * 0.09,
     height: width * 0.09,
-    resizeMode:'contain'
+    resizeMode:'contain',
     // tintColor: '#fff8f0',
   },
   circle: {
