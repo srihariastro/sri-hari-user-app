@@ -18,8 +18,8 @@ import { navigate } from '../navigations/NavigationServices';
 export const registerZegoCall = async ({ userId, userName, dispatch }) => {
   try {
     return ZegoUIKitPrebuiltCallService.init(
-      zego_call_app_id, // You can get it from ZEGOCLOUD's console
-      zego_call_app_sign, // You can get it from ZEGOCLOUD's console
+      zego_call_app_id, 
+      zego_call_app_sign, 
       userId,
       userName,
       [ZIM, ZPNs],

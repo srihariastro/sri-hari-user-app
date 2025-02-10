@@ -27,6 +27,7 @@ import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../config/Screen';
 import MyStatusBar from '../components/MyStatusbar';
 import { mainlogo } from '../assets/images/Images';
 import { Colors } from '../assets/style';
+import AppLogo from "../assets/svg/Logo.svg";
 
 
 
@@ -132,7 +133,7 @@ const Splash = ({ props, route, data, navigation, data1, dispatch }) => {
   return (
     <View style={{ flex: 1,backgroundColor:Colors.white,justifyContent:'center',alignItems:'center' }}>
           <MyStatusBar
-        backgroundColor={colors.background_theme2}
+        backgroundColor={colors.background_theme5}
         barStyle="light-content"
       />
       {/* <ImageBackground
@@ -148,6 +149,7 @@ const Splash = ({ props, route, data, navigation, data1, dispatch }) => {
       </ImageBackground> */}
       <View style={{height:SCREEN_WIDTH * 0.6,width:SCREEN_WIDTH * 0.6,overflow:'hidden'}}>
       <Image source={mainlogo} style={{ resizeMode:'contain',height: SCREEN_WIDTH * 0.6,width:SCREEN_WIDTH * 0.6}}/>
+        {/* <AppLogo /> */}
       </View>
       {modalVisible && (
         <NotificationHandle

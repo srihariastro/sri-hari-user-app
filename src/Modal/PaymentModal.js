@@ -49,7 +49,7 @@ const PaymentModal = ({isVisible,dispatch,BookPujaData}) => {
                             <Text allowFontScaling={false} style={{ fontSize: getFontSize(2), color: "white" }}>Success</Text>
                         </TouchableOpacity>
                         <TouchableOpacity 
-                        onPress={()=>Alert.alert("AstroRemedy","Payment Failed")}
+                        onPress={()=>Alert.alert("Sri Hari Astro","Payment Failed")}
                         style={{ backgroundColor: colors.red_color1, paddingVertical: SCREEN_WIDTH * 0.03, paddingHorizontal: SCREEN_WIDTH * 0.12, borderRadius: 10 }}>
                             <Text allowFontScaling={false} style={{ fontSize: getFontSize(2), color: "white" }}>Fail</Text>
                         </TouchableOpacity>

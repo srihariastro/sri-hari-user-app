@@ -35,7 +35,7 @@ const OrderHisory = ({ dispatch, navigation, customerData, mallOrderData }) => {
 
     return (
         <View style={{ flex: 1 }}>
-            <MyStatusBar backgroundColor={Colors.primaryLight} barStyle={'light-content'} />
+            <MyStatusBar backgroundColor={Colors.background_theme2} barStyle={'light-content'} />
             <MyHeader title={'My Order'} navigation={navigation} />
             <View style={{ flex: 1, paddingHorizontal: Sizes.fixPadding }}>
                 {orderData()}
@@ -147,7 +147,7 @@ const OrderHisory = ({ dispatch, navigation, customerData, mallOrderData }) => {
             function refreshbtn() {
                 return (
                     <View style={{ flex: 0.1, justifyContent: 'center' }}>
-                        <TouchableOpacity style={{ width: SCREEN_WIDTH * 0.4, paddingVertical: Sizes.fixPadding, borderRadius: 100, backgroundColor: Colors.primaryLight, alignSelf: 'center' }}
+                        <TouchableOpacity style={{ width: SCREEN_WIDTH * 0.4, paddingVertical: Sizes.fixPadding, borderRadius: 100, backgroundColor: Colors.background_theme2, alignSelf: 'center' }}
                             onPress={onRefresh}
                         >
                             <Text style={{ ...Fonts.black16RobotoRegular, color: colors.white_color, textAlign: 'center' }}>Refresh</Text>

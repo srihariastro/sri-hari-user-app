@@ -33,16 +33,16 @@ const LiveChatCall = ({navigation, dispatch}) => {
           component={CallHistory}
           options={{tabBarLabel: 'Call'}}
         />
-        <Tab.Screen
+        {/* <Tab.Screen
           name="liveHistory"
           component={LiveHistory}
           options={{tabBarLabel: 'Live'}}
-        />
-         <Tab.Screen
+        /> */}
+         {/* <Tab.Screen
           name="VideoHistory"
           component={VideoHistory}
           options={{tabBarLabel: 'Video....'}}
-        />
+        /> */}
       </Tab.Navigator>
     </View>
   );

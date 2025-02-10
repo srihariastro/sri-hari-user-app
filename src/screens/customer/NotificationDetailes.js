@@ -121,7 +121,7 @@ const NotificationDetailes = props => {
                 }) : ''}
               </Text>
           <Image
-             source={notificationData?.image?.length != 0 ? {uri: img_url + notificationData?.image} : require('../../assets/images/AstroRemedyLogoN.png')}
+             source={notificationData?.image?.length != 0 ? {uri: img_url + notificationData?.image} : require('../../assets/images/AstroRemedyLogoN.jpeg')}
             style={{width: '100%', height: '100%', borderRadius: 10, resizeMode: 'contain'}}
           />
         </View>

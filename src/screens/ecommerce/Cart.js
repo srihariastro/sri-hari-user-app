@@ -22,7 +22,7 @@ const Cart = ({ navigation, dispatch, cartData, addressSelect }) => {
 
     return (
         <View style={{ flex: 1, backgroundColor: Colors.whiteDark }}>
-            <MyStatusBar backgroundColor={Colors.primaryDark} barStyle={'light-content'} />
+            <MyStatusBar backgroundColor={Colors.background_theme2} barStyle={'light-content'} />
             <MyHeader title={'Cart'} navigation={navigation} />
             <View style={{ flex: 1 }}>
                 {cartData?.cart?.length > 0 ? (
@@ -70,7 +70,7 @@ const Cart = ({ navigation, dispatch, cartData, addressSelect }) => {
         return (
             <TouchableOpacity
                 onPress={() => navigation.navigate('Address')}
-                style={{ alignItems: 'center', backgroundColor: Colors.primaryDark, paddingVertical: Sizes.fixPadding * 2 }}>
+                style={{ alignItems: 'center', backgroundColor: Colors.background_theme2, paddingVertical: Sizes.fixPadding * 2 }}>
                 <Text style={{ color: 'white', fontSize: 17, fontWeight: 'bold' }}>Add Address</Text>
             </TouchableOpacity>
         )
@@ -78,7 +78,7 @@ const Cart = ({ navigation, dispatch, cartData, addressSelect }) => {
 
     function submitInfo() {
         return (
-            <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: Colors.primaryDark, justifyContent: 'space-between', paddingVertical: Sizes.fixPadding * 0.5, paddingHorizontal: Sizes.fixPadding }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: Colors.background_theme2, justifyContent: 'space-between', paddingVertical: Sizes.fixPadding * 0.5, paddingHorizontal: Sizes.fixPadding }}>
                 <View>
                     <Text style={{ ...Fonts.black16RobotoMedium, color: Colors.white }}>Total: {showNumber(cartData?.totalPrice)}</Text>
                 </View>

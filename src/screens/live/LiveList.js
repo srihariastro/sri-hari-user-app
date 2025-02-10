@@ -71,7 +71,7 @@ const AstroLive = ({
   return (
     <View style={{ flex: 1, backgroundColor: colors.black_color1 }}>
       <MyStatusBar
-        backgroundColor={colors.background_theme2}
+        backgroundColor={colors.background_theme5}
         barStyle="light-content"
       />
       <HomeHeader navigation={navigation} />

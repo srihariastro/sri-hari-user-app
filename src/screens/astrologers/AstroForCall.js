@@ -43,27 +43,14 @@ const AstroForCall = ({ callListData, navigation, dispatch, isRefreshing, isMore
     }, [dispatch])
   );
 
-
-  // const searchFilterFunction = text => {
-  //   setSearch(text);
-  //   clearTimeout(timeout);
-  //   timeout = setTimeout(() => {
-  //     dispatch(AstrologerActions.getCallAstroData(text));
-  //     clearTimeout(timeout);
-  //   }, 1500);
-  // };
-
-
   const searchFilterFunction = text => {
-    const trimmedText = text.trim().replace(/\s+/g, ' '); 
-    setSearch(trimmedText);
+    setSearch(text);
     clearTimeout(timeout);
     timeout = setTimeout(() => {
-      dispatch(AstrologerActions.getCallAstroData(trimmedText));
+      dispatch(AstrologerActions.getCallAstroData(text));
       clearTimeout(timeout);
     }, 1500);
   };
-  
 
   useEffect(() => {
     setNoData(callListData?.length === 0 && search.length > 0);
@@ -116,23 +103,27 @@ const AstroForCall = ({ callListData, navigation, dispatch, isRefreshing, isMore
         zIndex: 100,
         elevation: 5,
         
-      }}>
+      }}
+      >
       <View
         style={{
           flex: 0,
           flexDirection: 'row',
-          backgroundColor: colors.background_theme1,
+          backgroundColor: colors.cards_background,
           borderRadius: 16,
           elevation: 3,
           paddingBottom:0,
-        }}>
-        <View style={{ width: '30%', height: '100%' }}>
+        }}
+        >
+        <View style={{ width: '30%', height: '100%', }}>
           <View
             style={{
               backgroundColor: '#fff',
-              borderRadius: 16,
+              borderRadius: 10,
               overflow: 'hidden',
-              padding: 10,
+              // padding: 2,
+              marginVertical:10,
+              marginHorizontal:12
             }}>
             <Image
               source={{ uri: base_url + item.profileImage }}
@@ -146,23 +137,15 @@ const AstroForCall = ({ callListData, navigation, dispatch, isRefreshing, isMore
                 marginBottom:5,
               }}
             />
-            <View
+            
+          </View>
+          <View
               style={{
                 flex: 0.3,
                 justifyContent: 'space-around',
                 alignItems: 'center',
               }}>
-              {/* <Text
-                allowFontScaling={false}
-                style={{
-                  fontSize: 13,
-                  color: colors.black_color,
-                  fontFamily: fonts.medium,
-                  marginTop: 5,
-                  textAlign: 'center',
-                }}>
-                {`${parseFloat(item?.rating).toFixed(0) ?? 1}/5`}
-              </Text> */}
+              
               <Stars
                 default={item?.rating ?? 1}
                 disabled
@@ -195,7 +178,6 @@ const AstroForCall = ({ callListData, navigation, dispatch, isRefreshing, isMore
                 Review: {item?.totalRating}
               </Text>
             </View>
-          </View>
         </View>
         <View
           style={{
@@ -261,10 +243,11 @@ const AstroForCall = ({ callListData, navigation, dispatch, isRefreshing, isMore
             }}
             style={{
               flex: 0,
-              width: '100%',
+              width: '50%',
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'center',
+              alignSelf:"flex-end",
               padding: 10,
               backgroundColor: getStatusColor(item?.call_status),
               marginVertical: 15,
@@ -286,18 +269,33 @@ const AstroForCall = ({ callListData, navigation, dispatch, isRefreshing, isMore
         <View
           style={{
             position: 'absolute',
-            paddingHorizontal: 10,
-            paddingVertical: Sizes.fixPadding * 0.1,
-            right: 0,
-            width: '25%',
-            borderTopRightRadius: 10,
-            borderBottomLeftRadius: 10,
-            backgroundColor: getStatusColor(item?.call_status),
+            right:10 ,
+            width:"15%",
+            marginVertical:5,
+            display:"flex",
+            flexDirection:"row",
+            alignItems:"center",
+            justifyContent:"space-evenly",
+            // paddingHorizontal: 10,
+            // paddingVertical: Sizes.fixPadding * 0.1,
+            
+           
           }}>
+            <View
+             style={{
+              width: 10, 
+              height: 10, 
+              borderRadius: 5, 
+              backgroundColor: getStatusColor(item?.call_status), 
+              //margin: 5, 
+            }}
+            >
+
+            </View>
           <Text
             allowFontScaling={false}
             style={{
-              color: 'white',
+              color: getStatusColor(item?.call_status),
               fontSize: 12,
               fontWeight: 'bold',
               textAlign: 'center',
@@ -350,7 +348,7 @@ const AstroForCall = ({ callListData, navigation, dispatch, isRefreshing, isMore
       <View
         style={{
           flex: 0,
-          backgroundColor: colors.background_theme1,
+          //backgroundColor: colors.background_theme6,
           paddingVertical: 10,
         }}>
         <View
@@ -362,9 +360,11 @@ const AstroForCall = ({ callListData, navigation, dispatch, isRefreshing, isMore
             alignItems: 'center',
             paddingHorizontal: 10,
             borderRadius: 1000,
-            borderWidth: 1,
+            backgroundColor: colors.background_theme6,
+            height:50
+            //borderWidth: 1,
           }}>
-          <Ionicons name="search" color={colors.black_color6} size={22} />
+          <Ionicons name="search" color={colors.black_color6} size={25} />
           <TextInput
             value={search}
             placeholder="Search Astrologer by name..."
@@ -372,9 +372,10 @@ const AstroForCall = ({ callListData, navigation, dispatch, isRefreshing, isMore
             onChangeText={text => searchFilterFunction(text)}
             style={{
               width: '100%',
+              fontSize:17,
               fontFamily: fonts.medium,
               color: colors.black_color8,
-              padding: 8,
+             // padding: 12,
             }}
           />
         </View>

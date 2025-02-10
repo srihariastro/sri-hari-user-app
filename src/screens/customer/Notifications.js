@@ -61,7 +61,7 @@ const Notifications = props => {
         }}>
         <View style={{ flex: 0, flexDirection: 'row' }}>
           <Image
-            source={item?.image?.length != 0 ? { uri: img_url + item?.image } : require('../../assets/images/AstroRemedyLogoN.png')}
+            source={item?.image?.length != 0 ? { uri: img_url + item?.image } : require('../../assets/images/AstroRemedyLogoN.jpeg')}
             style={{
               width: width * 0.18,
               height: width * 0.18,

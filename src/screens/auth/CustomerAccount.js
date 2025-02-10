@@ -255,7 +255,7 @@ const CustomerAccount = props => {
   };
 
   const validation1 = () => {
-    if (profileImage === ' https://api.srihariastro.com/uploads/customerImage/user_default.jpg') {
+    if (profileImage === ' https://api.astroremedy.com/uploads/customerImage/user_default.jpg') {
       warnign_toast('Please Upload Your Profile Photo ')
     } else {
       showToastWithGravityAndOffset('Successfully')

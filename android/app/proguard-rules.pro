@@ -10,12 +10,3 @@
 # Add any project specific keep options here:
 -keep class **.zego.**  { *; }
 -keep class **.**.zego_zpns.** { *; }
-
--dontwarn com.google.firebase.messaging.TopicOperation$TopicOperations
--dontwarn com.heytap.msp.push.**
--dontwarn com.huawei.hms.**
--dontwarn com.vivo.push.**
--dontwarn com.xiaomi.mipush.sdk.**
--dontwarn java.beans.ConstructorProperties
--dontwarn java.beans.Transient
--dontwarn org.w3c.dom.bootstrap.DOMImplementationRegistry

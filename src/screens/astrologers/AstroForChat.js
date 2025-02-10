@@ -50,11 +50,10 @@ const AstroForChat = ({
   );
 
   const searchFilterFunction = text => {
-    const trimmedText = text.trim().replace(/\s+/g, ' ');
-    setSearch(trimmedText);
+    setSearch(text);
     clearTimeout(timeout);
     timeout = setTimeout(() => {
-      dispatch(AstrologerActions.getChatAstroData(trimmedText));
+      dispatch(AstrologerActions.getChatAstroData(text));
       clearTimeout(timeout);
     }, 1500);
   };
@@ -110,7 +109,7 @@ const AstroForChat = ({
           marginHorizontal: width * 0.025,
           alignSelf: 'center',
           backgroundColor: colors.white_color,
-          borderRadius: 10,
+          borderRadius: 50,
           marginVertical: 10,
           shadowColor: colors.black_color5,
           shadowOffset: { width: 2, height: 1 },
@@ -118,7 +117,7 @@ const AstroForChat = ({
           shadowRadius: 10,
           zIndex: 100,
           elevation: 5,
-          overflow: 'hidden'
+
         }}
       >
         <View
@@ -127,7 +126,8 @@ const AstroForChat = ({
             flexDirection: 'row',
             backgroundColor: colors.background_theme1,
             borderRadius: 16,
-            elevation: 3
+            elevation: 3,
+            paddingBottom: 0,
           }}
         >
           <View style={{ width: '30%', height: '100%' }}>
@@ -136,7 +136,9 @@ const AstroForChat = ({
                 backgroundColor: '#fff',
                 borderRadius: 10,
                 overflow: 'hidden',
-                padding: 10,
+                // padding: 2,
+                marginVertical: 10,
+                marginHorizontal: 12
               }}
             >
               <Image
@@ -239,14 +241,15 @@ const AstroForChat = ({
               onPress={() => onChat(item)}
               style={{
                 flex: 0,
-                width: '100%',
+                width: '50%',
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
+                alignSelf: "flex-end",
                 padding: 10,
-                backgroundColor: getStatusColor(item.chat_status),
+                backgroundColor: getStatusColor(item?.call_status),
                 marginVertical: 15,
-                borderRadius: 10
+                borderRadius: 10,
               }}
             >
               <Ionicons name="chatbubble-ellipses-sharp" color={"#fff"} size={12} />
@@ -264,6 +267,44 @@ const AstroForChat = ({
             </TouchableOpacity>
           </View>
           <View
+            style={{
+              position: 'absolute',
+              right: 10,
+              width: "15%",
+              marginVertical: 5,
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-evenly",
+              // paddingHorizontal: 10,
+              // paddingVertical: Sizes.fixPadding * 0.1,
+
+
+            }}>
+            <View
+              style={{
+                width: 10,
+                height: 10,
+                borderRadius: 5,
+                backgroundColor: getStatusColor(item?.chat_status),
+                //margin: 5, 
+              }}
+            >
+
+            </View>
+            <Text
+              allowFontScaling={false}
+              style={{
+                color: getStatusColor(item.chat_status),
+                fontSize: 12,
+                fontWeight: 'bold',
+                textAlign: 'center',
+                textTransform: 'capitalize',
+              }}>
+              {item.chat_status}
+            </Text>
+          </View>
+          {/* <View
             style={{
               position: 'absolute',
               paddingHorizontal: 10,
@@ -287,7 +328,7 @@ const AstroForChat = ({
             >
               {item.chat_status}
             </Text>
-          </View>
+          </View> */}
         </View>
       </TouchableOpacity>
     );
@@ -356,7 +397,8 @@ const AstroForChat = ({
             alignItems: 'center',
             paddingHorizontal: 10,
             borderRadius: 1000,
-            borderWidth: 1,
+            backgroundColor: colors.background_theme6,
+            height: 50
           }}
         >
           <Ionicons name="search" color={colors.black_color6} size={22} />
@@ -367,9 +409,9 @@ const AstroForChat = ({
             onChangeText={text => searchFilterFunction(text)}
             style={{
               width: '100%',
+              fontSize: 17,
               fontFamily: fonts.medium,
               color: colors.black_color8,
-              padding: 8,
             }}
           />
         </View>

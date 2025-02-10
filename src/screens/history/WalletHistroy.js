@@ -23,7 +23,7 @@ const WalletHistroy = ({ dispatch, navigation, walletHistory }) => {
         <View
             style={{ flex: 1, backgroundColor: Colors.white }}
         >
-            <MyStatusBar backgroundColor={Colors.primaryLight} barStyle={'light-content'} />
+            <MyStatusBar backgroundColor={Colors.background_theme2} barStyle={'light-content'} />
             <MyHeader title={'Payment Bill History'} navigation={navigation} />
             <FlatList
                 ListHeaderComponent={<>

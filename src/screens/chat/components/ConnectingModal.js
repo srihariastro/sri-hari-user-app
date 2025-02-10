@@ -1,18 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, Text, Modal, StyleSheet, Button, TouchableOpacity, Image } from 'react-native';
 import { colors } from '../../../config/Constants1';
-import { SCREEN_WIDTH, SCREEN_HEIGHT } from '../../../config/Screen';
+import { SCREEN_WIDTH,SCREEN_HEIGHT } from '../../../config/Screen';
 import { mainlogo } from '../../../assets/images/Images';
 import { Sizes } from '../../../assets/style';
 
 
-const ConnectingModal = ({ visible, onClose, astroData }) => {
-  console.log(astroData, 'asrr')
-  useEffect(() => {
-    if (astroData !== 'online') {
-      onClose();
-    }
-  }, [astroData]);
+const ConnectingModal = ({ visible, onClose,astroData }) => {
+  console.log(astroData,'asrr')
   return (
     <Modal
       animationType="slide"
@@ -22,12 +17,12 @@ const ConnectingModal = ({ visible, onClose, astroData }) => {
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-          <Text style={styles.modalText}>AstroRemedy</Text>
+        <Text style={styles.modalText}>Sri Hari Astro</Text>
           <Image source={mainlogo}
-            style={{ width: SCREEN_WIDTH * 0.5, height: SCREEN_WIDTH * 0.5, borderRadius: 1000, marginTop: SCREEN_HEIGHT * 0.02 }} />
-          <Text style={styles.modalText}>{astroData != 'online' ? 'Astrologer is Busy' : 'Waiting for Astrologer to Connect'}</Text>
+        style={{ width: SCREEN_WIDTH*0.5, height: SCREEN_WIDTH*0.5, borderRadius: 1000,marginTop:SCREEN_HEIGHT*0.02}} />
+        <Text style={styles.modalText}>{astroData != 'online' ? 'Astrologer is Busy' : 'Waiting for Astrologer to Connect'}</Text>
         </View>
-
+        
       </View>
     </Modal>
   );
@@ -57,11 +52,11 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  modalText: {
+  modalText:{
     textAlign: 'center',
-    fontSize: 27,
-    color: 'white',
-    marginTop: Sizes.fixPadding,
+    fontSize:27,
+    color:'white',
+    marginTop:Sizes.fixPadding,
   },
 });
 

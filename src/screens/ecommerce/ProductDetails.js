@@ -10,11 +10,13 @@ import { connect } from 'react-redux'
 import { colors } from '../../config/Constants1'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { SCREEN_WIDTH } from '../../config/Screen'
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 const ProductDetails = ({ route, navigation, dispatch }) => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const productData = route?.params?.productData
+
+    console.log(productData?._id, "idData")
     return (
         <View style={{ flex: 1, backgroundColor: Colors.white }}>
             <MyStatusBar backgroundColor={colors.background_theme2} barStyle={'light-content'} />
@@ -33,19 +35,19 @@ const ProductDetails = ({ route, navigation, dispatch }) => {
     )
 
     function submitInfo() {
-        const phoneNumber = '8800247824'; 
+        const phoneNumber = '8800247824';
 
-  const handlePress = () => {
-    Linking.openURL(`tel:${phoneNumber}`);
-  };
+        const handlePress = () => {
+            Linking.openURL(`tel:${phoneNumber}`);
+        };
         return (
             <View>
-                <TouchableOpacity style={{backgroundColor:Colors.greenDark,marginBottom:Sizes.fixPadding,paddingVertical: Sizes.fixPadding,justifyContent:'center',alignItems:'center',width:SCREEN_WIDTH * 0.15,borderRadius:100,height:SCREEN_WIDTH * 0.15,position:'absolute',bottom:Sizes.fixPadding * 4,right :Sizes.fixPadding}} onPress={handlePress}>
-                <Ionicons name="call" color={colors.white_color} size={Sizes.fixPadding * 2} />
+                <TouchableOpacity style={{ backgroundColor: Colors.greenDark, marginBottom: Sizes.fixPadding, paddingVertical: Sizes.fixPadding, justifyContent: 'center', alignItems: 'center', width: SCREEN_WIDTH * 0.15, borderRadius: 100, height: SCREEN_WIDTH * 0.15, position: 'absolute', bottom: Sizes.fixPadding * 4, right: Sizes.fixPadding }} onPress={handlePress}>
+                    <Ionicons name="call" color={colors.white_color} size={Sizes.fixPadding * 2} />
                 </TouchableOpacity>
-            <TouchableOpacity activeOpacity={0.8} onPress={() => dispatch(EcommerceActions.addToCart(productData?._id))} style={{ backgroundColor: colors.background_theme2, paddingVertical: Sizes.fixPadding }}>
-                <Text style={{ ...Fonts.black16RobotoMedium, color: Colors.white, textAlign: 'center' }}> {t('add_cart')}</Text>
-            </TouchableOpacity>
+                <TouchableOpacity activeOpacity={0.8} onPress={() => dispatch(EcommerceActions.addToCart(productData?._id))} style={{ backgroundColor: colors.background_theme2, paddingVertical: Sizes.fixPadding }}>
+                    <Text style={{ ...Fonts.black16RobotoMedium, color: Colors.white, textAlign: 'center' }}> {t('add_cart')}</Text>
+                </TouchableOpacity>
             </View>
         )
     }
