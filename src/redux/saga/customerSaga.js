@@ -33,30 +33,70 @@ function* getCustomerData(actions) {
     }
 }
 
-function* onWalletRecharge(actions) {
-    try {
-        const { payload } = actions
-        yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
-        const customerData = yield select(state => state.customer.customerData)
-        console.log(customerData?.phoneNumber,'this customer data')
-        const getamountdata = parseFloat(payload?.data.amount);
-        const gstadd = parseFloat(getamountdata * 0.18)
-        const totalpay = parseFloat(getamountdata + gstadd);
+// function* onWalletRecharge(actions) {
+//     try {
+//         const { payload } = actions
+//         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
+//         const customerData = yield select(state => state.customer.customerData)
+//         console.log(customerData?.phoneNumber,'this customer data')
+//         const getamountdata = parseFloat(payload?.data.amount);
+//         const gstadd = parseFloat(getamountdata * 0.18)
+//         const totalpay = parseFloat(getamountdata + gstadd);
 
 
-        const response = yield axios.post(api_url + phonepeWallet,{customerId: customerData?._id, amount: getamountdata});
-        console.log('Response ::: ',response?.data);
-        if(response?.data?.success) {
-           const responseData =  yield PhonepeWallet({ orderId : response?.data?.orderId, customerId: customerData?._id, amount: totalpay, phone : customerData?.phoneNumber, dispatch : payload?.dispatch });
+//         const response = yield axios.post(api_url + phonepeWallet,{customerId: customerData?._id, amount: getamountdata});
+//         console.log('Response ::: ',response?.data);
+//         if(response?.data?.success) {
+//            const responseData =  yield PhonepeWallet({ orderId : response?.data?.orderId, customerId: customerData?._id, amount: totalpay, phone : customerData?.phoneNumber, dispatch : payload?.dispatch });
 
-        }
+//         }
      
         
-        yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
+//         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
+//     } catch (e) {
+//         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
+//         console.log('fourth')
+//         console.log(e)
+//     }
+// }
+
+
+function* onWalletRecharge(actions) {
+    try {
+        const { payload } = actions;
+        yield put({ type: actionTypes.SET_IS_LOADING, payload: true });
+        const customerData = yield select(state => state.customer.customerData);
+        const getamountdata = parseFloat(payload.data.amount);
+        const gstadd = parseFloat(getamountdata * 0.18);
+        const totalpay = parseFloat(getamountdata + gstadd);
+        
+        const razorpayResponse = yield razorpayPayment({ 
+            amount: totalpay, 
+            email: customerData?.email, 
+            name: customerData?.customerName, 
+            contact: customerData?.phoneNumber 
+        });
+
+        if (razorpayResponse) {
+            const response = yield postRequest({
+                url: api_url + recharge_customer_wallet,
+                header: 'json',
+                data: payload
+            });
+
+            if (response?.success) {
+                yield put({ type: actionTypes.SET_CUSTOMER_DATA, payload: response?.updatedCustomer });
+                yield call(resetToScreen, 'home');
+            }
+        } else {
+            showToastMessage({ message: 'Payment Failed' });
+        }
+
+        yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
     } catch (e) {
-        yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
-        console.log('fourth')
-        console.log(e)
+        yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
+        console.log('fourth');
+        console.log(e);
     }
 }
 

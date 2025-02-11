@@ -13,7 +13,6 @@ export const razorpayPayment = async ({ amount = 0, email = '', contact = '', na
                 amount
             }
         }) 
-        console.log(contact,'thisiscontact')
 
         if (!orderResponse?.status) {
             showToastMessage({ message: 'Payment Failed' })
