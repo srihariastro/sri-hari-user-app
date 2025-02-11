@@ -108,7 +108,7 @@ export const get_numerology = 'customers/get_numerology'
 export const open_Numerology = 'customers/user_numerology'
 export const numo_refresh = 'customers/get_numerology'
 
-export const razorpay_key = 'rzp_test_sYtMACkPQHewst'
+export const razorpay_key = 'rzp_test_mYCAEnDwIrEnyG'
 // export const zego_call_app_id = 1877843907
 // export const zego_call_app_sign = 'abdf0d405292d6fe8ce886eda378bb8239c1fb4c56e86ecbe92e55af0103c507'
 export const zego_call_app_id = 173391315
