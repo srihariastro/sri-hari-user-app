@@ -37,14 +37,13 @@ import {useTranslation} from 'react-i18next';
 import LinearGradient from 'react-native-linear-gradient';
 import {img_url} from '../config/constants';
 import {unRegisterZegoCall} from '../utils/zegoServices';
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../config/Screen';
-import { showNumber, showNumber0 } from '../utils/services';
-import { Colors } from '../assets/style';
+import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../config/Screen';
+import {showNumber, showNumber0} from '../utils/services';
+import {Colors} from '../assets/style';
 import * as HomeActions from '../redux/actions/HomeActions';
 
-
 function CustomDrawerContent(props) {
-  console.log("props",props)
+  console.log('props', props);
   const {t} = useTranslation();
   const navigation = useNavigation();
   const logout = () => {
@@ -73,7 +72,6 @@ function CustomDrawerContent(props) {
       },
     ]);
   };
-  
 
   const openWhatsApp = () => {
     // Replace PHONE_NUMBER with the desired phone number (including the country code)
@@ -99,7 +97,8 @@ function CustomDrawerContent(props) {
   const share_app = async () => {
     let options = {
       title: 'Share friend the app',
-      message: 'Check out the Sri Hari Astro app for personalized astrology remedies and predictions!',
+      message:
+        'Check out the Sri Hari Astro app for personalized astrology remedies and predictions!',
       url: 'https://play.google.com/store/apps/details?id=com.goodguys.sriHari', // Replace with your actual URL
     };
 
@@ -119,9 +118,6 @@ function CustomDrawerContent(props) {
     go_login();
   };
 
-   
-  
-
   const go_login = () => {
     navigation.dispatch(
       CommonActions.reset({
@@ -132,7 +128,7 @@ function CustomDrawerContent(props) {
   };
 
   let Imguri = `${img_url}${props.props?.customerData?.image}`;
-   console.log(Imguri,'image')
+  console.log(Imguri, 'image');
   const pic = `${img_url}${props.props?.customerData?.image}`.split('/')[5];
   if (pic === 'user_default.jpg') {
     Imguri = null;
@@ -143,18 +139,17 @@ function CustomDrawerContent(props) {
   return (
     <View style={{flex: 1}}>
       <View style={{height: 20}} />
-      <DrawerContentScrollView {...props.props1}
-      showsVerticalScrollIndicator={false}
-      > 
+      <DrawerContentScrollView
+        {...props.props1}
+        showsVerticalScrollIndicator={false}>
         <View
           style={{
             flex: 1,
             flexDirection: 'row',
             // borderRadius: 10,
-            alignItems:"center",
-            paddingHorizontal:10,
-          }}
-          >
+            alignItems: 'center',
+            paddingHorizontal: 10,
+          }}>
           <Image
             source={
               Imguri ? {uri: Imguri} : require('../assets/images/user_img.png')
@@ -172,7 +167,8 @@ function CustomDrawerContent(props) {
               style={{
                 fontSize: getFontSize(1.5),
                 color: colors.white_color,
-                fontFamily: fonts.medium,}}>
+                fontFamily: fonts.medium,
+              }}>
               {props.props.customerData?.customerName}
             </Text>
             <Text
@@ -198,7 +194,7 @@ function CustomDrawerContent(props) {
                 position: 'absolute',
                 top: -12,
                 right: 0,
-                right:-20,
+                right: -20,
                 zIndex: 1,
               }}>
               <Image
@@ -213,9 +209,9 @@ function CustomDrawerContent(props) {
             flex: 1,
             width: '100%',
             padding: 20,
-            paddingHorizontal:0,
+            paddingHorizontal: 0,
             alignSelf: 'center',
-            paddingTop:10,
+            paddingTop: 10,
             backgroundColor: colors.white_color,
             marginTop: 20,
           }}>
@@ -227,10 +223,10 @@ function CustomDrawerContent(props) {
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
                 source={require('../assets/drawericons/Wallet1.png')}
@@ -251,13 +247,13 @@ function CustomDrawerContent(props) {
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
-                 source={require('../assets/drawericons/paymentbil2.png')}
+                source={require('../assets/drawericons/paymentbil2.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -273,13 +269,13 @@ function CustomDrawerContent(props) {
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
-                 source={require('../assets/drawericons/orderHistory2.png')}
+                source={require('../assets/drawericons/orderHistory2.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -295,10 +291,10 @@ function CustomDrawerContent(props) {
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
                 source={require('../assets/drawericons/astroMall.png')}
@@ -317,14 +313,13 @@ function CustomDrawerContent(props) {
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
-               
-               source={require('../assets/drawericons/myorder3.png')}
+                source={require('../assets/drawericons/myorder3.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -343,13 +338,13 @@ function CustomDrawerContent(props) {
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
-               source={require('../assets/drawericons/AstroPooja.png')}
+                source={require('../assets/drawericons/AstroPooja.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
@@ -379,10 +374,10 @@ function CustomDrawerContent(props) {
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
                 source={require('../assets/drawericons/following2.png')}
@@ -393,7 +388,7 @@ function CustomDrawerContent(props) {
               {t('following')}
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => navigation.navigate('howUse')}
             style={styles.buttonContainer}>
             <LinearGradient
@@ -401,20 +396,20 @@ function CustomDrawerContent(props) {
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
-               source={require('../assets/drawericons/Howtouseourapp2.png')}
+                source={require('../assets/drawericons/Howtouseourapp2.png')}
                 style={styles.buttonImage}
               />
             </LinearGradient>
             <Text allowFontScaling={false} style={styles.buttonText}>
               {t('How')}
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity
             onPress={() => navigation.navigate('astroBlog')}
             style={styles.buttonContainer}>
@@ -423,14 +418,18 @@ function CustomDrawerContent(props) {
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
-               source={require('../assets/drawericons/astrologerBlog5.png')}
-                style={{...styles.buttonImage,tintColor:Colors.white,height:SCREEN_WIDTH * 0.06}}
+                source={require('../assets/drawericons/astrologerBlog5.png')}
+                style={{
+                  ...styles.buttonImage,
+                  tintColor: Colors.white,
+                  height: SCREEN_WIDTH * 0.06,
+                }}
               />
             </LinearGradient>
             <Text allowFontScaling={false} style={styles.buttonText}>
@@ -445,10 +444,10 @@ function CustomDrawerContent(props) {
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
                 source={require('../assets/drawericons/AstrologerSignup3.png')}
@@ -467,10 +466,10 @@ function CustomDrawerContent(props) {
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
                 source={require('../assets/drawericons/helpandsupport2.png')}
@@ -481,7 +480,8 @@ function CustomDrawerContent(props) {
               {t('help')}
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
+
+          {/* <TouchableOpacity
             onPress={() => Linking.openURL('https://play.google.com/store/apps/details?id=com.goodguys.sriHari')}
             style={styles.buttonContainer}>
             <LinearGradient
@@ -502,7 +502,7 @@ function CustomDrawerContent(props) {
             <Text allowFontScaling={false} style={styles.buttonText}>
               {t('rate')}
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           {/* About us */}
           {/* <TouchableOpacity
@@ -530,7 +530,7 @@ function CustomDrawerContent(props) {
             </Text>
           </TouchableOpacity> */}
 
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={styles.buttonContainer}
             onPress={() => share_app()}>
             <LinearGradient
@@ -538,10 +538,10 @@ function CustomDrawerContent(props) {
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
                 source={require('../assets/drawericons/share2.png')}
@@ -551,9 +551,8 @@ function CustomDrawerContent(props) {
             <Text allowFontScaling={false} style={styles.buttonText}>
               {t('share')}
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
-          
           {/* <TouchableOpacity
             onPress={() => navigation.navigate('setting')}
             style={styles.buttonContainer}>
@@ -582,10 +581,10 @@ function CustomDrawerContent(props) {
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
                 source={require('../assets/drawericons/exite2.png')}
@@ -610,18 +609,18 @@ function CustomDrawerContent(props) {
               <Image source={require('../assets/images/youtube.png')} style={styles.iconimg} />
             </TouchableOpacity>
           </View> */}
-           <TouchableOpacity
+          <TouchableOpacity
             onPress={deleteaccount}
-             style={styles.buttonContainer}>
+            style={styles.buttonContainer}>
             <LinearGradient
               colors={['#dc2f02', '#ff5400']}
               style={{
                 borderRadius: 10,
                 padding: 5,
-                height:SCREEN_WIDTH * 0.085,
+                height: SCREEN_WIDTH * 0.085,
                 width: SCREEN_WIDTH * 0.085,
-                justifyContent:'center',
-                alignItems:'center'
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
               <Image
                 source={require('../assets/drawericons/dustbin2.png')}
@@ -667,7 +666,7 @@ const mapStateToProps = state => ({
   homeSimmer: state.home.homeSimmer,
   isRefreshing: state.setting.isRefreshing,
 });
-const mapDispatchToProps = dispatch => ({ dispatch });
+const mapDispatchToProps = dispatch => ({dispatch});
 export default connect(mapStateToProps, mapDispatchToProps)(DrawerNavigator);
 
 const styles = StyleSheet.create({
@@ -677,15 +676,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 0.5,
     padding: 8,
-    borderBottomWidth:0.5,
-    borderBottomColor:"#bababa",
-    paddingBottom:15,
-    marginBottom:7,
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#bababa',
+    paddingBottom: 15,
+    marginBottom: 7,
   },
   buttonImage: {
     width: width * 0.09,
     height: width * 0.09,
-    resizeMode:'contain',
+    resizeMode: 'contain',
     // tintColor: '#fff8f0',
   },
   circle: {
