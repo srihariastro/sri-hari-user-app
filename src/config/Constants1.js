@@ -1,4 +1,4 @@
-import { PixelRatio } from 'react-native';
+import {PixelRatio} from 'react-native';
 
 export const base_url = 'https://api.astroboosters.com/';
 export const api_url = 'https://astrokunj.com/api/';
@@ -78,7 +78,7 @@ export const customer_date_images_upload = 'api2/customer_date_images_upload';
 export const get_customer_date_images = 'api2/get_customer_date_images';
 export const update_request = 'api2/update_request';
 export const set_dnd = 'api2/set_dnd';
-export const get_user_details = 'api2/get_user_details'
+export const get_user_details = 'api2/get_user_details';
 export const send_gift = 'api2/send_gift';
 export const send_friend_request = 'api2/send_friend_request';
 export const get_live_list = 'api/getdata';
@@ -135,9 +135,9 @@ export const update_intake_status = 'api/update_intake_status';
 export const get_astrologer_offer = 'api2/get_astrologer_offer';
 export const astrologer_offer = 'api2/astrologer_offer';
 export const next_log_status = 'api/next_log_status';
-export const get_boost_amount = 'api2/get_boost_amount'
-export const boost_astrologer = 'api2/boost_astrologer'
-export const get_astro_payments = 'api2/get_astro_payments'
+export const get_boost_amount = 'api2/get_boost_amount';
+export const boost_astrologer = 'api2/boost_astrologer';
+export const get_astro_payments = 'api2/get_astro_payments';
 export const create_live = 'api/create_live_astrologer';
 export const livelist = 'api/get_astrologer_live_details';
 export const astrolivehistory = 'api/astro_live_history';
@@ -161,23 +161,27 @@ export const get_auspicions = 'api/get_auspicions';
 export const get_question = 'api/get_question';
 export const get_astro_details = 'api2/get_astro_details';
 export const getBanner = 'api/getBanner';
-export const getPujaHistroy = 'ecommerce/get_customer_booked_pooja'
+export const getPujaHistroy = 'ecommerce/get_customer_booked_pooja';
 
 export const google_map_key = 'AIzaSyC39FKxanlCKxkJmRz85zeg0DW0YD1AknI';
 export const call_app_id = 1999906308;
-export const call_app_sign = 'd4d7c9f488ad6e4e0e76baf0e6796b191fd650729107cc90f9bde5472240eb0c';
+export const call_app_sign =
+  'd4d7c9f488ad6e4e0e76baf0e6796b191fd650729107cc90f9bde5472240eb0c';
 
 export const live_app_id = 2037570915;
-export const live_app_sign = 'db72c30909904099cc1c17532a8fd4b74324cfb10664cbe1b214c8462e3a0137';
+export const live_app_sign =
+  'db72c30909904099cc1c17532a8fd4b74324cfb10664cbe1b214c8462e3a0137';
 
 // export const live_streaming_app_id = 2037570915;
 // export const live_streaming_app_sign = 'db72c30909904099cc1c17532a8fd4b74324cfb10664cbe1b214c8462e3a0137';
-export const live_streaming_app_id = 989424788; 
+export const live_streaming_app_id = 989424788;
 
-export const live_streaming_app_sign = '43ba6854ca9e61a0cc718a494589f0a6e76ed6e4befcaea663fcbfe845a646b4';
+export const live_streaming_app_sign =
+  '43ba6854ca9e61a0cc718a494589f0a6e76ed6e4befcaea663fcbfe845a646b4';
 
 export const video_call_id = '1804652732';
-export const Video_app_sign = 'cda5ae04ef3cd585a9cca284f6082c5f863172663ea961b23a7a39258f7b7aa7';
+export const Video_app_sign =
+  'cda5ae04ef3cd585a9cca284f6082c5f863172663ea961b23a7a39258f7b7aa7';
 
 //astrology api
 export const API_ENDPOINT = 'horo_chart_image';
@@ -186,13 +190,13 @@ export const horoscope = 'kp_horoscope';
 export const basic_panchang = 'basic_panchang';
 export const kp_birth_chart = 'kp_birth_chart';
 export const Birth_horo_chart = 'horo_chart/D1';
-export const sun_sign_prediction = 'sun_sign_prediction'
+export const sun_sign_prediction = 'sun_sign_prediction';
 export const planets = 'planets';
 export const USER_ID = '630051';
 export const API_KEY = '861bba6a92587a326a9b11ab9dfb9b7ca3492fab';
 export const live_secert = 'd6f16228fe579f02e68ffecba70c2696';
 export const updateFlash = 'api/updateFlash';
-export const deductWallet_live_astro = 'api/deductWallet_live_astro'
+export const deductWallet_live_astro = 'api/deductWallet_live_astro';
 export const live_exit_review = 'api/liveExitReview';
 export const app_year = 'api/app_year';
 
@@ -224,14 +228,14 @@ export const colors = {
   background_theme1: '#fff',
   // background_theme2: '#FA5D08',
   background_theme2: '#FC4B00',
-  
+
   background_theme4: '#F2805F',
   background_theme3: '#bdd3ff',
-  background_theme5:"#FC4B00",
-  background_theme6:"#EFECEC",
-  cards_background:"#F7F7F7",
+  background_theme5: '#FC4B00',
+  background_theme6: '#EFECEC',
+  cards_background: '#F7F7F7',
   orange_color: '#7d0300',
-  gray_color:"#FC4B00",
+  gray_color: '#FC4B00',
 };
 
 export const fonts = {
@@ -249,8 +253,8 @@ export const vedic_images = {
   chat_background: require('../assets/images/chat_background.jpeg'),
 };
 
-export const getFontSize = (originalSize) => {
-  return 10*originalSize;
+export const getFontSize = originalSize => {
+  return 10 * originalSize;
   // console.log('rsfda',PixelRatio.get())
   // if (PixelRatio.get() < 1.5) {
   //   return Math.round((originalSize * 5) * PixelRatio.get());

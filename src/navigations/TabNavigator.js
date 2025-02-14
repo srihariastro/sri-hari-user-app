@@ -6,8 +6,8 @@ import {
   Dimensions,
   StyleSheet,
 } from 'react-native';
-import React, { useEffect } from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React, {useEffect} from 'react';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Consult from '../screens/Consult';
 import Services from '../screens/Services';
 import Article from '../screens/Article';
@@ -18,32 +18,31 @@ import AstroForChat from '../screens/astrologers/AstroForChat';
 import AstroBlogs from '../screens/customer/AstroBlogs';
 import AstroLive from '../screens/customer/AstroLive';
 import AstroDate from '../screens/customer/AstroDate';
-import { colors, fonts, getFontSize } from '../config/Constants1';
-const { width, height } = Dimensions.get('screen');
-import { useTranslation } from 'react-i18next';
+import {colors, fonts, getFontSize} from '../config/Constants1';
+const {width, height} = Dimensions.get('screen');
+import {useTranslation} from 'react-i18next';
 import LiveList from '../screens/live/LiveList';
-import { connect } from 'react-redux';
-import * as AstrologerActions from '../redux/actions/AstrologerActions'
+import {connect} from 'react-redux';
+import * as AstrologerActions from '../redux/actions/AstrologerActions';
 import AstroForVideo from '../screens/astrologers/AstroForVideo';
-import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import { Colors } from '../assets/style';
-import TabHomeSignal from "../assets/svg/TabHome_Signal.svg"
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {Colors} from '../assets/style';
+import TabHomeSignal from '../assets/svg/TabHome_Signal.svg';
 
 const Tab = createBottomTabNavigator();
 
-function MyTabBar({ state, descriptors, navigation }) {
-  const { t } = useTranslation();
+function MyTabBar({state, descriptors, navigation}) {
+  const {t} = useTranslation();
   return (
-    <View
-      style={styles.tabContainer}>
+    <View style={styles.tabContainer}>
       {state.routes.map((route, index) => {
-        const { options } = descriptors[route.key];
+        const {options} = descriptors[route.key];
         const label =
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
             : options.title !== undefined
-              ? options.title
-              : route.name;
+            ? options.title
+            : route.name;
 
         const isFocused = state.index === index;
 
@@ -56,7 +55,7 @@ function MyTabBar({ state, descriptors, navigation }) {
 
           if (!isFocused && !event.defaultPrevented) {
             // The `merge: true` option makes sure that the params inside the tab screen are preserved
-            navigation.navigate({ name: route.name, merge: true });
+            navigation.navigate({name: route.name, merge: true});
           }
         };
 
@@ -71,7 +70,7 @@ function MyTabBar({ state, descriptors, navigation }) {
           <TouchableOpacity
             key={label}
             accessibilityRole="button"
-            accessibilityState={isFocused ? { selected: true } : {}}
+            accessibilityState={isFocused ? {selected: true} : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
             testID={options.tabBarTestID}
             onPress={onPress}
@@ -82,12 +81,20 @@ function MyTabBar({ state, descriptors, navigation }) {
             {label == 'home3' ? (
               <Image
                 source={require('../assets/images/icon/home.png')}
-                style={{ width: width * 0.06, height: width * 0.06, tintColor: isFocused ? colors.white_color : 'grey' }}
+                style={{
+                  width: width * 0.06,
+                  height: width * 0.06,
+                  tintColor: isFocused ? colors.white_color : 'grey',
+                }}
               />
             ) : label == 'astroForCall' ? (
               <Image
                 source={require('../assets/images/icon/call.png')}
-                style={{ width: width * 0.06, height: width * 0.06, tintColor: isFocused ? colors.white_color : 'grey' }}
+                style={{
+                  width: width * 0.06,
+                  height: width * 0.06,
+                  tintColor: isFocused ? colors.white_color : 'grey',
+                }}
               />
             ) : label == 'astroForChat' ? (
               <View
@@ -98,50 +105,57 @@ function MyTabBar({ state, descriptors, navigation }) {
                   borderRadius: (width * 0.18) / 2,
                   justifyContent: 'center',
                   alignItems: 'center',
-                  elevation:1,
-                  borderColor: colors.white_color,  
-                  borderWidth:2, 
-                  borderColor:'lightgrey', 
-                  borderBottomWidth:0,              
-                  backgroundColor: isFocused ?   'white' : 'white'
+                  elevation: 1,
+                  borderColor: colors.white_color,
+                  borderWidth: 2,
+                  borderColor: 'lightgrey',
+                  borderBottomWidth: 0,
+                  backgroundColor: isFocused ? 'white' : 'white',
                 }}>
                 {/* <Image
                   source={require('../assets/images/icon/live.png')}
                   style={{ width: width * 0.06, height: width * 0.06, tintColor: isFocused ? "white" : 'white' }}
                 /> */}
-                <TabHomeSignal/>
+                <TabHomeSignal />
               </View>
             ) : label == 'astroLive' ? (
               <Image
                 source={require('../assets/images/icon/Chat_icons.png')}
-                style={{ width: width * 0.07, height: width * 0.07, tintColor: isFocused ? "white" : 'white' }}
+                style={{
+                  width: width * 0.07,
+                  height: width * 0.07,
+                  tintColor: isFocused ? 'white' : 'white',
+                }}
               />
             ) : (
-
               <Image
                 source={require('../assets/images/icon/Video_Icons.png')}
-                style={{ width: width * 0.07, height: width * 0.08, tintColor: isFocused ? 'white' : 'white', resizeMode: 'contain' }}
+                style={{
+                  width: width * 0.07,
+                  height: width * 0.08,
+                  tintColor: isFocused ? 'white' : 'white',
+                  resizeMode: 'contain',
+                }}
               />
               // <FontAwesome name='video-camera' size={24} color={isFocused? "white":'white'}/>
-            )
-            }
+            )}
             {label != 'astroForChat' ? (
-              <Text allowFontScaling={false}
+              <Text
+                allowFontScaling={false}
                 style={{
                   color: isFocused ? colors.white_color : 'grey',
                   fontFamily: fonts.medium,
                   fontSize: getFontSize(1.4),
-
                 }}>
                 {label == 'home3'
-                  ? t("home")
+                  ? t('home')
                   : label == 'astroForCall'
-                    ? t("call")
-                    : label == 'astroForChat'
-                      ? t("live")
-                      : label == 'astroLive'
-                        ? t("chat")
-                        : t("video")}
+                  ? t('call')
+                  : label == 'astroForChat'
+                  ? t('live')
+                  : label == 'astroLive'
+                  ? t('chat')
+                  : t('video')}
               </Text>
             ) : null}
           </TouchableOpacity>
@@ -151,8 +165,7 @@ function MyTabBar({ state, descriptors, navigation }) {
   );
 }
 
-const TabNavigator = (props) => {
-  
+const TabNavigator = props => {
   useEffect(() => {
     props?.dispatch(AstrologerActions.getLiveAstrologerData());
   }, [props.dispatch]);
@@ -161,20 +174,20 @@ const TabNavigator = (props) => {
     <Tab.Navigator
       initialRouteName={props.route.params?.flag == 1 ? 'astroDate' : 'home3'}
       tabBar={props => <MyTabBar {...props} />}
-      screenOptions={{ headerShown: false, headerShadowVisible: false }}>
-      <Tab.Screen name="home3" component={Home} />
+      screenOptions={{headerShown: false, headerShadowVisible: false}}>
+      <Tab.Screen name="astroLive" component={AstroForChat} />
       {/* <Tab.Screen name="astroForCall" component={AstroForCall} /> */}
       <Tab.Screen name="astroForChat" component={LiveList} />
-      <Tab.Screen name="astroLive" component={AstroForChat} />
+      <Tab.Screen name="home3" component={Home} />
       {/* <Tab.Screen name="astroblogs" component={AstroBlogs} /> */}
       {/* <Tab.Screen name="astroForVideo" component={AstroForVideo} /> */}
     </Tab.Navigator>
   );
 };
 
-const mapStateToProps = state =>({
-  isLoading: state.setting.isLoading
-})
+const mapStateToProps = state => ({
+  isLoading: state.setting.isLoading,
+});
 
 const mapDispatchToProps = dispatch => ({dispatch});
 
@@ -187,17 +200,18 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     shadowColor: colors.white_color,
-    shadowOffset: { width: 2, height: 1 },
+    shadowOffset: {width: 2, height: 1},
     shadowOpacity: 0.3,
     paddingHorizontal: 5,
-    borderWidth:1, borderColor:'lightgrey'
+    borderWidth: 1,
+    borderColor: 'lightgrey',
   },
   tabButton: {
     flex: 1,
     justifyContent: 'center',
-     alignItems: 'center',
+    alignItems: 'center',
     paddingTop: 10,
-    paddingBottom: 5
+    paddingBottom: 5,
   },
   middleButton: {
     flex: 0,
