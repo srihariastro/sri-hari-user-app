@@ -53,7 +53,7 @@ const HomeHeader = props => {
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 8,
-        backgroundColor: colors.white_color,
+        backgroundColor: colors.background_theme2,
 
 
       }}>
@@ -112,7 +112,7 @@ const HomeHeader = props => {
         <TouchableOpacity
           onPress={() => props.navigation.navigate('language')}
           style={{ flexDirection: 'row' }}>
-          {
+          {/* {
             props?.notificationCounts != 0 && <View
               style={{
                 flex: 0.1,
@@ -135,7 +135,7 @@ const HomeHeader = props => {
                 {props?.notificationCounts ?? ''}
               </Text>
             </View>
-          }
+          } */}
           <English_Hindi/>
           {/* <FontAwesome name="language" color={colors.white_color} size={getFontSize(2.2)} /> */}
         </TouchableOpacity>
@@ -144,7 +144,7 @@ const HomeHeader = props => {
           style={{
             // flex: 0.3,
             flexDirection: 'row',
-          backgroundColor: colors.background_theme2,
+          backgroundColor: colors.white_color,
           alignItems:"center", 
             borderRadius: 15,
             width:95,
