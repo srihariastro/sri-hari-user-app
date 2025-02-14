@@ -97,7 +97,8 @@ function* getBookPooja(actions) {
     console.log(BookPujaData, 'BookPujaData');
     yield put({type: actionTypes.SET_IS_LOADING, payload: true});
     const bookedResponse = yield postRequest({
-      url: api_url + book_pooja_order_create,
+      // url: api_url + book_pooja_order_create,
+      url: 'https://api.srihariastro.com/api/ecommerce/book_puja',
       data: {
         customerId: customerData?._id,
         amount: pujaPrice,

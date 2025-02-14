@@ -169,7 +169,7 @@ function CustomDrawerContent(props) {
                 color: colors.white_color,
                 fontFamily: fonts.medium,
               }}>
-              {props.props.customerData?.customerName}
+              {props.props.customerData?.customerName || 'N/A'}
             </Text>
             <Text
               allowFontScaling={false}
@@ -428,7 +428,8 @@ function CustomDrawerContent(props) {
                 style={{
                   ...styles.buttonImage,
                   tintColor: Colors.white,
-                  height: SCREEN_WIDTH * 0.06,
+                  height: SCREEN_HEIGHT * 0.06,
+                  width: SCREEN_WIDTH * 0.06,
                 }}
               />
             </LinearGradient>
@@ -529,7 +530,6 @@ function CustomDrawerContent(props) {
               {t('about')}
             </Text>
           </TouchableOpacity> */}
-
           {/* <TouchableOpacity
             style={styles.buttonContainer}
             onPress={() => share_app()}>
