@@ -58,7 +58,7 @@ const Login = props => {
   }, []);
 
   const handlePress = () => {
-    const url = 'https://astroremedy.com/terms-and-conditions';
+    const url = 'https://srihariastro.com/terms-and-conditions';
     Linking.openURL(url).catch(err => console.error('Error opening URL:', err));
   };
 
@@ -299,12 +299,10 @@ const Login = props => {
                   Terms And Conditions
                 </Text>{' '}
                 and{' '}
-                <Text
-                  allowFontScaling={false}
-                  style={{fontSize: getFontSize(1.2), color: '#fff'}}
-                  onPress={() =>
-                    Linking.openURL('https://astroremedy.com/privacy-policy')
-                  }>
+                <Text allowFontScaling={false}
+                  style={{ fontSize: getFontSize(1.2), color: '#fff' }}
+                  onPress={() => Linking.openURL('https://srihariastro.com/privacy-policy')}
+                >
                   Privacy Policy
                 </Text>
               </Text>

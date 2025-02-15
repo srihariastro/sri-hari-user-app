@@ -63,7 +63,9 @@ const HomeHeader = props => {
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 8,
-        backgroundColor: colors.white_color,
+        backgroundColor: colors.background_theme2,
+
+
       }}>
       <View style={{flexDirection: 'row', alignItems: 'center', gap: 5}}>
         <TouchableOpacity
