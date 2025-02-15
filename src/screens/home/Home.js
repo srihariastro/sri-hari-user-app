@@ -24,7 +24,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import Carousel from 'react-native-reanimated-carousel';
-import { useEffect, useRef } from 'react';
+import {useEffect, useRef} from 'react';
 import {
   api_url,
   blog,
@@ -34,25 +34,25 @@ import {
   updateFlash,
 } from '../../config/Constants1';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { useState } from 'react';
+import {useState} from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
+import {connect} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 import * as HomeActions from '../../redux/actions/HomeActions';
 import * as EcommerceActions from '../../redux/actions/ecommerceActions';
-import { base_url, get_astro_blogs, img_url } from '../../config/constants';
+import {base_url, get_astro_blogs, img_url} from '../../config/constants';
 import HomeSimmer from './components/HomeSimmer';
-import { Sizes, Fonts, Colors } from '../../assets/style';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {Sizes, Fonts, Colors} from '../../assets/style';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import HomeHeader from '../../components/HomeHeader';
 import MyStatusBar from '../../components/MyStatusbar';
-import { SCREEN_HEIGHT } from '../../config/Screen';
+import {SCREEN_HEIGHT} from '../../config/Screen';
 import * as BlogActions from '../../redux/actions/BlogActions';
 import * as PoojaActions from '../../redux/actions/PoojaActions';
 import * as AstrologerActions from '../../redux/actions/AstrologerActions';
-import BannerImage from "../../assets/images/homeBaner.jpg";
+import BannerImage from '../../assets/images/homeBaner.jpg';
 
-const { width, height } = Dimensions.get('screen');
+const {width, height} = Dimensions.get('screen');
 
 const Home = ({
   props,
@@ -69,7 +69,7 @@ const Home = ({
   videoCallAstrologers,
   poojaData,
   videoCallAstrolgoer,
-  newPoojaData
+  newPoojaData,
 }) => {
   const [astoListData, setAstroListData] = useState(false);
   const [livelist, setLivelist] = useState(null);
@@ -78,16 +78,16 @@ const Home = ({
   const [search, setSearchInput] = useState('');
   const [masterDataSource, setMasterDataSource] = useState([]);
 
-  const { t } = useTranslation();
-  console.log(customerData?._id)
+  const {t} = useTranslation();
+  console.log(customerData?._id);
 
   useEffect(() => {
     dispatch(HomeActions.getHomeData());
     dispatch(EcommerceActions.getProductCategory());
     dispatch(BlogActions.getAstroBlogs());
-    dispatch(PoojaActions.getPoojaData())
-    dispatch(PoojaActions.getNewPoojaData())
-    dispatch(PoojaActions.getAllPoojaList())
+    dispatch(PoojaActions.getPoojaData());
+    dispatch(PoojaActions.getNewPoojaData());
+    dispatch(PoojaActions.getAllPoojaList());
     // dispatch(AstrologerActions.getVideoCallAstrologers());
   }, [dispatch]);
   // console.log(newPoojaData,'pooja data found ')
@@ -99,7 +99,7 @@ const Home = ({
         user_id: customerData?._id,
       },
     })
-      .then(res => { })
+      .then(res => {})
       .catch(err => {
         console.log(err);
       });
@@ -111,7 +111,7 @@ const Home = ({
   };
 
   const astrologer_list = item => {
-    navigation.navigate('astrologerList', { routename: item });
+    navigation.navigate('astrologerList', {routename: item});
   };
 
   const getStatusColor = status => {
@@ -186,12 +186,12 @@ const Home = ({
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <MyStatusBar
         backgroundColor={colors.background_theme5}
         barStyle="light-content"
       />
-      <View style={{ flex: 1, backgroundColor: colors.black_color1 }}>
+      <View style={{flex: 1, backgroundColor: colors.black_color1}}>
         <HomeHeader navigation={navigation} />
         <FlatList
           refreshControl={
@@ -209,21 +209,11 @@ const Home = ({
                   {/* {sreaching()} */}
                   {kundliInfo()}
 
-
-                  {
-                    bannerData &&
-                      bannerData?.length > 0 ? (
-                      <>
-                        {bannerInfo()}
-                      </>
-                    ) : (
-                      <>
-                        {NoBannnerData()}
-                      </>
-                    )
-                  }
-
-
+                  {bannerData && bannerData?.length > 0 ? (
+                    <>{bannerInfo()}</>
+                  ) : (
+                    <>{NoBannnerData()}</>
+                  )}
 
                   {/* {livelist && liveListInfo()} */}
                   {callAstrologer && callAstrologerListInfo()}
@@ -261,7 +251,7 @@ const Home = ({
                   borderRadius: 10,
                 }}>
                 <TouchableOpacity
-                  style={{ padding: 10, left: width * 0.75 }}
+                  style={{padding: 10, left: width * 0.75}}
                   onPress={() => {
                     update_flash();
                     setModalVisible(false);
@@ -282,7 +272,7 @@ const Home = ({
                   }}>
                   <Image
                     source={require('../../assets/images/ganesha.png')}
-                    style={{ width: 70, height: 70 }}
+                    style={{width: 70, height: 70}}
                   />
                 </View>
                 <View
@@ -303,7 +293,7 @@ const Home = ({
                         {ModalView.image.map((imageUrl, index) => (
                           <View key={index}>
                             <Image
-                              source={{ uri: imageUrl }}
+                              source={{uri: imageUrl}}
                               style={{
                                 width: width * 0.2,
                                 height: width * 0.2,
@@ -325,7 +315,7 @@ const Home = ({
                         }}>
                         <Text
                           allowFontScaling={false}
-                          style={{ color: 'black', fontSize: getFontSize(2.6) }}>
+                          style={{color: 'black', fontSize: getFontSize(2.6)}}>
                           {ModalView.text}
                         </Text>
                       </View>
@@ -357,42 +347,38 @@ const Home = ({
     </View>
   );
   function astropooja() {
-    const renderItem = ({ item }) => {
+    const renderItem = ({item}) => {
       return (
         <TouchableOpacity
-          onPress={() => navigation.navigate('PoojaDetails2', { ...item })}
+          onPress={() => navigation.navigate('PoojaDetails2', {...item})}
           style={{
             margin: 10,
             overflow: 'hidden',
             elevation: 2,
             width: 100,
             height: 100,
-
           }}>
           <View
             style={{
               width: 100,
               height: 70,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
-            }}
-          >
-
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
             <Image
-              source={{ uri: img_url + item?.image }}
+              source={{uri: img_url + item?.image}}
               style={{
                 width: 60,
                 height: 60,
                 borderRadius: 50,
 
                 borderWidth: 1,
-                backgroundColor: "#bababa",
+                backgroundColor: '#bababa',
                 //borderColor: "#bababa",
                 resizeMode: 'stretch',
               }}
             />
-
           </View>
 
           <Text
@@ -403,7 +389,7 @@ const Home = ({
               paddingBottom: 5,
 
               // backgroundColor: "#F45F4B",
-              backgroundColor: "#FC4B00",
+              backgroundColor: '#FC4B00',
               borderBottomLeftRadius: 10,
               borderBottomRightRadius: 10,
               // borderWidth: 1,
@@ -418,7 +404,7 @@ const Home = ({
             <Text style={{ ...Fonts.black16RobotoMedium }}>{item?.type}</Text>
           </View> */}
         </TouchableOpacity>
-      )
+      );
     };
     return (
       <ScrollView>
@@ -435,25 +421,23 @@ const Home = ({
               fontSize: getFontSize(1.4),
               color: colors.black_color,
               fontFamily: fonts.medium,
-            }}
-          >
+            }}>
             {/* {t('e-commerce')} */}
             {t('Astro_Pooja')}
           </Text>
           <TouchableOpacity
             activeOpacity={0.8}
-            onPress={
-              () =>
-                navigation.navigate('astromallCategory')
-            }
-            style={{
-              // paddingHorizontal: 10,
-              // paddingVertical: 3,
-              // elevation: 15,
-              // shadowColor: colors.background_theme2,
-              // borderRadius: 20,
-              // backgroundColor: colors.white_color,
-            }}>
+            onPress={() => navigation.navigate('astromallCategory')}
+            style={
+              {
+                // paddingHorizontal: 10,
+                // paddingVertical: 3,
+                // elevation: 15,
+                // shadowColor: colors.background_theme2,
+                // borderRadius: 20,
+                // backgroundColor: colors.white_color,
+              }
+            }>
             <Text
               allowFontScaling={false}
               style={{
@@ -462,7 +446,7 @@ const Home = ({
                 fontFamily: fonts.medium,
                 paddingHorizontal: 5,
                 paddingVertical: 2,
-                fontWeight: "800"
+                fontWeight: '800',
               }}>
               {t('view_all')}
             </Text>
@@ -475,7 +459,7 @@ const Home = ({
           horizontal={true} // Change to true for horizontal scroll
         />
       </ScrollView>
-    )
+    );
   }
 
   function footerInfo() {
@@ -707,7 +691,7 @@ const Home = ({
       }
     };
 
-    const renderItems = ({ item, index }) => {
+    const renderItems = ({item, index}) => {
       return item.current_status1 === 'Live' ? (
         <TouchableOpacity
           activeOpacity={0.9}
@@ -719,7 +703,7 @@ const Home = ({
             borderRadius: 5,
             marginVertical: 10,
             shadowColor: colors.black_color5,
-            shadowOffset: { width: 2, height: 1 },
+            shadowOffset: {width: 2, height: 1},
             shadowOpacity: 0.1,
             shadowRadius: 10,
             zIndex: 100,
@@ -737,7 +721,7 @@ const Home = ({
                 alignItems: 'center',
               }}>
               <Image
-                source={{ uri: item.img_url }}
+                source={{uri: item.img_url}}
                 style={{
                   width: width * 0.25,
                   height: width * 0.25,
@@ -767,7 +751,7 @@ const Home = ({
                   }}>
                   <Image
                     source={require('../../assets/images/live_gif.gif')}
-                    style={{ width: 102, height: 25 }}
+                    style={{width: 102, height: 25}}
                   />
                 </View>
               </View>
@@ -778,7 +762,7 @@ const Home = ({
     };
     return (
       <View>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <Text
             allowFontScaling={false}
             style={{
@@ -790,7 +774,7 @@ const Home = ({
           </Text>
           <TouchableOpacity
             activeOpacity={0.8}
-            onPress={() => navigation.navigate('astrolive', { data: 'home' })}
+            onPress={() => navigation.navigate('astrolive', {data: 'home'})}
             style={{
               paddingHorizontal: 10,
               paddingVertical: 3,
@@ -856,24 +840,24 @@ const Home = ({
             color: colors.black_color8,
             padding: 8,
           }}
-        // onFocus={() => navigation.navigate('astroForChat')}
+          // onFocus={() => navigation.navigate('astroForChat')}
         />
       </View>
     );
   }
 
   function videoCallAstrologerList() {
-    const renderItems = ({ item, index }) => {
-
+    const renderItems = ({item, index}) => {
       return (
         <TouchableOpacity
           activeOpacity={0.8}
           key={index}
-          onPress={() =>
-            navigation.navigate('astrologerDetailes', {
-              _id: item?._id,
-              type: 'video',
-            })
+          onPress={
+            () =>
+              navigation.navigate('astrologerDetailes', {
+                _id: item?._id,
+                type: 'video',
+              })
             // navigation.navigate('AstroForVideo', {
             //   _id: item?._id,
             //   type: 'video',
@@ -894,7 +878,6 @@ const Home = ({
             elevation: 2,
             marginBottom: Sizes.fixPadding,
           }}>
-
           <Text
             style={{
               ...Fonts.white14RobotoMedium,
@@ -904,25 +887,23 @@ const Home = ({
               fontSize: 12,
               height: 25,
               lineHeight: 25,
-            }}
-          >
+            }}>
             {item?.video_call_status}
           </Text>
           <View
             style={[
               styles.box,
               {
-                borderColor: getStatusBorderColor(item?.chat_status)
+                borderColor: getStatusBorderColor(item?.chat_status),
               },
             ]}>
-              <View 
-             style={{
-              alignItems:"center",
-              justifyContent:"center"
-             }}
-            >
+            <View
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
               <Image
-                source={{ uri: base_url + item?.profileImage }}
+                source={{uri: base_url + item?.profileImage}}
                 style={{
                   width: width * 0.25,
                   height: width * 0.25,
@@ -950,8 +931,19 @@ const Home = ({
                 resizeMode: "cover",
               }}
             /> */}
-            <View style={{ paddingHorizontal: 6, paddingVertical: 10, paddingTop: 5, }}>
-              <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+            <View
+              style={{
+                paddingHorizontal: 6,
+                paddingVertical: 10,
+                paddingTop: 5,
+              }}>
+              <View
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}>
                 <View>
                   <Text
                     allowFontScaling={false}
@@ -981,42 +973,40 @@ const Home = ({
                   </Text>
                   <Image
                     source={require('../../assets/images/icon/star.png')}
-                    style={{ width: 10, height: 10 }}
+                    style={{width: 10, height: 10}}
                   />
                 </View>
-
               </View>
               <Text
                 allowFontScaling={false}
                 style={{
                   fontSize: getFontSize(1.2),
-                  color: "black",
+                  color: 'black',
                   fontFamily: fonts.medium,
                   marginTop: 10,
                 }}>
                 {t('followers')}: {item?.follower_count}
-
               </Text>
-
             </View>
             <View
               style={{
                 height: 25,
-                backgroundColor: "#FC4B00",
-                alignItems: "center",
-                justifyContent: "center",
+                backgroundColor: '#FC4B00',
+                alignItems: 'center',
+                justifyContent: 'center',
                 marginBottom: 10,
-
-              }}
-            >
+              }}>
               <Text
                 allowFontScaling={false}
                 style={{
-                  color: "white",
+                  color: 'white',
                   fontFamily: fonts.medium,
                   fontSize: 10,
                 }}>
-                ₹ {Number(item?.chat_price || 0) + Number(item?.commission_chat_price || 0)}/min
+                ₹{' '}
+                {Number(item?.chat_price || 0) +
+                  Number(item?.commission_chat_price || 0)}
+                /min
               </Text>
             </View>
           </View>
@@ -1024,7 +1014,7 @@ const Home = ({
       );
     };
     return (
-      <SafeAreaProvider style={{ marginBottom: Sizes.fixPadding }}>
+      <SafeAreaProvider style={{marginBottom: Sizes.fixPadding}}>
         <View
           style={{
             flex: 0,
@@ -1041,7 +1031,7 @@ const Home = ({
               fontSize: getFontSize(1.4),
               color: colors.black_color,
               fontFamily: fonts.medium,
-              fontWeight: "800"
+              fontWeight: '800',
             }}>
             {t('video_astrologer')}{' '}
           </Text>
@@ -1065,25 +1055,29 @@ const Home = ({
                 fontFamily: fonts.medium,
                 paddingHorizontal: 5,
                 paddingVertical: 2,
-                fontWeight: "800"
+                fontWeight: '800',
               }}>
               {t('view_all')}
             </Text>
           </TouchableOpacity>
         </View>
         {videoCallAstrolgoer.length === 0 ? (
-          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-            <Text style={{ color: Colors.grayA }}>No Chat Astrologer Online</Text>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={{color: Colors.grayA}}>No Chat Astrologer Online</Text>
           </View>
         ) : (
-          <FlatList data={videoCallAstrolgoer} horizontal renderItem={renderItems} />
+          <FlatList
+            data={videoCallAstrolgoer}
+            horizontal
+            renderItem={renderItems}
+          />
         )}
       </SafeAreaProvider>
     );
   }
 
   function chatAstrologerList() {
-    const renderItems = ({ item, index }) => {
+    const renderItems = ({item, index}) => {
       return (
         <TouchableOpacity
           activeOpacity={0.8}
@@ -1108,8 +1102,7 @@ const Home = ({
             // shadowRadius: 4,
             elevation: 2,
             marginBottom: Sizes.fixPadding,
-          }}
-        >
+          }}>
           <Text
             style={{
               ...Fonts.white14RobotoMedium,
@@ -1126,10 +1119,9 @@ const Home = ({
             style={[
               styles.box,
               {
-                borderColor: getStatusBorderColor(item?.chat_status)
+                borderColor: getStatusBorderColor(item?.chat_status),
               },
             ]}>
-
             {/* <Image
               source={{ uri: base_url + item?.profileImage }}
               style={{
@@ -1138,14 +1130,13 @@ const Home = ({
                 resizeMode: "cover",
               }}
             /> */}
-            <View 
-             style={{
-              alignItems:"center",
-              justifyContent:"center"
-             }}
-            >
+            <View
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
               <Image
-                source={{ uri: base_url + item?.profileImage }}
+                source={{uri: base_url + item?.profileImage}}
                 style={{
                   width: width * 0.25,
                   height: width * 0.25,
@@ -1166,10 +1157,19 @@ const Home = ({
               />
             </View>
 
-
-            <View style={{ paddingHorizontal: 6, paddingVertical: 10, paddingTop: 5, }}>
-              <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-
+            <View
+              style={{
+                paddingHorizontal: 6,
+                paddingVertical: 10,
+                paddingTop: 5,
+              }}>
+              <View
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}>
                 <View>
                   <Text
                     allowFontScaling={false}
@@ -1199,43 +1199,40 @@ const Home = ({
                   </Text>
                   <Image
                     source={require('../../assets/images/icon/star.png')}
-                    style={{ width: 10, height: 10 }}
+                    style={{width: 10, height: 10}}
                   />
                 </View>
-
-
               </View>
               <Text
                 allowFontScaling={false}
                 style={{
                   fontSize: getFontSize(1),
-                  color: "black",
+                  color: 'black',
                   fontFamily: fonts.medium,
                   marginTop: 10,
-
                 }}>
                 {t('followers')}: {item?.follower_count}
               </Text>
-
             </View>
             <View
               style={{
                 height: 25,
-                backgroundColor: "#FC4B00",
-                alignItems: "center",
-                justifyContent: "center",
+                backgroundColor: '#FC4B00',
+                alignItems: 'center',
+                justifyContent: 'center',
                 marginBottom: 10,
-
-              }}
-            >
+              }}>
               <Text
                 allowFontScaling={false}
                 style={{
-                  color: "white",
+                  color: 'white',
                   fontFamily: fonts.medium,
                   fontSize: 10,
                 }}>
-                ₹ {Number(item?.chat_price || 0) + Number(item?.commission_chat_price || 0)}/min
+                ₹{' '}
+                {Number(item?.chat_price || 0) +
+                  Number(item?.commission_chat_price || 0)}
+                /min
               </Text>
             </View>
           </View>
@@ -1243,7 +1240,7 @@ const Home = ({
       );
     };
     return (
-      <SafeAreaProvider style={{ marginBottom: Sizes.fixPadding }}>
+      <SafeAreaProvider style={{marginBottom: Sizes.fixPadding}}>
         <View
           style={{
             flex: 0,
@@ -1260,14 +1257,13 @@ const Home = ({
               fontSize: getFontSize(1.4),
               color: colors.black_color,
               fontFamily: fonts.medium,
-              fontWeight: "800"
+              fontWeight: '800',
             }}>
             {t('chat_astrologer')}{' '}
           </Text>
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => navigation.navigate('astroLive')}
-
             style={{
               paddingHorizontal: 10,
               paddingVertical: 3,
@@ -1284,15 +1280,15 @@ const Home = ({
                 fontFamily: fonts.medium,
                 paddingHorizontal: 5,
                 paddingVertical: 2,
-                fontWeight: "800"
+                fontWeight: '800',
               }}>
               {t('view_all')}
             </Text>
           </TouchableOpacity>
         </View>
         {chatAstrologer.length === 0 ? (
-          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-            <Text style={{ color: Colors.grayA }}>No Chat Astrologer Online</Text>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={{color: Colors.grayA}}>No Chat Astrologer Online</Text>
           </View>
         ) : (
           <FlatList data={chatAstrologer} horizontal renderItem={renderItems} />
@@ -1302,8 +1298,7 @@ const Home = ({
   }
 
   function callAstrologerListInfo() {
-    const renderItems = ({ item, index }) => {
-
+    const renderItems = ({item, index}) => {
       return (
         <TouchableOpacity
           activeOpacity={0.8}
@@ -1344,16 +1339,15 @@ const Home = ({
           <View
             style={[
               styles.box,
-              { borderColor: getStatusBorderColor(item?.call_status) },
+              {borderColor: getStatusBorderColor(item?.call_status)},
             ]}>
-            <View 
-             style={{
-              alignItems:"center",
-              justifyContent:"center"
-             }}
-            >
+            <View
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
               <Image
-                source={{ uri: base_url + item?.profileImage }}
+                source={{uri: base_url + item?.profileImage}}
                 style={{
                   width: width * 0.25,
                   height: width * 0.25,
@@ -1381,8 +1375,19 @@ const Home = ({
                 resizeMode: "cover",
               }}
             /> */}
-            <View style={{ paddingHorizontal: 6, paddingVertical: 10, paddingTop: 5, }}>
-              <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+            <View
+              style={{
+                paddingHorizontal: 6,
+                paddingVertical: 10,
+                paddingTop: 5,
+              }}>
+              <View
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}>
                 <View>
                   <Text
                     allowFontScaling={false}
@@ -1412,41 +1417,40 @@ const Home = ({
                   </Text>
                   <Image
                     source={require('../../assets/images/icon/star.png')}
-                    style={{ width: 10, height: 10 }}
+                    style={{width: 10, height: 10}}
                   />
-
                 </View>
               </View>
               <Text
                 allowFontScaling={false}
                 style={{
                   fontSize: getFontSize(1),
-                  color: "black",
+                  color: 'black',
                   fontFamily: fonts.medium,
                   marginTop: 5,
                 }}>
                 {t('followers')}: {item?.follower_count}
               </Text>
-
             </View>
             <View
               style={{
                 height: 25,
-                backgroundColor: "#FC4B00",
-                alignItems: "center",
-                justifyContent: "center",
+                backgroundColor: '#FC4B00',
+                alignItems: 'center',
+                justifyContent: 'center',
                 marginBottom: 10,
-
-              }}
-            >
+              }}>
               <Text
                 allowFontScaling={false}
                 style={{
-                  color: "white",
+                  color: 'white',
                   fontFamily: fonts.medium,
                   fontSize: 10,
                 }}>
-                ₹ {Number(item?.chat_price || 0) + Number(item?.commission_chat_price || 0)}/min
+                ₹{' '}
+                {Number(item?.chat_price || 0) +
+                  Number(item?.commission_chat_price || 0)}
+                /min
               </Text>
             </View>
           </View>
@@ -1471,13 +1475,13 @@ const Home = ({
               fontSize: getFontSize(1.4),
               color: colors.black_color,
               fontFamily: fonts.medium,
-              fontWeight: "800"
+              fontWeight: '800',
             }}>
             {t('call_astrologer')}{' '}
           </Text>
           <TouchableOpacity
             activeOpacity={0.8}
-            onPress={() => navigation.navigate('astroForCall')}
+            onPress={() => navigation.navigate('astroLive')}
             style={{
               paddingHorizontal: 10,
               paddingVertical: 3,
@@ -1494,7 +1498,7 @@ const Home = ({
                 fontFamily: fonts.medium,
                 paddingHorizontal: 5,
                 paddingVertical: 2,
-                fontWeight: "800"
+                fontWeight: '800',
               }}>
               {t('view_all')}
             </Text>
@@ -1502,8 +1506,8 @@ const Home = ({
         </View>
 
         {callAstrologer.length === 0 ? (
-          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-            <Text style={{ color: Colors.grayA }}>No Call Astrologer Online</Text>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={{color: Colors.grayA}}>No Call Astrologer Online</Text>
           </View>
         ) : (
           <FlatList
@@ -1518,7 +1522,7 @@ const Home = ({
   }
 
   function OtherExperts() {
-    const renderItems = ({ item, index }) => {
+    const renderItems = ({item, index}) => {
       return (
         <TouchableOpacity
           activeOpacity={0.8}
@@ -1555,10 +1559,10 @@ const Home = ({
           <View
             style={[
               styles.box,
-              { borderColor: getStatusColor(item?.call_status) },
+              {borderColor: getStatusColor(item?.call_status)},
             ]}>
             <Image
-              source={{ uri: base_url + item?.profileImage }}
+              source={{uri: base_url + item?.profileImage}}
               style={{
                 width: width * 0.18,
                 height: width * 0.18,
@@ -1605,7 +1609,7 @@ const Home = ({
                 </Text>
                 <Image
                   source={require('../../assets/images/icon/star.png')}
-                  style={{ width: 15, height: 15 }}
+                  style={{width: 15, height: 15}}
                 />
               </View>
               <Text
@@ -1682,7 +1686,7 @@ const Home = ({
         nestedScrollEnabled
         horizontal
         showsHorizontalScrollIndicator={false}
-        style={{ marginVertical: 8 }}>
+        style={{marginVertical: 8}}>
         <View
           style={{
             flex: 0,
@@ -1690,7 +1694,7 @@ const Home = ({
             alignItems: 'center',
             paddingVertical: 5,
           }}>
-          <View style={{ alignContent: 'center', alignSelf: 'center' }}>
+          <View style={{alignContent: 'center', alignSelf: 'center'}}>
             <TouchableOpacity
               activeOpacity={0.8}
               onPress={() => navigation.navigate('kundli')}
@@ -1769,17 +1773,16 @@ const Home = ({
   }
 
   function bannerInfo() {
-    const renderItem = ({ index, item }) => {
-
+    const renderItem = ({index, item}) => {
       const handlePress = () => {
         const url = item?.redirectionUrl; // Replace with your desired URL
         const urlPattern = new RegExp(
           '^(https?:\\/\\/)?' + // protocol
-          '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
-          '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-          '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
-          '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
-          '(\\#[-a-z\\d_]*)?$',
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+            '(\\#[-a-z\\d_]*)?$',
           'i', // fragment locator
         );
         if (url && urlPattern.test(url)) {
@@ -1802,11 +1805,14 @@ const Home = ({
           }}
           onPress={handlePress}>
           <Image
-            source={{ uri: img_url + item.bannerImage }}
-            style={{ width: width * 0.95, height: SCREEN_HEIGHT * 0.14, borderRadius: 10 }}
+            source={{uri: img_url + item.bannerImage}}
+            style={{
+              width: width * 0.95,
+              height: SCREEN_HEIGHT * 0.14,
+              borderRadius: 10,
+            }}
             resizeMode="cover"
           />
-
         </TouchableOpacity>
       );
     };
@@ -1828,23 +1834,22 @@ const Home = ({
     return (
       <View
         style={{
-          paddingHorizontal: 10
-        }}
-      >
+          paddingHorizontal: 10,
+        }}>
         <Image
           source={require('../../assets/images/homeBaner.jpg')}
           style={{
-            width: "100%", height: SCREEN_HEIGHT * 0.14,
-            borderRadius: 4
-
+            width: '100%',
+            height: SCREEN_HEIGHT * 0.14,
+            borderRadius: 4,
           }}
         />
       </View>
-    )
+    );
   }
 
   function blogsInfo() {
-    const renderItem = ({ item }) => {
+    const renderItem = ({item}) => {
       return (
         <TouchableOpacity
           onPress={() =>
@@ -1852,9 +1857,9 @@ const Home = ({
               blogData: item,
             })
           }
-          style={{ margin: 10, overflow: 'hidden', elevation: 5 }}>
+          style={{margin: 10, overflow: 'hidden', elevation: 5}}>
           <Image
-            source={{ uri: img_url + item?.image }}
+            source={{uri: img_url + item?.image}}
             style={{
               width: 200,
               height: 100,
@@ -1873,7 +1878,7 @@ const Home = ({
               top: -5,
               width: 200,
               height: 20,
-              color: colors.white_color
+              color: colors.white_color,
             }}>
             {' '}
             {item.title}
@@ -1935,12 +1940,12 @@ const Home = ({
   }
 
   function mallInfo() {
-    const renderItem = ({ item }) => (
+    const renderItem = ({item}) => (
       <TouchableOpacity
-        onPress={() => navigation.navigate('products', { ...item })}
-        style={{ margin: 10, marginRight: 0, overflow: 'hidden', elevation: 2, }}>
+        onPress={() => navigation.navigate('products', {...item})}
+        style={{margin: 10, marginRight: 0, overflow: 'hidden', elevation: 2}}>
         <Image
-          source={{ uri: img_url + item?.image }}
+          source={{uri: img_url + item?.image}}
           style={{
             width: 100,
             height: 100,
@@ -1948,7 +1953,7 @@ const Home = ({
             borderTopLeftRadius: 10,
             borderWidth: 1,
             // borderColor:Colors.backgroundColor.pri
-            backgroundColor: "#bababa",
+            backgroundColor: '#bababa',
             // borderColor: "#bababa",
             resizeMode: 'stretch',
           }}
@@ -1960,14 +1965,13 @@ const Home = ({
             marginTop: 5,
             paddingBottom: 5,
 
-            backgroundColor: "#FC4B00",
+            backgroundColor: '#FC4B00',
             borderBottomLeftRadius: 10,
             borderBottomRightRadius: 10,
             // borderWidth: 1,
             top: -5,
             fontSize: 10,
             width: 100,
-
           }}>
           {item?.categoryName}
         </Text>
@@ -1989,14 +1993,13 @@ const Home = ({
               fontSize: getFontSize(1.4),
               color: colors.black_color,
               fontFamily: fonts.medium,
-            }}
-          >
+            }}>
             {t('e-commerce')}
           </Text>
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() =>
-              navigation.navigate('productCategory', { data: 'home' })
+              navigation.navigate('productCategory', {data: 'home'})
             }
             style={{
               paddingHorizontal: 10,
@@ -2014,7 +2017,7 @@ const Home = ({
                 fontFamily: fonts.medium,
                 paddingHorizontal: 5,
                 paddingVertical: 2,
-                fontWeight: "800"
+                fontWeight: '800',
               }}>
               {t('view_all')}
             </Text>
@@ -2048,10 +2051,9 @@ const mapStateToProps = state => ({
   newPoojaData: state.pooja.newPoojaData,
   videocallInvoiceVisble: state.chat.videocallInvoiceVisble,
   videoCallAstrolgoer: state.home.videoCallAstrolgoer,
-
 });
 
-const mapDispatchToProps = dispatch => ({ dispatch });
+const mapDispatchToProps = dispatch => ({dispatch});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
@@ -2067,11 +2069,11 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     overflow: 'hidden',
     elevation: 10,
-    shadowColor: "white",
+    shadowColor: 'white',
     borderWidth: 1, // Set the width of the border
     borderColor: '',
     borderRadius: 100,
-    borderColor:"#FC4B00"
+    borderColor: '#FC4B00',
   },
 
   punchangText: {

@@ -62,10 +62,8 @@ const HomeHeader = props => {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: 8,
+        padding: 10,
         backgroundColor: colors.background_theme2,
-
-
       }}>
       <View style={{flexDirection: 'row', alignItems: 'center', gap: 5}}>
         <TouchableOpacity
@@ -74,15 +72,21 @@ const HomeHeader = props => {
           onPress={() => props.navigation.openDrawer()}
           // onPress={() => console.log('first')}
           style={{elevation: 3, zIndex: 4}}>
-          <Feather name="menu" color={colors.black_color8} size={30} />
+          <Feather name="menu" color={colors.white_color} size={30} />
           {/* <Fether_Menu/> */}
         </TouchableOpacity>
-        {/* <Image source={mainlogo}
-        style={{ width: SCREEN_WIDTH*0.08, height: SCREEN_HEIGHT*0.05,  resizeMode:'center',marginLeft:Sizes.fixPadding }} />   
-        */}
+        <Image
+          source={mainlogo}
+          style={{
+            width: SCREEN_WIDTH * 0.1,
+            height: SCREEN_HEIGHT * 0.05,
+            resizeMode: 'center',
+            // marginLeft: Sizes.fixPadding,
+          }}
+        />
 
         {/* <Text style={{ color: "#F45F4B", fontSize: 16, fontWeight: "800", textTransform: "uppercase", color: "#636d79" }}>Sri Hari Astro</Text> */}
-        <Home_Logo />
+        {/* <Home_Logo /> */}
       </View>
       <View style={{flexDirection: 'row', alignItems: 'center', gap: 9}}>
         <TouchableOpacity
@@ -126,7 +130,7 @@ const HomeHeader = props => {
                 alignItems: 'center',
                 borderRadius: getFontSize(1.2),
                 position: 'absolute',
-                left: getFontSize(1.3),
+                // left: getFontSize(1.3),
                 bottom: getFontSize(1.3),
                 zIndex: 1,
               }}>
@@ -150,22 +154,25 @@ const HomeHeader = props => {
           style={{
             // flex: 0.3,
             flexDirection: 'row',
-            backgroundColor: colors.background_theme2,
+            borderWidth: 1,
+            borderColor: 'white',
+            backgroundColor: colors.white_color,
             alignItems: 'center',
             borderRadius: 15,
-            width: 95,
-            height: 32,
+            width: 100,
+            height: 35,
             justifyContent: 'center',
+
             //paddingHorizontal: getFontSize(2.5),
             //paddingVertical: getFontSize(0.7)
           }}>
-          <Ionicons name="wallet" color={'#fff'} size={20} />
+          <Ionicons name="wallet" color={'#FC4B00'} size={25} />
           {/* <Wallet /> */}
           <Text
             allowFontScaling={false}
             style={{
-              fontSize: getFontSize(1.3),
-              color: 'white',
+              fontSize: getFontSize(1.5),
+              color: '#FC4B00',
               fontFamily: fonts.medium,
               marginLeft: 5,
             }}>

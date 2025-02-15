@@ -54,7 +54,6 @@ function MyTabBar({state, descriptors, navigation}) {
           });
 
           if (!isFocused && !event.defaultPrevented) {
-            // The `merge: true` option makes sure that the params inside the tab screen are preserved
             navigation.navigate({name: route.name, merge: true});
           }
         };
@@ -84,7 +83,7 @@ function MyTabBar({state, descriptors, navigation}) {
                 style={{
                   width: width * 0.06,
                   height: width * 0.06,
-                  tintColor: isFocused ? colors.white_color : 'grey',
+                  tintColor: isFocused ? colors.white_color : 'black', // Active and inactive check
                 }}
               />
             ) : label == 'astroForCall' ? (
@@ -93,57 +92,58 @@ function MyTabBar({state, descriptors, navigation}) {
                 style={{
                   width: width * 0.06,
                   height: width * 0.06,
-                  tintColor: isFocused ? colors.white_color : 'grey',
+                  tintColor: isFocused ? colors.white_color : 'black', // Active and inactive check
                 }}
               />
             ) : label == 'astroForChat' ? (
-              <View
-                style={{
-                  flex: 0,
-                  width: width * 0.18,
-                  height: width * 0.18,
-                  borderRadius: (width * 0.18) / 2,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  elevation: 1,
-                  borderColor: colors.white_color,
-                  borderWidth: 2,
-                  borderColor: 'lightgrey',
-                  borderBottomWidth: 0,
-                  backgroundColor: isFocused ? 'white' : 'white',
-                }}>
-                {/* <Image
-                  source={require('../assets/images/icon/live.png')}
-                  style={{ width: width * 0.06, height: width * 0.06, tintColor: isFocused ? "white" : 'white' }}
-                /> */}
-                <TabHomeSignal />
-              </View>
+              <>
+                <Image
+                  source={{
+                    uri: 'https://static-00.iconduck.com/assets.00/phone-icon-1561x2048-qjhf7be8.png',
+                  }}
+                  style={{
+                    width: width * 0.06,
+                    height: width * 0.06,
+                    resizeMode: 'contain',
+                    tintColor: isFocused ? 'white' : 'black', // Active and inactive check
+                  }}
+                />
+                <Text
+                  style={{
+                    color: isFocused ? colors.white_color : 'black', // Active and inactive check
+                    fontFamily: fonts.medium,
+                    fontSize: getFontSize(1.4),
+                  }}>
+                  {t('call')} {/* Change text for 'astroForChat' tab */}
+                </Text>
+              </>
             ) : label == 'astroLive' ? (
               <Image
                 source={require('../assets/images/icon/Chat_icons.png')}
                 style={{
                   width: width * 0.07,
                   height: width * 0.07,
-                  tintColor: isFocused ? 'white' : 'white',
+                  tintColor: isFocused ? 'white' : 'black', // Active and inactive check
                 }}
               />
-            ) : (
+            ) : label == 'astroForVideo' ? (
               <Image
                 source={require('../assets/images/icon/Video_Icons.png')}
                 style={{
                   width: width * 0.07,
                   height: width * 0.08,
-                  tintColor: isFocused ? 'white' : 'white',
+                  tintColor: isFocused ? 'white' : 'black', // Active and inactive check
                   resizeMode: 'contain',
                 }}
               />
-              // <FontAwesome name='video-camera' size={24} color={isFocused? "white":'white'}/>
-            )}
-            {label != 'astroForChat' ? (
+            ) : null}
+
+            {/* Render text for other tabs except 'astroForChat' and 'astroForVideo' */}
+            {label != 'astroForChat' && label != 'astroForVideo' ? (
               <Text
                 allowFontScaling={false}
                 style={{
-                  color: isFocused ? colors.white_color : 'grey',
+                  color: isFocused ? colors.white_color : 'black', // Active and inactive check
                   fontFamily: fonts.medium,
                   fontSize: getFontSize(1.4),
                 }}>
@@ -151,11 +151,11 @@ function MyTabBar({state, descriptors, navigation}) {
                   ? t('home')
                   : label == 'astroForCall'
                   ? t('call')
-                  : label == 'astroForChat'
-                  ? t('live')
                   : label == 'astroLive'
                   ? t('chat')
-                  : t('video')}
+                  : label == 'astroForVideo'
+                  ? t('video')
+                  : null}
               </Text>
             ) : null}
           </TouchableOpacity>
@@ -177,8 +177,9 @@ const TabNavigator = props => {
       screenOptions={{headerShown: false, headerShadowVisible: false}}>
       <Tab.Screen name="astroLive" component={AstroForChat} />
       {/* <Tab.Screen name="astroForCall" component={AstroForCall} /> */}
-      <Tab.Screen name="astroForChat" component={LiveList} />
       <Tab.Screen name="home3" component={Home} />
+      <Tab.Screen name="astroForChat" component={AstroForChat} />
+      {/* <Tab.Screen name="astroForChat" component={LiveList} /> */}
       {/* <Tab.Screen name="astroblogs" component={AstroBlogs} /> */}
       {/* <Tab.Screen name="astroForVideo" component={AstroForVideo} /> */}
     </Tab.Navigator>
@@ -202,32 +203,24 @@ const styles = StyleSheet.create({
     shadowColor: colors.white_color,
     shadowOffset: {width: 2, height: 1},
     shadowOpacity: 0.3,
-    paddingHorizontal: 5,
+    // paddingHorizontal: 50,
     borderWidth: 1,
     borderColor: 'lightgrey',
   },
   tabButton: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     paddingTop: 10,
     paddingBottom: 5,
   },
   middleButton: {
-    flex: 0,
-    width: width * 0.15,
-    height: width * 0.15,
-    borderRadius: (width * 0.15) / 2,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
     position: 'relative',
-    bottom: 25,
     backfaceVisibility: 'hidden',
-    shadowOffset: {
-      width: 2,
-      height: 1,
-    },
     shadowColor: colors.black_color8,
     shadowOpacity: 0.3,
   },
