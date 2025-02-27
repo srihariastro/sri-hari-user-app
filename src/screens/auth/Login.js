@@ -58,7 +58,7 @@ const Login = props => {
   }, []);
 
   const handlePress = () => {
-    const url = 'https://srihariastro.com/terms-and-conditions';
+    const url = 'https://srihariastro.com/TermCondition.html';
     Linking.openURL(url).catch(err => console.error('Error opening URL:', err));
   };
 
@@ -301,7 +301,7 @@ const Login = props => {
                 and{' '}
                 <Text allowFontScaling={false}
                   style={{ fontSize: getFontSize(1.2), color: '#fff' }}
-                  onPress={() => Linking.openURL('https://srihariastro.com/privacy-policy')}
+                  onPress={() => Linking.openURL('https://srihariastro.com/PrivacyPolicy.html')}
                 >
                   Privacy Policy
                 </Text>

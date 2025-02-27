@@ -359,7 +359,7 @@ const linkeddelete = () => {
               justifyContent: 'center',
               borderRadius: 15,
             }}>
-            <Text numberOfLines={1} style={{ ...Fonts.white14PoppinsBold }}>
+            <Text numberOfLines={1} style={{ ...Fonts.white14PoppinsBold , ...Colors.white }}>
               Select Profile
             </Text>
           </TouchableOpacity>

@@ -166,18 +166,21 @@ function* onChatRequestSend(actions) {
                     chatPrice: chatPrice,
                 },
             });
-
+              console.log("send request data >", send_request)
             if (send_request.success) {
                 showToastMessage({ message: 'Chat request sended' });
+                console.log("create romm check >")
                 socketServices.emit('createChatRoom', {
                     roomID: send_request?.newChat?._id,
                     chatPrice: send_request?.newChat?.chatPrice,
                     customerID: send_request?.newChat?.customerId,
                     astroID: send_request?.newChat?.astrologerId,
                     duration: send_request?.duration,
+                    profileId: send_request?.newChat?.formId,
                     // newUser: customer?.newUser
                     newUser: false
                 });
+                console.log("create romm check 12>")
                 socketServices.emit('joinChatRoom', send_request?.newChat?._id)
             } else {
                 showToastMessage({ message: send_request?.message });
@@ -214,7 +217,7 @@ function* onChatRequestSend(actions) {
 function* onAcceptRejectChat(actions) {
     try {
         const { status, requestedData } = actions.payload
-
+           console.log("action check ", actions)
         if (status == 'accept') {
             socketServices.emit('startChatTimer', requestedData?.chatId)
             yield AsyncStorage.setItem('chatData', JSON.stringify(requestedData))
