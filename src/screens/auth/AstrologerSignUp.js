@@ -255,7 +255,7 @@ const AstrologerSignUp = ({ navigation, dispatch }) => {
           textComponent={<Text style={{ color: colors.black_color, marginLeft: Sizes.fixPadding }}>By signing-up, you agree to our{' '}
             <Text
               style={{ fontSize: 14, color: 'red', paddingTop: 10 }}
-            onPress={() => Linking.openURL('https://srihariastro.com/terms-and-conditions')}
+            onPress={() => Linking.openURL('https://srihariastro.com/TermCondition.html')}
             >
               Terms & Conditions.
             </Text>
