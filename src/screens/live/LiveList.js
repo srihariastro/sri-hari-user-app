@@ -8,23 +8,23 @@ import {
   FlatList,
   RefreshControl,
 } from 'react-native';
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import MyStatusBar from '../../components/MyStatusbar';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { colors, fonts, getFontSize } from '../../config/Constants1';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {colors, fonts, getFontSize} from '../../config/Constants1';
 import HomeHeader from '../../components/HomeHeader';
-import { useState } from 'react';
+import {useState} from 'react';
 import MyLoader from '../../components/MyLoader';
-import { connect } from 'react-redux';
-import { useTranslation } from 'react-i18next';
+import {connect} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 import * as AstrologerActions from '../../redux/actions/AstrologerActions';
-import { base_url, img_url } from '../../config/constants';
+import {base_url, img_url} from '../../config/constants';
 import * as LiveActions from '../../redux/actions/LiveActions';
-import database from '@react-native-firebase/database'
-import { Sizes, Fonts, Colors } from '../../assets/style';
+import database from '@react-native-firebase/database';
+import {Sizes, Fonts, Colors} from '../../assets/style';
 import moment from 'moment';
 
-const { width, height } = Dimensions.get('screen');
+const {width, height} = Dimensions.get('screen');
 
 const AstroLive = ({
   navigation,
@@ -32,44 +32,45 @@ const AstroLive = ({
   dispatch,
   isRefreshing,
   customerData,
-  recentLiveSteamingsData
+  recentLiveSteamingsData,
 }) => {
-
   const [isLoading, setIsLoading] = useState(false);
   const [liveAstroListData, setLiveAstroListData] = useState(null);
-  const { t } = useTranslation();
+  const {t} = useTranslation();
 
   useEffect(() => {
-    dispatch(AstrologerActions.getRecentLiveStreamings())
-  }, [dispatch])
-  console.log(recentLiveSteamingsData,'all data live')
+    dispatch(AstrologerActions.getRecentLiveStreamings());
+  }, [dispatch]);
+  console.log(recentLiveSteamingsData, 'all data live');
 
   useEffect(() => {
-    database().ref(`LiveAstro`).on('value', snapshot => {
-      if (snapshot.val()) {
-        const myDataObject = snapshot.val();
-        if (myDataObject) {
-          const myDataArray = Object.keys(myDataObject)
-            .sort()
-            .map(key => JSON.parse(myDataObject[key]));
-          setLiveAstroListData(myDataArray.reverse());
+    database()
+      .ref(`LiveAstro`)
+      .on('value', snapshot => {
+        if (snapshot.val()) {
+          const myDataObject = snapshot.val();
+          if (myDataObject) {
+            const myDataArray = Object.keys(myDataObject)
+              .sort()
+              .map(key => JSON.parse(myDataObject[key]));
+            setLiveAstroListData(myDataArray.reverse());
+          }
+        } else {
+          setLiveAstroListData(null);
         }
-      } else {
-        setLiveAstroListData(null)
-      }
-    })
-  }, [])
+      });
+  }, []);
 
-  const onPress = (item) => {
+  const onPress = item => {
     if (!!customerData?.customerName) {
-      dispatch(LiveActions.createLiveProfile(item))
+      dispatch(LiveActions.createLiveProfile(item));
     } else {
-      navigation.navigate('customerAccount')
+      navigation.navigate('customerAccount');
     }
-  }
+  };
 
   return (
-    <View style={{ flex: 1, backgroundColor: colors.black_color1 }}>
+    <View style={{flex: 1, backgroundColor: colors.black_color1}}>
       <MyStatusBar
         backgroundColor={colors.background_theme5}
         barStyle="light-content"
@@ -77,21 +78,21 @@ const AstroLive = ({
       <HomeHeader navigation={navigation} />
 
       <MyLoader isVisible={isLoading} />
-      <View style={{ flex: 1 }}>
+      <View style={{flex: 1}}>
         <FlatList
-          ListHeaderComponent={<>
-            {liveAstroListData && liveAstrolgoerInfo()}
-            {recentLiveSteamingsData && recentLiveSessions()}
-          </>}
+          ListHeaderComponent={
+            <>
+              {liveAstroListData && liveAstrolgoerInfo()}
+              {recentLiveSteamingsData && recentLiveSessions()}
+            </>
+          }
         />
       </View>
-
     </View>
   );
 
   function liveAstrolgoerInfo() {
-
-    const renderItem = ({ item, index }) => {
+    const renderItem = ({item, index}) => {
       return (
         <TouchableOpacity
           activeOpacity={0.9} // Set the active opacity level here
@@ -102,7 +103,7 @@ const AstroLive = ({
             borderRadius: 5,
             marginVertical: 10,
             shadowColor: colors.black_color5,
-            shadowOffset: { width: 2, height: 1 },
+            shadowOffset: {width: 2, height: 1},
             shadowOpacity: 0.1,
             shadowRadius: 10,
             marginHorizontal: 20,
@@ -113,9 +114,9 @@ const AstroLive = ({
               borderColor: '#ddd',
               backgroundColor: colors.background_theme2,
             }}>
-            <View style={{ height: 150, alignItems: 'center' }}>
+            <View style={{height: 150, alignItems: 'center'}}>
               <Image
-                source={{ uri: base_url + item?.astrologerId?.profileImage }}
+                source={{uri: base_url + item?.astrologerId?.profileImage}}
                 style={{
                   width: width * 0.25,
                   height: width * 0.25,
@@ -145,18 +146,18 @@ const AstroLive = ({
                   }}>
                   <Image
                     source={require('../../assets/images/live_gif.gif')}
-                    style={{ width: 102, height: 25 }}
+                    style={{width: 102, height: 25}}
                   />
                 </View>
               </View>
             </View>
           </View>
         </TouchableOpacity>
-      )
-    }
+      );
+    };
 
     return (
-      <View style={{ margin: Sizes.fixPadding * 1.5 }}>
+      <View style={{margin: Sizes.fixPadding * 1.5}}>
         <FlatList
           data={liveAstroListData}
           renderItem={renderItem}
@@ -165,11 +166,11 @@ const AstroLive = ({
           showsVerticalScrollIndicator={false}
         />
       </View>
-    )
+    );
   }
 
   function recentLiveSessions() {
-    const renderItem = ({ item, index }) => {
+    const renderItem = ({item, index}) => {
       return (
         <TouchableOpacity
           activeOpacity={0.9} // Set the active opacity level here
@@ -181,7 +182,7 @@ const AstroLive = ({
             borderRadius: 5,
             marginVertical: 10,
             shadowColor: colors.black_color5,
-            shadowOffset: { width: 2, height: 1 },
+            shadowOffset: {width: 2, height: 1},
             shadowOpacity: 0.1,
             shadowRadius: 10,
             marginHorizontal: 20,
@@ -191,11 +192,11 @@ const AstroLive = ({
               borderRadius: 10,
               borderColor: '#ddd',
               backgroundColor: Colors.grayLight,
-              paddingVertical:Sizes.fixPadding
+              paddingVertical: Sizes.fixPadding,
             }}>
-            <View style={{ height: 150, alignItems: 'center' }}>
+            <View style={{height: 150, alignItems: 'center'}}>
               <Image
-                source={{ uri: base_url + item?.profileImage }}
+                source={{uri: base_url + item?.profileImage}}
                 fadeDuration={300}
                 style={{
                   width: width * 0.25,
@@ -210,29 +211,28 @@ const AstroLive = ({
                 allowFontScaling={false}
                 style={{
                   ...Fonts.black14InterMedium,
-                  color: Colors.blackLight
+                  color: Colors.blackLight,
                 }}
-                numberOfLines={1}
-                >
+                numberOfLines={1}>
                 {item?.astrologerName}
               </Text>
               <Text
                 allowFontScaling={false}
                 style={{
                   ...Fonts.black11InterMedium,
-                  color: Colors.gray
+                  color: Colors.gray,
                 }}>
                 {moment(item?.endTime).format('DD.MM.YYYY hh:mm A')}
               </Text>
             </View>
           </View>
         </TouchableOpacity>
-      )
-    }
-    
+      );
+    };
+
     return (
-      <View style={{ margin: Sizes.fixPadding * 1.5 }}>
-        <Text style={{ ...Fonts.black16RobotoMedium }}>Recent Sessions</Text>
+      <View style={{margin: Sizes.fixPadding * 1.5}}>
+        <Text style={{...Fonts.black16RobotoMedium}}>Recent Sessions</Text>
         <FlatList
           data={recentLiveSteamingsData}
           renderItem={renderItem}
@@ -241,9 +241,8 @@ const AstroLive = ({
           showsVerticalScrollIndicator={false}
         />
       </View>
-    )
+    );
   }
-
 };
 
 const mapStateToProps = state => ({
@@ -253,7 +252,7 @@ const mapStateToProps = state => ({
   isRefreshing: state.setting.isRefreshing,
 });
 
-const mapDispatchToProps = dispatch => ({ dispatch });
+const mapDispatchToProps = dispatch => ({dispatch});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AstroLive);
 
@@ -273,6 +272,6 @@ const styles = StyleSheet.create({
     width: width * 0.16,
     height: width * 0.16,
     resizeMode: 'cover',
-    borderRadius: 1000,
+    // borderRadius: 1000,
   },
 });
