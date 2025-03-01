@@ -70,7 +70,6 @@ const App = ({ data, dispatch }) => {
   }, []);
 
   if (Platform.OS === 'web') {
-    console.log('Web Platform Detected');
   } else {
     Notifee.onForegroundEvent(({ type, detail }) => {
       if (detail?.notification?.data?.type === 'Redirect' && type === EventType.PRESS) {

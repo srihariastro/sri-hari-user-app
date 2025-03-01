@@ -201,7 +201,6 @@ function* onChatRequestSend(actions) {
             if (customerData?.wallet_balance < chatPrice * 5) {
                 showToastMessage({ message: 'Insufficient Balance' })
                 if (typeof modalComp === 'function') {
-                    console.log('modal bnd h ')
                     yield call(modalComp)
                 }
             } else {
