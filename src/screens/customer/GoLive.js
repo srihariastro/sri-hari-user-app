@@ -149,7 +149,7 @@ import {
         appSign: live_streaming_app_sign,
         scenario: ZegoScenario.General,
       };
-      console.log('====================',this.state.astroData?.id);
+      
       database().ref(`WaitList/${this.state.astroData?.astro_id}`).off();
       BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
       ZegoExpressEngine.createEngineWithProfile(profile).then(engine => {
@@ -186,7 +186,6 @@ import {
       // Check your condition based on state updates
     
       
-      console.log('adf',this.state.isCoHosting);
       if (this.state.isCoHosting) {
         if (this.state.hostType == 'audio') {
           ZegoExpressEngine.instance().startPlayingStream(this.state.liveID, {
@@ -260,12 +259,10 @@ import {
     
 
     handleAppStateChange = (nextAppState) => {
-      console.log('dd',nextAppState);
       if (nextAppState === 'background') {
         // App is going into the background
         // Handle this event as needed
         this.updateState({exitVisible: true});
-        console.log('App is in the background');
         return true;
       }
     };
@@ -331,7 +328,6 @@ import {
       ZegoExpressEngine.instance().on(
         'IMRecvCustomCommand',
         (roomID, fromUser, command) => {
-          console.log('fromUser====>',fromUser,command);
           let my_command = JSON.parse(command);
           if (my_command?.command == 'accept_call') {
             this.updateState({
@@ -339,7 +335,6 @@ import {
               hostType: my_command?.type,
             });
           } else if (my_command?.command == 'start_co_host') {
-            console.log(my_command);
             this.updateState({
               coHostedData: {
                 ...fromUser,
@@ -361,7 +356,6 @@ import {
               isTimerStart: false,
               busybutton: false,
             });
-            console.log('asdas=====',my_command?.user_id, this.props.customerData?.id)
             if(my_command?.user_id == this.props.customerData?.id)
             {
               this.on_end_call_astro();
@@ -542,7 +536,6 @@ import {
       })
         .then(res => {
           this.updateState({isLoading: false});
-          console.log('adsfasdf==',res.data.records);
           if (res.data.status == 1) {
             this.updateState({giftData: res.data.records, giftVisible: true});
           }
@@ -569,7 +562,6 @@ import {
         },
       })
         .then(res => {
-            console.log('dsafadsfas',res.data);
           if (res.data.status == '1') {
             this.props.dispatch(
               UserActions.setWallet(parseFloat(res.data.data?.wallet)),
@@ -578,7 +570,6 @@ import {
             ZegoExpressEngine.instance()
               .sendBarrageMessage(this.state.liveID, JSON.stringify(selecteGifts))
               .then(result => {
-                console.log('asdfasf===========',result);
                 clearTimeout(giftInterval);
                 this.updateState({
                   newGiftVisible: true,
@@ -634,7 +625,6 @@ import {
         type: this.state.hostType,
       };
 
-      console.log('ddd',command);
   
       ZegoExpressEngine.instance().sendCustomCommand(
         this.state.liveID,
@@ -693,7 +683,6 @@ import {
             live_id: this.state.liveID,
           },
         });
-        console.log('response',response);
         if (response?.status == 200) {
           this.updateState({invoiceData: response?.data});
           this.customer_profile();
@@ -902,7 +891,6 @@ import {
     };
   
     handleBackPress = () => {
-      console.log('adfsa');
       this.updateState({exitVisible: true});
       // Alert.alert('Alert', 'Are you sure to end this streaming?', [
       //   {text: 'cancel', style: 'cancel'},

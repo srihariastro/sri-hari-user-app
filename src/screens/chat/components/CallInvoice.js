@@ -11,11 +11,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { colors } from '../../../config/Constants1'
 
 const CallInvoice = ({ dispatch, callInvoiceVisble, callInvoiceData }) => {
-    console.log("call-inv",callInvoiceVisble)
-    console.log("call-inv2",callInvoiceData)
+   
     const data = JSON.parse(callInvoiceData);
 
-    console.log()
     const onDismise = () => {
         const payload = {
             data: data?.invoice?.astrologer,

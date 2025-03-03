@@ -12,10 +12,8 @@ const VideoHistory = ({videocallHistory}) => {
   if (videocallHistory === null || videocallHistory.length === 0) {
     videocallHistory = 0;
   }
-console.log(videocallHistory,'video data')
   const renderItem = ({ item, index }) => {
     const Videocallprice = parseInt(item?.astrologerId?.commission_normal_video_call_price) + parseInt(item?.astrologerId?.normal_video_call_price)
-    console.log(Videocallprice,"anuj")
     return (
       <View style={styles.container}>
         <Text

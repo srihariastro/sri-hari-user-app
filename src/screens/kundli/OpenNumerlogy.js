@@ -36,8 +36,6 @@ const OpenNumerlogy = props => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setFilteredData] = useState([]);
 
-  console.log(props?.openNumerologyData, 'cid')
-
   useEffect(() => {
     props.navigation.setOptions({
       tabBarLabel: 'PREVIOUS Numerology',
@@ -123,7 +121,6 @@ const OpenNumerlogy = props => {
     const tobnew = moment(time).format('HH:mm:ss')
     // console.log(time,'this is time')
     const dobnew = moment(date).format('YYYY:MM:DD');
-    console.log(dobnew.split(':'), 'adsfds33')
 
     const year = dobnew.split(':')[0];
     const daate = dobnew.split(':')[2];
@@ -132,7 +129,7 @@ const OpenNumerlogy = props => {
     const hour = time.split(':')[0]
     const min = time.split(':')[1]
     // console.log(tobnew,time, hour, min,'asde111')
-    console.log({
+    /*console.log({
       day: dobnew.split(':')[2],
       month: dobnew.split(':')[1],
       year: dobnew.split(':')[0],
@@ -142,7 +139,7 @@ const OpenNumerlogy = props => {
       lon: 77.1025,
       tzone: 5.5,
       name: name
-    })
+    })*/
 
     setIsLoading(true);
     try {
@@ -166,7 +163,6 @@ const OpenNumerlogy = props => {
         },
       });
 
-      console.log('Data received:', response.data);
       const res = response.data;
       if (response.data) {
         props.navigation.navigate('NumerologyForU', { data: res })

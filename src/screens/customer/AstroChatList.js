@@ -31,13 +31,11 @@ const AstroChatList = props => {
 
   useFocusEffect(
     React.useCallback(() => {
-      console.log('AstroChatList is focused');
 
       // Handle any logic you want to perform when the screen is focused
 
       // Cleanup function (optional)
       return () => {
-        console.log('AstroChatList is blurred');
         // Handle any cleanup logic when the screen is blurred
       };
     }, [])
@@ -50,7 +48,7 @@ const AstroChatList = props => {
   };
 
   const language = (item) => {
-    console.log(item);
+    
     const languageString = item;
     const languagesArray = languageString?.split(',');
   

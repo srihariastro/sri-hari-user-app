@@ -18,7 +18,6 @@ import moment from 'moment'
 
 const BookedPoojaDetails = ({ route, navigation }) => {
     const poojaData = route?.params?.item
-    console.log(poojaData,'pooja com data')
     const [state, setState] = useState({
         imageVisible: false,
         image: null,
@@ -181,7 +180,6 @@ const BookedPoojaDetails = ({ route, navigation }) => {
 
     function photoGallaryInfo() {
         const renderItem = ({ item, index }) => {
-            console.log(item,'photo data')
             return (
                 <TouchableOpacity
                     activeOpacity={0.8}

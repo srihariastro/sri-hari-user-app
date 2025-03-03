@@ -5,14 +5,12 @@ import * as ProviderActions from '../redux/actions/ProviderActions'
 import {connect} from 'react-redux';
 import {CommonActions} from '@react-navigation/native';
 const Logout = props => {
-  console.log('data=========',props?.route?.params?.data);
     const { data } = props?.route?.params || {};
     const parsedData = data ? JSON.parse(data) : {};
     const [email,setEmail] =  useState(parsedData.email || '');
     const [password,setPassword] = useState(parsedData.password || '');
     const [rememberMe,setRemember] = useState(parsedData.rememberMe || '');
 
-  console.log('123 ---',email,password,rememberMe);
   useEffect(() => {
     async function Clear() {
       await AsyncStorage.clear();
@@ -38,7 +36,7 @@ const Logout = props => {
       const credentials = JSON.stringify({ email, password, rememberMe });
       console.log(credentials);
       await AsyncStorage.setItem('astrologerCredentials', credentials);
-      console.log('Credentials saved successfully');
+     // console.log('Credentials saved successfully');
     } catch (error) {
       console.error('Error saving credentials:', error);
     }

@@ -21,7 +21,6 @@ import {
   import { Portal } from 'react-native-paper';
   
   const Rahu = props => {
-    console.log('pppp',props?.route?.params?.data);
     const {t} = useTranslation();
     
   
@@ -38,7 +37,6 @@ import {
       props.dispatch(KundliAction.getRashiReports(null));
     },[])
     
-    console.log(props.kundliRashiReport);
   
     return (
       <View style={{flex: 1, backgroundColor: colors.black_color1}}>

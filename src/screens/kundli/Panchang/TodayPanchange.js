@@ -33,10 +33,6 @@ const TodayPanchange = (props) => {
 
     const [isLoading, setIsLoading] = useState(false);
 
-
-    console.log(Data1, 'asdfasdf')
-
-
     useEffect(() => {
         const requestLocationPermission = async () => {
             try {
@@ -50,15 +46,13 @@ const TodayPanchange = (props) => {
                         buttonPositive: 'OK',
                     },
                 );
-                console.log("----loc",granted)
                 if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-                    console.log('hghgyh')
                     getCurrentLocation();
                 } else {
                     props.navigation.goBack();
                 }
             } catch (err) {
-                console.log("loc",err);
+                console.log("Error",err);
             }
         };
 
@@ -83,7 +77,6 @@ const TodayPanchange = (props) => {
         Geolocation.getCurrentPosition(
 
             async (position) => {
-                console.log('==========', position.coords);
                 setLatitude(position.coords.latitude);
                 setLongitude(position.coords.longitude);
 
@@ -98,10 +91,8 @@ const TodayPanchange = (props) => {
                     tzone: 5.5,
                 };
 
-                console.log('dddddddd', data);
                 setIsLoading(false);
                 const data3 = await getBasicPanchang(data);
-                console.log('======', data3);
                 setPanchangeData(data3);
 
 
@@ -118,12 +109,10 @@ const TodayPanchange = (props) => {
     const date_handle = (event, selectedDate) => {
         const currentDate = selectedDate;
         setDateShow(false);
-        console.log(currentDate)
         setDate(currentDate);
     };
 
     const [currentDate, setCurrentDate] = useState(new Date());
-    console.log('currentDate', currentDate);
     // Get the current date
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
@@ -139,15 +128,12 @@ const TodayPanchange = (props) => {
     const currentMonthName = monthNames[currentDate.getMonth()];
 
 
-    console.log(currentDay, 'todfasdfasd')
-
 
     const api_get = async () => {
         let url = 'https://json.astrologyapi.com/v1/advanced_panchang';
 
         Geolocation.getCurrentPosition(
             async (position) => {
-                console.log('==========', position.coords);
                 setLatitude(position.coords.latitude);
                 setLongitude(position.coords.longitude);
                 let data = {
@@ -181,7 +167,6 @@ const TodayPanchange = (props) => {
                     }
 
                     const responseData = await response.json();
-                    console.log(responseData?.sunrise, 'jhasdfj');
                     setPanchangeData(responseData)
                     return responseData;
 
@@ -198,7 +183,6 @@ const TodayPanchange = (props) => {
 
         Geolocation.getCurrentPosition(
             async (position) => {
-                console.log('==========', position.coords);
                 setLatitude(position.coords.latitude);
                 setLongitude(position.coords.longitude);
                 let data = {
@@ -232,7 +216,6 @@ const TodayPanchange = (props) => {
                     }
 
                     const responseData = await response.json();
-                    console.log(responseData, 'jhasasdfasddfj');
                     setPanchangeData1(responseData)
                     return responseData;
 

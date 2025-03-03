@@ -67,7 +67,6 @@ const ChatIntakeForm = ({
   const [dateVisible, setDateVisible] = useState(false);
   const [timeVisible, setTimeVisible] = useState(false);
   const [modalVisible1, setModalVisible1] = useState(false);
-  console.log(route.params?.astrostatus, 'price data')
 
   const [state, setState] = useState({
     newProfile: false,
@@ -83,7 +82,7 @@ const ChatIntakeForm = ({
     description: '',
 
   });
- console.log(locationData?.address,'adress data')
+
   useEffect(() => {
     dispatch(ChatActions.getMyLinkedProfile());
   }, [dispatch]);
@@ -132,8 +131,7 @@ const ChatIntakeForm = ({
     date,
     description
   } = state;
-  console.log(selectedProfile, 'chatdata')
-
+  
 
   const handle_date = (event, selectedDate) => {
     if (event.type == 'set') {
@@ -240,7 +238,6 @@ const ChatIntakeForm = ({
     };
 
     const renderItem = ({ item, index }) => {
-      console.log(item,'iddd ')
       const dateDiff = birthDate => {
         const start = new Date(birthDate);
         const end = new Date();
@@ -264,7 +261,6 @@ const linkeddelete = () => {
   const payload = {
       linkedId: item?._id
   }
-  console.log(payload,"payload")
    dispatch(ChatActions.getLinkedData(payload))
 }
 
@@ -374,7 +370,6 @@ const linkeddelete = () => {
       if (route.params?.astrostatus != 'online') {
         showToastMessage({ message: `Astrologer is ${route.params?.astrostatus}` })
         setModalVisible1(false)
-        console.log('start')
         return
       }
       else{
@@ -382,7 +377,6 @@ const linkeddelete = () => {
           showToastMessage({ message: 'Insufficient Balance' });
           return;
         }else{
-          console.log('start1')
           setModalVisible1(true)
           const payload = {
             isNewProfile: newProfile,
@@ -411,7 +405,6 @@ const linkeddelete = () => {
             modalComp: () => setModalVisible1(false),
             navigation
           }
-          console.log(payload?.profileData, 'intakeform', )
           // dispatch(ChatActions.onChatCallCheck(payload));
           dispatch(ChatActions.onChatRequestSend(payload))
           resetState()

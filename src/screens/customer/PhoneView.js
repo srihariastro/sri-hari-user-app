@@ -11,7 +11,7 @@ import { resetToScreen } from '../../navigations/NavigationServices';
 
 const PhonepeView = (props) => {
     const { url } = props.route.params;
-    console.log('url',url);
+    //console.log('url',url);
    
     const [isLoading, setIsLoading] = useState(false);
     const webViewRef = useRef(null);
@@ -30,15 +30,15 @@ const PhonepeView = (props) => {
 
     const handleMessage = (event) => {
         const message = event.nativeEvent.data;
-        console.log(message);
+        //console.log(message);
 
        
         if(message === 'navigateToWallet') {
-          console.log('Navigate to wallet');
+          //console.log('Navigate to wallet');
           gohome();
             
         } else if(message === 'navigateToHome') {
-          console.log('Navigate to home');
+          //console.log('Navigate to home');
           go_home();
         }
     };

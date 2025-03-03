@@ -56,7 +56,6 @@ import { SCREEN_WIDTH } from '../../config/Screen';
 const { width, height } = Dimensions.get('screen');
 
 const CustomerAccount = props => {
-  console.log("props.customerData?.phoneNumber::>>",props.customerData?.email)
   const { t } = useTranslation();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -83,7 +82,6 @@ const CustomerAccount = props => {
   const [birthModal, setBirthModal] = useState(false)
   const [lat, setlat] = useState(null)
   const [long, setlong] = useState(null)
-  console.log(props.customerData, 'as ::::')
 
   useEffect(() => {
     props.navigation.setOptions({
@@ -100,7 +98,6 @@ const CustomerAccount = props => {
       ),
     });
   }, []);
-  console.log(profileImage, 'cdata')
 
   useEffect(() => {
     const namesArray = props.customerData?.customerName.trim().split(" ");
@@ -154,8 +151,6 @@ const CustomerAccount = props => {
     const trimmedFirstName = firstName.trim();
     const trimmedLastName = lastName.trim();
     const trimmedEmail = email.trim();
-
-    console.log("locationData", props.locationData)
 
     if (trimmedFirstName.length == 0) {
       warnign_toast('Please enter your first name');
@@ -248,7 +243,6 @@ const CustomerAccount = props => {
         data: data,
         dispatch: props.dispatch,
       }
-      console.log("data-----", payload)
 
       props.dispatch(AuthActions.onRegister(payload))
     }

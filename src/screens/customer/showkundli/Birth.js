@@ -46,8 +46,6 @@ const Birth = (props) => {
 
       };
 
-      console.log(data);
-
       const header = {
         headers: {
           'Content-Type': 'application/json',
@@ -62,7 +60,6 @@ const Birth = (props) => {
         const modifiedChartData = chartData.svg.replace(/<path[^>]*d="M340,175L340,340L257.5,257.5"[^>]*><\/path>/g, '');
         const chartData1 = modifiedChartData.replace('<Text allowFontScaling={false} font-size="15" x="158.5" y="179.95" style="fill: black;">','<Text allowFontScaling={false} font-size="15" x="148.5" y="179.95" style="fill: black;">');
         const newchart = chartData1.replace('</g>','<path d="M340,175L340,340L257.5,257.5" stroke="#f4a261" stroke-width="1" fill="none"></path></g>');
-        console.log(newchart)
         // console.log(chartData1);
         setChartData(newchart);
         

@@ -38,10 +38,7 @@ import { useTranslation } from 'react-i18next';
 import { useFocusEffect, } from '@react-navigation/native';
 
 const NewMatching = (props) => {
-
-  console.log(props.customerData._id)
  
-
   if (props.route && props.route.params && props.route.params.data && props.route.params?.data?.gender == 'male' || props.route.params?.data?.gender == 'Male'  || props.route.params?.data2?.gender == 'female') {
 
 
@@ -51,8 +48,6 @@ const NewMatching = (props) => {
     const female = props.route.params?.data2?.customer_name;
     const mtime = props.route.params.data.dob + ' ' + props.route.params.data.tob;
     const ftime = props.route.params?.data2?.dob + ' ' + props.route.params?.data2?.tob;
-
-    console.log('adf', ftime);
 
     const [isLoading, setIsLoading] = useState(false);
     const [maleName, setMaleName] = useState('');
@@ -75,9 +70,6 @@ const NewMatching = (props) => {
     const [femaleLatLong, setFemaleLatLong] = useState(null);
     const [maleKundliId, setMaleKundliId] = useState(null);
     const [femaleKundliId, setFemaleKundliId] = useState(null);
-
-
-    console.log('asdf ==>', maleAddress);
 
 
 
@@ -111,8 +103,6 @@ const NewMatching = (props) => {
 
     const get_matching = async (id) => {
 
-
-      console.log('id---', id);
       setIsLoading(true);
       await axios({
         method: 'post',
@@ -248,13 +238,11 @@ const NewMatching = (props) => {
     const female_date_handle = (event, selectedDate) => {
       const currentDate = selectedDate;
       setFemaleDateVisible(false);
-      console.log(currentDate);
       setFemaleDate(currentDate);
     };
 
     const female_time_handle = (event, selectedTime) => {
       setFemaleTime(selectedTime);
-      console.log(selectedTime);
       setFemaleTimeVisible(false);
     };
     return (
@@ -650,7 +638,7 @@ const NewMatching = (props) => {
       })
         .then(res => {
           setIsLoading(false);
-          console.log('adfasdf',{
+         /* console.log('adfasdf',{
             kundali_id: props.route.params.data.kundali_id,
             customer_name: femaleName != '' ? femaleName : props.route.params.data.customer_name,
             dob: femaleDate != null ? femaleDate : props.route.params.data.dob,
@@ -658,7 +646,7 @@ const NewMatching = (props) => {
             latitude: femaleLatLong?.lat != null ? femaleLatLong?.lat : props.route.params.data.latitude,
             longitude: femaleLatLong?.lon != null ? femaleLatLong?.lon : props.route.params.data.longitude,
             place: femaleAddress != null ? femaleAddress : props.route.params.data.place,
-          },);
+          },);*/
           props.navigation.navigate('kundliMatch', {
             data: res.data.match_astro_details,
             maleKundliData: {
@@ -772,13 +760,11 @@ const NewMatching = (props) => {
     const female_date_handle = (event, selectedDate) => {
       const currentDate = selectedDate;
       setFemaleDateVisible(false);
-      console.log(currentDate);
       setFemaleDate(currentDate);
     };
 
     const female_time_handle = (event, selectedTime) => {
       setFemaleTime(selectedTime);
-      console.log(selectedTime);
       setFemaleTimeVisible(false);
     };
     return (
@@ -1117,8 +1103,6 @@ const NewMatching = (props) => {
     const [maleKundliId, setMaleKundliId] = useState(null);
     const [femaleKundliId, setFemaleKundliId] = useState(null);
 
-    console.log('dfsad',maleAddress);
-
     useEffect(() => {
       props.navigation.setOptions({
         tabBarLabel: t("new_matching"),
@@ -1313,7 +1297,6 @@ const NewMatching = (props) => {
         place: maleAddress,
       };
 
-      console.log(data)
 
       try {
         // Create Male Kundli
@@ -1329,7 +1312,6 @@ const NewMatching = (props) => {
         }
           );
 
-        console.log('Male Kundli created:', maleResponse.data);
         setMaleKundliId(maleResponse.data.kundli_id);
 
         // Create Female Kundli
@@ -1349,7 +1331,6 @@ const NewMatching = (props) => {
             },
           });
 
-        console.log('Female Kundli created:', femaleResponse.data);
         setFemaleKundliId(femaleResponse.data.kundli_id);
 
         get_matching(maleResponse.data.kundli_id, femaleResponse.data.kundli_id);
@@ -1365,7 +1346,6 @@ const NewMatching = (props) => {
     const male_date_handle = (event, selectedDate) => {
       const currentDate = selectedDate;
       setMaleDateVisible(false);
-      console.log(currentDate);
       setMaleDate(currentDate);
     };
 
@@ -1377,13 +1357,11 @@ const NewMatching = (props) => {
     const female_date_handle = (event, selectedDate) => {
       const currentDate = selectedDate;
       setFemaleDateVisible(false);
-      console.log(currentDate);
       setFemaleDate(currentDate);
     };
 
     const female_time_handle = (event, selectedTime) => {
       setFemaleTime(selectedTime);
-      console.log(selectedTime);
       setFemaleTimeVisible(false);
     };
     return (

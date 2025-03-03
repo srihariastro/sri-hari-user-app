@@ -30,12 +30,8 @@ const YesterdayPachange = (props) => {
     const date_handle = (event, selectedDate) => {
         const currentDate = selectedDate;
         setDateShow(false);
-        console.log(currentDate)
         setDate(currentDate);
     };
-
-    console.log(Data1?.yog?.details, 'ksdghfklgakafs---')
-
 
 
 
@@ -74,7 +70,6 @@ const YesterdayPachange = (props) => {
                         buttonPositive: 'OK',
                     },
                 );
-                console.log("----loc",granted)
                 if (granted === PermissionsAndroid.RESULTS.GRANTED) {
                     // Permission granted
                     getCurrentLocation();
@@ -104,7 +99,6 @@ const YesterdayPachange = (props) => {
       const getCurrentLocation = () => {
         Geolocation.getCurrentPosition(
           async(position) => {
-            console.log('==========',position.coords);
             setLatitude(position.coords.latitude);
             setLongitude(position.coords.longitude);
 
@@ -137,7 +131,6 @@ const YesterdayPachange = (props) => {
 
         Geolocation.getCurrentPosition(
             async (position) => {
-                console.log('==========', position.coords);
                 setLatitude(position.coords.latitude);
                 setLongitude(position.coords.longitude);
                 let data = {
@@ -171,7 +164,6 @@ const YesterdayPachange = (props) => {
                     }
 
                     const responseData = await response.json();
-                    console.log(responseData?.sunrise, 'jhasdfj');
                     setPanchangeData(responseData)
                     return responseData;
 

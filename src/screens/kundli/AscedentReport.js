@@ -24,8 +24,6 @@ import MyHeader from '../../components/MyHeader';
   const AscedentReport = ({dispatch,navigation ,AscedentReport}) => {
 
     const {t} = useTranslation();
-    
-    console.log(AscedentReport?.AscedentReport?.asc_report?.ascendant,'jkkasdf')
 
     useEffect(() => {
       const payload ={

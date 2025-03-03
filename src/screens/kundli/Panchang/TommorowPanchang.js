@@ -87,7 +87,6 @@ const TommorowPanchang = (props) => {
       const getCurrentLocation = () => {
         Geolocation.getCurrentPosition(
           async(position) => {
-            console.log('==========',position.coords);
             setLatitude(position.coords.latitude);
             setLongitude(position.coords.longitude);
 
@@ -120,7 +119,6 @@ const TommorowPanchang = (props) => {
 
         Geolocation.getCurrentPosition(
             async (position) => {
-                console.log('==========', position.coords);
                 setLatitude(position.coords.latitude);
                 setLongitude(position.coords.longitude);
                 let data = {
@@ -154,7 +152,6 @@ const TommorowPanchang = (props) => {
                     }
 
                     const responseData = await response.json();
-                    console.log(responseData?.sunrise, 'jhasdfj');
                     setPanchangeData(responseData)
                     return responseData;
 

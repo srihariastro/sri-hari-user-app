@@ -38,7 +38,7 @@ export const razorpayPayment = async ({ amount = 0, email = '', contact = '', na
         const response = await RazorpayCheckout.open(options)
         return response
     } catch (e) {
-        console.log('hii', e)
+        console.log('Error', e)
         return false
     }
 } 

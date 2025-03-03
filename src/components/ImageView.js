@@ -4,7 +4,7 @@ import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../config/Screen';
 import { Colors } from '../assets/style';
 
 const ImageView = ({updateState, image, imageVisible}) => {
-  console.log(image)
+  
   return (
     <Modal
       visible={imageVisible}

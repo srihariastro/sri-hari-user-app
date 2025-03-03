@@ -6,7 +6,7 @@ export default appStateHandler = () => {
   const handleAppStateChange = (nextAppState) => {
     if (appState.match(/inactive|background/) && nextAppState === 'active') {
       // App has come to the foreground
-      console.log('App has come to the foreground!');
+      //console.log('App has come to the foreground!');
     }
 
     appState = nextAppState;

@@ -60,7 +60,6 @@ import {
       })
         .then(res => {
           setIsLoading(false);
-          console.log(res.data.data);
           setBlogData(res.data.data);
         })
         .catch(err => {

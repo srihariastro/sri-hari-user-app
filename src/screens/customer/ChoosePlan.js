@@ -86,7 +86,6 @@ const ChoosePlan = props => {
     };
     await RazorpayCheckout.open(options)
       .then(async data => {
-        console.log(data.razorpay_payment_id);
         await axios({
           method: 'post',
           url: api_url + api2_subscriptions_purchase,
@@ -100,7 +99,6 @@ const ChoosePlan = props => {
           },
         })
           .then(res => {
-            console.log(res.data);
             success_toast('Plan purchased successfully.');
             props.navigation.goBack();
           })

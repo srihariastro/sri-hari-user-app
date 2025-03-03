@@ -47,8 +47,6 @@ const ShowKundli = ({ navigation, route, dispatch, isLoading, basicDetails }) =>
     }
   }, [dispatch]);
 
-  console.log(basicDetails?.tob,'this is basic details')
-
   return (
     <View style={{ flex: 1, backgroundColor: colors.background_theme1 }} ref={viewRef}>
       <MyLoader isVisible={isLoading} />

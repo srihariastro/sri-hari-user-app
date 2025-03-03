@@ -16,7 +16,6 @@ const ProductDetails = ({ route, navigation, dispatch }) => {
     const { t } = useTranslation();
     const productData = route?.params?.productData
 
-    console.log(productData?._id, "idData")
     return (
         <View style={{ flex: 1, backgroundColor: Colors.white }}>
             <MyStatusBar backgroundColor={colors.background_theme2} barStyle={'light-content'} />

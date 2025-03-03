@@ -154,7 +154,6 @@ const AstrodateChat = props => {
 
   const add_message = async (image = null) => {
     let mask_message = maskPhoneNumbers(message)
-    console.log(mask_message)
     setChatData(prev => [
       ...prev,
       {

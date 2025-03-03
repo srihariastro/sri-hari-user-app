@@ -87,7 +87,6 @@ const ChatRating = props => {
       })
         .then(res => {
           setIsLoading(false);
-          console.log(res.data);
           home();
         })
         .catch(err => {

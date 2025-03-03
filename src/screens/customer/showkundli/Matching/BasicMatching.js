@@ -32,7 +32,6 @@ const BasicMatching = ({ dispatch, MatchBasicDetails, femaleKundliData, maleKund
     useEffect(() => {
         dispatch(KundliActions.getKundliMatchingAshtakootPoints());
     }, []);
-    console.log(MatchBasicDetails?.female_astro_details, 'Bascis match')
     return (
         <View style={{ flex: 1, backgroundColor: colors.black_color1 }}>
             <MyLoader isVisible={isLoading} />

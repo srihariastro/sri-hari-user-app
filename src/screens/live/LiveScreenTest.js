@@ -30,7 +30,6 @@ const LiveScreen = ({liveAstroListData, route}) => {
   useEffect(() => {
     return () => {
       if (ZegoExpressEngine.instance()) {
-        console.log('[LZP] destroyEngine');
         ZegoExpressEngine.destroyEngine();
       }
     };

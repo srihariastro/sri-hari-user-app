@@ -29,7 +29,6 @@ import MyHeader from '../../components/MyHeader';
 const { width, height } = Dimensions.get('screen');
 
 const AstroBlogs = ({ navigation, dispatch, astroBlogData ,}) => {
-  console.log(astroBlogData)
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [blogData, setBlogData] = useState(null);
@@ -44,7 +43,6 @@ const AstroBlogs = ({ navigation, dispatch, astroBlogData ,}) => {
     dispatch(BlogActions.getAstroBlogs())
   }, [dispatch]);
 
-  console.log(astroBlogData,'asdf')
 
 
   return (
@@ -66,7 +64,6 @@ const AstroBlogs = ({ navigation, dispatch, astroBlogData ,}) => {
 
   function listInfo() {
     const renderItem = ({ item, index }) => {
-      console.log(item,'blogs')
       return (
         <TouchableOpacity
           onPress={() =>

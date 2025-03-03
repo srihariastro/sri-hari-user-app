@@ -13,7 +13,6 @@ import { showNumber } from '../../utils/services'
 import { base_url, img_url } from '../../config/constants'
 
 const RegisteredPooja = ({ dispatch, registeredPooja, navigation, route, astrologerPoojaData }) => {
-    console.log(astrologerPoojaData?.poojaDate,'sasa')
     const [timeLeft, setTimeLeft] = useState('');
     // console.log(route?.params)
     useEffect(() => {
@@ -42,7 +41,6 @@ const RegisteredPooja = ({ dispatch, registeredPooja, navigation, route, astrolo
             const Pastdate = moment(date).format('YYYY-MM-DD');
             const Pasttime = moment(time).format('HH:mm');
             
-            console.log(Pastdate,Pasttime);
     
             const calculateTimeLeft = () => {
                 const pastDateTime = moment(`${date} ${time}`, 'YYYY-MM-DD HH:mm');

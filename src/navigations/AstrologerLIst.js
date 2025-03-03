@@ -164,7 +164,6 @@ const AstrologerLIst = props => {
 
   const searchRemedies = (remediesId) => {
     // Toggle the clicked state for the remediesId
-    console.log('=====================',remediesId);
     setClickedItems((prevClickedItems) => {
       if (prevClickedItems.includes(remediesId)) {
         // If already clicked, remove it from the clicked items
@@ -185,7 +184,6 @@ const AstrologerLIst = props => {
         lang:t("lang")
       }
     }).then(res => {
-      console.log('remedies', res.data.data);
       setRemedies(res.data.data);
     }).catch(err => {
       console.log(err);
@@ -240,7 +238,6 @@ const AstrologerLIst = props => {
   };
 
   const searchremedies = text => {
-    console.log('===============',text);
     setRemediesColor(text);
     if (text) {
       
@@ -273,7 +270,6 @@ const AstrologerLIst = props => {
       .then(res => {
         setIsLoading(false);
           const records = res.data.records.filter(item => item.remedies.includes(text));
-          console.log(records);
           setAstroListData(records);
           props.dispatch(AstrologerActions.setAstrologerList(records));
           setRemediesColor(text);
@@ -294,7 +290,6 @@ const AstrologerLIst = props => {
         const itemData = item.mainexperties ? item.mainexperties : '-1';
         return itemData.includes(text);
       });
-      console.log(newData);
       setAstroListData(newData);
       props.dispatch(AstrologerActions.setAstrologerList(newData));
       // setSearch(text);

@@ -7,7 +7,6 @@ import { Sizes } from '../../../assets/style';
 
 
 const ConnectingModal = ({ visible, onClose,astroData }) => {
-  console.log(astroData,'asrr')
   return (
     <Modal
       animationType="slide"

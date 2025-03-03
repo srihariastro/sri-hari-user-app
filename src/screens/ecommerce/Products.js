@@ -15,7 +15,6 @@ import { base_url, img_url } from '../../config/constants'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Products = ({ navigation, route, productsData, dispatch }) => {
-    console.log(productsData, "productsData")
     const { t } = useTranslation();
     const { _id, categoryName } = route?.params
 

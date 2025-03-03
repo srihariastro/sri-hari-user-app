@@ -33,7 +33,6 @@ const ProfileBottomButtons = ({setIsLoading, user_id, another_user_id, setIsRain
         }else{
           warnign_toast(res.data.msg)
         }
-        console.log(res.data);
       })
       .catch(err => {
         setIsLoading(false);

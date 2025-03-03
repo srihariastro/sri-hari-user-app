@@ -29,7 +29,7 @@ export const postRequest = async ({ url = null, data = null, header = 'json' }) 
         return null
 
     } catch (e) {
-        console.log(e, 'ee')
+        console.log(e, 'Error')
         return null
     }
 }

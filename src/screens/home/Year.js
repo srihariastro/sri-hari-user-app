@@ -203,7 +203,7 @@ const Year = (props) => {
     useEffect(() => {
         const removeNetInfoSubscription = NetInfo.addEventListener(state => {
             const conn = state.isConnected; //boolean value whether internet connected or not
-            console.log("Connection type", state.type); //gives the connection type
+            //console.log("Connection type", state.type); //gives the connection type
             !conn ? alert("No Internet Connection!") : null; //alert if internet not connected
         });
 

@@ -78,7 +78,6 @@ function* getCartData(actions) {
         const { payload } = actions
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
         const customerData = yield select(state => state.customer.customerData)
-        console.log(customerData?._id,'idcart')
         const response = yield postRequest({
             url: api_url + get_customer_cart,
             data: {
@@ -92,10 +91,8 @@ function* getCartData(actions) {
         //                 customerId: customerData?._id
         //             },
         // });
-        console.log(response?.data,'apiii')
         if (response?.success) {
             yield put({ type: actionTypes.SET_CART_DATA, payload: { cart: response?.cart, totalPrice: response?.totalPrice } })
-            console.log('first')
         }
 
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
@@ -108,7 +105,6 @@ function* getCartData(actions) {
 function* updateCartQuantity(actions) {
     try {
         const { payload } = actions
-        console.log(payload,'upda')
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
         const response = yield postRequest({
             url: api_url + update_cart_item_quantity,
@@ -128,7 +124,7 @@ function* updateCartQuantity(actions) {
 
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     } catch (e) {
-        console.log(e,'new eeoro')
+        console.log(e,'error')
         showToastMessage({message: 'out of stock'})
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     }
@@ -144,7 +140,6 @@ function* orderCart(actions) {
         // console.log('adasdf',addressData)
 
         const response = yield axios.post(api_url + 'ecommerce/order_product_phonepe',{customerId: customerData?._id, amount: cartData?.totalPrice,addressId : addressData?.data?._id});
-        console.log('Response ::: ',response?.data);
         if(response?.data?.success) {
            const responseData =  yield PhonepeMall({ orderId : response?.data?.orderId, customerId: customerData?._id, amount: cartData?.totalPrice, phone : customerData?.phoneNumber, dispatch : payload?.dispatch });
 
@@ -182,15 +177,13 @@ function* getMallOrderData(actions) {
 function* removeCartItem(actions) {
     try {
         const customerData = yield select(state => state.customer.customerData)
-        console.log(customerData?._id,'idcart')
         const { payload } = actions
-        console.log(payload,':::payyy')
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
         const response = yield postRequest({
             url: api_url + remove_cart_item,
             data: payload
         })
-        console.log(response,'all data')
+
         if (response?.success) {
             showToastMessage({message: response?.message})
             yield put({ type: actionTypes.GET_CART_DATA, payload: customerData?._id})
@@ -199,7 +192,7 @@ function* removeCartItem(actions) {
 
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     } catch (e) {
-        console.log(e,'new eeoro')
+        console.log(e,'error')
         showToastMessage({message: 'out of stock'})
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     }
@@ -210,7 +203,6 @@ function* onAddressCart(actions) {
         const { payload } = actions;
         const response = yield axios.post(api_url + create_address_cart,payload); 
 
-        console.log(response,"sjbdnfksdhfisdhbfjkd");
         if(response?.data?.success) {
             showToastMessage({ message: response?.data?.message });
             yield put({ type: actionTypes.GET_ADDRESS_CART , payload: null});
@@ -228,7 +220,6 @@ function* getAddressCart(actions) {
         const customerdata = yield select(state => state.customer.customerData);
 
         const response = yield axios.post(api_url + get_address_cart,{customerId: customerdata?._id});
-        console.log('Response ::: ',response?.data);
         if(response?.data?.success) {
             yield put({ type: actionTypes.SET_ADDRESS_CART, payload: response?.data});
             showToastMessage({ message: response?.data?.message });
@@ -244,25 +235,21 @@ function* getAddressCart(actions) {
 function* getDeleteAddressCart(actions) {
     try {
         const { payload } =actions;
-        console.log(payload,"payload")
         const response = yield axios.post(api_url + get_delete_cart,payload);
-        console.log('Response ::: ',response?.data);
         if(response?.data?.success) {
             yield put({ type: actionTypes.GET_ADDRESS_CART});
             showToastMessage({ message: "Delete Successfully" });
         }
 
     } catch(e) {
-        console.log(e,"sdl;kfjlsdnfl");
+        console.log(e,"error");
     }
 }
 
 function* getUpdateAddressCart(actions) {
     try {
         const { payload } =actions;
-        console.log(payload,"payload")
         const response = yield axios.post(api_url + get_update_cart,payload);
-        console.log('Response ::: ',response?.data);
         if(response?.data?.success) {
             yield put({ type: actionTypes.GET_ADDRESS_CART , payload: null});
             resetToScreen('Address');

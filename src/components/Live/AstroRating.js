@@ -44,7 +44,6 @@ const AstroRating = ({
         },
       });
 
-      console.log(response);
       onDone();
       updateState({reviewVisible: false, isLoading: false});
     } catch (e) {

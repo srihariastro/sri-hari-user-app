@@ -41,7 +41,6 @@ const AstroLive = ({
   useEffect(() => {
     dispatch(AstrologerActions.getRecentLiveStreamings());
   }, [dispatch]);
-  console.log(recentLiveSteamingsData, 'all data live');
 
   useEffect(() => {
     database()

@@ -68,7 +68,6 @@ const Following = ({ navigation, route, dispatch, followingListData }) => {
   }
 
   const renderItem = ({ item, index }) => {
-    console.log(item,'all data ')
     return (
       <TouchableOpacity
         style={styles.container}

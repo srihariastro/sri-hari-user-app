@@ -95,7 +95,6 @@ function* onWalletRecharge(actions) {
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
     } catch (e) {
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
-        console.log('fourth');
         console.log(e);
     }
 }

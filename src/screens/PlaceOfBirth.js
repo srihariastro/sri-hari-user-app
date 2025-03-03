@@ -30,11 +30,9 @@ const PlaceOfBirth = ({ dispatch, navigation, route }) => {
   }, []);
 
   const handle_selected = (address, lat, lon) => {
-    console.log("dis---",address)
     if (typeof route?.params?.type != 'undefined' && route.params?.type == 'sub') {
       dispatch(SettingActions.setSubLocationData({ address, lat, lon }))
     } else {
-      console.log("dis--",address)
       dispatch(SettingActions.setLocationData({ address, lat, lon }))
     }
     navigation.goBack()

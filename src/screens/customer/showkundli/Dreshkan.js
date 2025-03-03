@@ -32,12 +32,11 @@ const Dreshkan = (props) => {
       },
     }).then((res)=>
     {
-      console.log('rest',res.data);
       setChartData(res.data.png);
       setIsLoading(false);
     }).catch(err=>{
       setIsLoading(false);
-      console.log('dsafasd===',err)
+      console.log('Error',err)
     });
   }
 

@@ -29,7 +29,6 @@ export const registerZegoCall = async ({ userId, userName, dispatch }) => {
           outgoingCallFileName: 'zego_outgoing.mp3',
         },
         requireConfig: data => {
-          console.log(data,'datalength')
           const callConfig =
             data.invitees?.length > 1
               ? ZegoInvitationType.videoCall === data.type
@@ -64,7 +63,7 @@ export const registerZegoCall = async ({ userId, userName, dispatch }) => {
                   timingConfig: {
                       isDurationVisible: true,
                       onDurationUpdate: (duration) => {
-                        console.log('duration ::::',duration,data);
+                        //console.log('duration ::::',duration,data);
                           if (duration === 5 * 60) {
                               ZegoUIKitPrebuiltCallService.hangUp();
                           }
@@ -91,7 +90,7 @@ export const registerZegoCall = async ({ userId, userName, dispatch }) => {
                               {
                                   text: "Yes",
                                   onPress: () => {resolve(),
-                                    console.log('Resolve ::::',data),
+                                    //console.log('Resolve ::::',data),
                                     dispatch(ChatActions.getonVideoCallEnd(data))},
                               }
                           ]
@@ -115,7 +114,7 @@ export const registerZegoCall = async ({ userId, userName, dispatch }) => {
 };
 
 export const makeZegoCall = async ({ isVideo = true, navigation, newInvitees,data }) => {
-  console.log(' Zego Data :::::::::::',data,data?.callId);
+ 
   try {
     return ZegoUIKitPrebuiltCallService
       .sendCallInvitation(

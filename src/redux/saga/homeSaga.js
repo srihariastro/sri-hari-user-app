@@ -55,7 +55,6 @@ function* getHomeData(actions) {
 
     } catch (e) {
         yield put({ type: actionTypes.SET_HOME_SIMMER, payload: false })
-        console.log('hii', e);
     }
 }
 
@@ -103,7 +102,6 @@ function* getHomeDataOnRefresh(actions) {
 
     } catch (e) {
         yield put({ type: actionTypes.SET_IS_REFRESHING, payload: false })
-        console.log('hii', e);
     }
 }
 
@@ -128,14 +126,12 @@ function* getAstroCompanionData(actions) {
 
     } catch (e) {
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
-        console.log('hii', e);
     }
 }
 function* getNotificationData(actions) {
     try {
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true });
         const customerData = yield select(state => state.customer.customerData);
-        console.log(customerData?._id);
         
         const response = yield postRequest({
             url: api_url + get_notification_data,
@@ -144,7 +140,6 @@ function* getNotificationData(actions) {
             }
         });
         
-        console.log(response?.data, 'notification data');
         if (response?.success) {
             // Sort notifications by '_id' in descending order
             const sortedNotifications = response?.data.sort(
@@ -166,7 +161,6 @@ function* getDeleteAccountData(actions) {
     try {
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
         const customerData = yield select(state => state.customer.customerData)
-        console.log(customerData?._id)
        
         const response = yield postRequest({
             url: api_url + get_delete_account_data,
@@ -174,9 +168,8 @@ function* getDeleteAccountData(actions) {
                 customerId: customerData?._id
             }
         })
-console.log(response?.message,'notification data')
+
         if (response?.success) {
-            console.log(response?.message,'notification data')
             yield put({ type: actionTypes.SET_DELETE_ACCOUNT_DATA, payload: response?.data })
             showToastMessage({ message: response?.message})
             yield call(resetToScreen, 'login')

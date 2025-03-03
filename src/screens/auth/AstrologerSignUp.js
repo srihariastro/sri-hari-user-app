@@ -94,7 +94,6 @@ const AstrologerSignUp = ({ navigation, dispatch }) => {
           return
         }
         else if (validateAge(dob) < 18) {
-          console.log("exp--", experience)
           showToastMessage({ message: 'You must be at least 18 years old' });
           return;
         }
@@ -123,7 +122,6 @@ const AstrologerSignUp = ({ navigation, dispatch }) => {
             dateOfBirth: dob
           }
           dispatch(AuthActions.onApplyAsAnAstrologer(payload))
-          console.log(payload);
         }
   }
 

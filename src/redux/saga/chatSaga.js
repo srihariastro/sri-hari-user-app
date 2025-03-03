@@ -47,7 +47,6 @@ function* onCallNow(actions) {
 function* getMyLinkedProfile(actions) {
     try {
         const customerData = yield select(state => state.customer.customerData);
-        console.log(">>>>>KKKK",customerData?._id)
         const response = yield postRequest({
             url: api_url + get_linked_profile,
             data: {
@@ -59,7 +58,7 @@ function* getMyLinkedProfile(actions) {
             yield put({ type: actionTypes.SET_LINKED_PROFILE, payload: response.data });
         }
     } catch (e) {
-        console.log(e,"sdfmnsdfmsdfm;sdmf;m;");
+        console.log(e,"error");
     }
 }
 
@@ -90,7 +89,6 @@ function* getMyLinkedProfile(actions) {
 function* onChatCallCheck(actions) {
     try {
         const { payload } = actions;
-        console.log('Payload ::::', payload);
         const customerData = yield select(state => state.customer.customerData);
         const payload2 = {
             astrologerId: payload?.astrologerId,
@@ -118,7 +116,6 @@ function* onChatCallCheck(actions) {
 }
 
 function* onChatRequestSend(actions) {
-    console.log('first')
     try {
         const {
             isNewProfile,
@@ -166,10 +163,8 @@ function* onChatRequestSend(actions) {
                     chatPrice: chatPrice,
                 },
             });
-              console.log("send request data >", send_request)
             if (send_request.success) {
                 showToastMessage({ message: 'Chat request sended' });
-                console.log("create romm check >")
                 socketServices.emit('createChatRoom', {
                     roomID: send_request?.newChat?._id,
                     chatPrice: send_request?.newChat?.chatPrice,
@@ -180,7 +175,6 @@ function* onChatRequestSend(actions) {
                     // newUser: customer?.newUser
                     newUser: false
                 });
-                console.log("create romm check 12>")
                 socketServices.emit('joinChatRoom', send_request?.newChat?._id)
             } else {
                 showToastMessage({ message: send_request?.message });
@@ -209,14 +203,13 @@ function* onChatRequestSend(actions) {
         }
 
     } catch (e) {
-        console.log(e, 'error videp');
+        console.log(e, 'error in video');
     }
 }
 
 function* onAcceptRejectChat(actions) {
     try {
         const { status, requestedData } = actions.payload
-           console.log("action check ", actions)
         if (status == 'accept') {
             socketServices.emit('startChatTimer', requestedData?.chatId)
             yield AsyncStorage.setItem('chatData', JSON.stringify(requestedData))
@@ -323,7 +316,6 @@ function* onCloseChat(actions) {
         yield delay(1000); 
         const customerData = yield select(state => state.customer.customerData)
         const requestedData = yield select(state => state.chat.requestedData)
-        console.log(requestedData?.chatId,'chatidatul')
 
         if (!requestedData) {
             return
@@ -381,8 +373,6 @@ function* onChatImageSend(actions) {
 
 
 
-        console.log(response)
-
     } catch (e) {
         console.log(e, 'e')
     }
@@ -390,23 +380,19 @@ function* onChatImageSend(actions) {
 function* getOnViedoCallEnd(actions) {
     try {
         const { payload } = actions
-        console.log("call Id Payload :::", payload);
         const data = {
             callId: payload.callID,
         }
-        console.log(data, 'videcall data')
         const response = yield axios.post(api_url + endvidocall, data);
-        console.log(response?.data, 'vcdata')
         if (response?.data.success) {
             // yield put({ type: actionTypes.SET_VIDEO_INVOICE_DATA, payload: response?.data?.data })
             // yield put({ type: actionTypes.SET_VIDEOCALL_INVOICE_VISIBLE, payload: true })
             showToastMessage({ message: 'VideCall Ended' });
 
-            console.log(' end chshsh')
         }
         resetToScreen('home')
     } catch (e) {
-        console.log(e, 'error vidfepo');
+        console.log(e, 'error video');
     }
 }
 function* getLinkedData(actions) {
@@ -418,13 +404,12 @@ function* getLinkedData(actions) {
                 ...payload
             }
         })
-        console.log(response?.message,'linked data ')
         if (response?.success) {
             showToastMessage({message: response?.message})
             yield put({type: actionTypes.GET_MY_LINKED_PROFILE,payload:null})
         }
     } catch (e) {
-        console.log(e,"sdlfnsdnfl")
+        console.log(e,"error")
     }
 }
 

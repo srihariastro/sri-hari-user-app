@@ -58,7 +58,6 @@ export class Footer extends Component {
                       text: 'Ok',
                       style: 'destructive',
                       onPress: () => {
-                        console.log('asdfa');
                       },
                     },
                   ]);

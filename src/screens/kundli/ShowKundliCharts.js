@@ -28,7 +28,6 @@ const ShowKundliCharts = ({ navigation, chartImage, dispatch, isLoading }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState('chalit');
   const [show ,setShow] = useState(false);
-  console.log("charty-img",chartImage)
 
  
   useEffect(()=>{

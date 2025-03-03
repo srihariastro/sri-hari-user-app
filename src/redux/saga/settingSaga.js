@@ -32,7 +32,7 @@ function* getSplash(actions) {
             yield call(resetToScreen, 'login')
         }
     } catch (e) {
-        console.log(e,'asdfasdf')
+        console.log(e,'error')
     }
 }
 

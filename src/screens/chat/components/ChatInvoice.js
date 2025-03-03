@@ -20,7 +20,7 @@ const ChatInvoice = ({ dispatch, chatInvoiceVisble, chatInvoiceData }) => {
         dispatch(ChatActions.setChatInvoiceVisible(false))
         dispatch(ChatActions.setChatInvoiceData(null))
     }
-    console.log(chatInvoiceData,'c-invoicedata')
+    s
     return (
         <Modal visible={chatInvoiceVisble} onDismiss={() => onDismise()}>
             <View style={styles.container}>

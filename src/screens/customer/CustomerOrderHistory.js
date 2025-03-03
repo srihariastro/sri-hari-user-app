@@ -48,7 +48,6 @@ const CustomerOrderHistory = props => {
       },
     })
       .then(res => {
-        console.log(res.data);
         setOrderHistoryData(res.data.result);
         setIsLoading(false);
       })

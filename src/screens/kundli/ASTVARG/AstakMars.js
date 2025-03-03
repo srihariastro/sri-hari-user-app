@@ -17,13 +17,6 @@ const AstakMars = ({AshtakvargaReport}) => {
   const [select,setSelect] = useState(1);
 
   const [chartData, setChartData] = useState(null);
-
-  
-
-  console.log(AshtakvargaReport?.marsReports?.ashtak_points?.pisces,'asdfkjsd')
-
-
-  
   
 
 

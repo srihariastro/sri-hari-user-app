@@ -62,7 +62,6 @@ const RahuRashi = props => {
             
           };
 
-          console.log(data);
     
           try {
             const chartData = await getBirthChart(data);
@@ -74,10 +73,10 @@ const RahuRashi = props => {
                 const foundIndex = chartData.findIndex(sign => sign.planet_small.includes(targetPlanetSmall));
 
                 if (foundIndex !== -1) {
-                    console.log("Index of array with 'Ra':", foundIndex);
+                    //console.log("Index of array with 'Ra':", foundIndex);
                     setdata(foundIndex);
-                    console.log("Found sign:", chartData[foundIndex].sign_name);
-                    console.log("Associated planet:", chartData[foundIndex].planet.join(", "));
+                   // console.log("Found sign:", chartData[foundIndex].sign_name);
+                   // console.log("Associated planet:", chartData[foundIndex].planet.join(", "));
                 } else {
                     console.log("No sign found with the specified planet_small value.");
                 }

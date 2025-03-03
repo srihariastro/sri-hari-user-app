@@ -56,7 +56,6 @@ const MyFriends = props => {
       },
     })
       .then(res => {
-        console.log(res.data);
         setIsLoading(false);
         setRequestData(res.data.requests);
       })
@@ -81,7 +80,6 @@ const MyFriends = props => {
     })
       .then(res => {
         setIsLoading(false);
-        console.log(res.data);
         setModalVisible(false);
         if (status == 1) {
           add_message(requestItem);

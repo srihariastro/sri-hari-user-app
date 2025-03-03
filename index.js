@@ -40,8 +40,6 @@ Notifee.onBackgroundEvent(async ({ type, detail }) => {
 
   const { notification } = detail;
 
-
-  console.log('dafdfs', notification?.id);
   setTimeout(async () => {
     await Notifee.cancelNotification(notification?.id);
   }, 30000);

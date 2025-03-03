@@ -12,13 +12,10 @@ import { img_url } from '../../config/constants'
 import { colors } from '../../config/Constants1'
 
 const Cart = ({ navigation, dispatch, cartData, addressSelect }) => {
-    console.log(addressSelect, 'data')
 
     useEffect(() => {
         dispatch(EcommerceActions.getCartData())
     }, [dispatch]);
-
-    console.log('Cart data :::>> ', cartData?.cart?.length);
 
     return (
         <View style={{ flex: 1, backgroundColor: Colors.whiteDark }}>
@@ -52,7 +49,6 @@ const Cart = ({ navigation, dispatch, cartData, addressSelect }) => {
     )
 
     function addressdetails() {
-        console.log("addressSelect", addressSelect)
         return (
             <TouchableOpacity
                 onPress={() => navigation.navigate('Address')}>
@@ -92,7 +88,6 @@ const Cart = ({ navigation, dispatch, cartData, addressSelect }) => {
 
     function cartListInfo() {
         const renderItem = ({ item, index }) => {
-            console.log("quantity", item?.quantity)
             return (
                 <View style={styles.itemContainer}>
                     <View style={styles.childContainer}>

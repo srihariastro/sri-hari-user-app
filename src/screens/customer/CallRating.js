@@ -88,7 +88,6 @@ import {
         })
           .then(res => {
             setIsLoading(false);
-            console.log(res.data);
             customer_profile();
            
           })
@@ -98,8 +97,6 @@ import {
           });
       }
     };
-
-    console.log('sdfasf',rating);
   
     const customer_profile = async id => {
       let data = new FormData();
@@ -113,7 +110,6 @@ import {
         data: data,
       })
         .then(res => {
-          console.log('aaa===',res.data);
           props.dispatch(
             CustomerActions.setWallet(res.data.user_details[0]?.wallet),
           );
@@ -135,7 +131,6 @@ import {
   
     const on_rating = rate => {
       setRatingCounts(rate);
-      console.log(rate);
     };
   
     function getPositiveNumber(number) {

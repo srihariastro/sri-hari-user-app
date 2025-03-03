@@ -25,8 +25,6 @@ const SunHouse = ({ navigation, houseReportData }) => {
     });
   }, []);
 
-  console.log(houseReportData?.sunReports?.house_report)
-
   return (
     <View style={{ flex: 1, backgroundColor: colors.black_color1 }}>
       {/* <MyLoader isVisible={isLoading} /> */}

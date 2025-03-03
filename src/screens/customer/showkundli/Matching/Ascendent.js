@@ -33,7 +33,6 @@ const ShowPachang = ({dispatch, MatchAscedentReport, navigation}) => {
           }
         dispatch(KundliActions.getMatchAscedentReport(payload));
     },[]);
-     console.log(MatchAscedentReport?.AscedentReportM)
 
 
     return (

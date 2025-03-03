@@ -103,7 +103,6 @@ const NewKundli = ({customerData, navigation, locationData, dispatch, isLoading 
         lat: locationData?.lat,
         lon: locationData?.lon,
       }
-      console.log(payload,'payload kundli')
       setName('')
       setDob(null)
       setGender('male')

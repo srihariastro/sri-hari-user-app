@@ -32,9 +32,7 @@ const Saptamansha = ({dispatch,Saptamanshachart, Navamanshachart, navigation}) =
   
   const [show,setShow] = useState(2);
   const [value, setValue] = useState('2');
-  console.log("value",value)
-    const [isFocus, setIsFocus] = useState(false);
-    console.log(Saptamanshachart,'chart-data ')
+  const [isFocus, setIsFocus] = useState(false);
 
     useEffect(() => {
      
@@ -45,7 +43,6 @@ const Saptamansha = ({dispatch,Saptamanshachart, Navamanshachart, navigation}) =
     const selected = data.find(item => item.value === value);
     return selected ? selected.label : 'Select item';
   };
-  console.log('dfasdf',Navamanshachart);
 
   return (
     <View style={{flex: 1}}>

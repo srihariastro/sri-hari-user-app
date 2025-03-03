@@ -61,7 +61,6 @@ const AstroLive = props => {
 
 
     useEffect(() => {
-        console.log('heeee');
         get_blogs();
     }, []);
 
@@ -81,13 +80,12 @@ const AstroLive = props => {
             .then(res => {
 
                 setIsLoading(false);
-                console.log(res.data.data);
                 setLivelist(res.data.data);
             })
             .catch(err => {
 
                 setIsLoading(false);
-                console.log('das', err);
+                console.log('Error', err);
             });
     };
 
@@ -109,7 +107,6 @@ const AstroLive = props => {
     }
 
     const renderItems = ({ item, index }) => {
-        console.log('aaa==', item.astro_name);
         <View style={{}}>
             <Text allowFontScaling={false} style={{ color: 'black' }}>asdfa</Text>
         </View>

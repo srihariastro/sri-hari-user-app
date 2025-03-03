@@ -31,7 +31,6 @@ function* getHomeData(actions) {
       url: api_url + get_pooja,
     });
 
-    console.log('222', poojaDataResponse);
     if (poojaDataResponse?.success) {
       yield put({
         type: actionTypes.SET_POOJA_DATA,
@@ -41,7 +40,7 @@ function* getHomeData(actions) {
     yield put({type: actionTypes.SET_IS_LOADING, payload: true});
   } catch (e) {
     yield put({type: actionTypes.SET_IS_LOADING, payload: true});
-    console.log('hii', e);
+    console.log('error', e);
   }
 }
 
@@ -94,7 +93,6 @@ function* getBookPooja(actions) {
   try {
     const {payload} = actions;
     const {BookPujaData, customerData, pujaPrice} = actions.payload;
-    console.log(BookPujaData, 'BookPujaData');
     yield put({type: actionTypes.SET_IS_LOADING, payload: true});
     const bookedResponse = yield postRequest({
       // url: api_url + book_pooja_order_create,
@@ -104,7 +102,7 @@ function* getBookPooja(actions) {
         amount: pujaPrice,
       },
     });
-    console.log('bookedResponse', bookedResponse);
+    
     if (bookedResponse?.success) {
       console.log(
         {
@@ -132,12 +130,11 @@ function* getBookPooja(actions) {
     }
   } catch (e) {
     yield put({type: actionTypes.SET_IS_LOADING, payload: true});
-    console.log('hii', e);
+    console.log('error', e);
   }
 }
 
 function* getBookPoojaHistoryData(actions) {
-  console.log('check the payload::::', actions.payload._id);
 
   try {
     yield put({type: actionTypes.SET_IS_LOADING, payload: true});
@@ -145,7 +142,7 @@ function* getBookPoojaHistoryData(actions) {
       url: api_url + getPujaHistroy,
       data: {customerId: actions.payload._id},
     });
-    console.log('puja histroy:::::', Response);
+ 
     if (Response?.success) {
       yield put({
         type: actionTypes.SET_BOOK_POOJA_HISTORY_DATA,
@@ -156,7 +153,7 @@ function* getBookPoojaHistoryData(actions) {
     }
   } catch (e) {
     yield put({type: actionTypes.SET_IS_LOADING, payload: true});
-    console.log('hii', e);
+    console.log('error', e);
   }
 }
 

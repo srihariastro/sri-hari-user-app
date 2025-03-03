@@ -47,10 +47,6 @@ const DailyRashi = props => {
     });
   }, []);
 
- 
- 
-
-  console.log(props?.route?.params?.horoscope,'adsfasdfasdfe3232323')
 
  
 

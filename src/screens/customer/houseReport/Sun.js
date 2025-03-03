@@ -22,7 +22,6 @@ import {
   const SunHouse = props => {
 
     const {t} = useTranslation();
-    console.log('pppp',props?.route?.params?.data);
 
     
 
@@ -53,7 +52,6 @@ import {
                 lang:t("lang")
             },
           }).then((res)=>{
-            console.log(res.data);
             if(res.data != null)
             {
                 setIsLoading(false);
@@ -63,7 +61,7 @@ import {
             
           }).catch(err=>{
             setIsLoading(false);
-            console.log('aaa',err)
+            console.log('Error',err)
           });
     };
     const cleanedText = pachang?.house_report?.replace(/<\/?p>/g, '');

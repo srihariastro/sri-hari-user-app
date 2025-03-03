@@ -52,7 +52,6 @@ const AstrologerDetailes = ({
     seeMore: false,
     seeMore1: false
   });
-  console.log(astroData, 'IMage')
 
   useEffect(() => {
     navigation.setOptions({
@@ -84,7 +83,6 @@ const AstrologerDetailes = ({
   }
 
   const { seeMore, seeMore1 } = state
-  console.log(seeMore1, 'muskan')
   return (
     <View style={{ flex: 1, backgroundColor: Colors.grayLight }}>
       <MyLoader isVisible={isLoading} />
@@ -424,7 +422,6 @@ const AstrologerDetailes = ({
   }
 
   function aboutInfo() {
-    console.log(astroData?.long_bio, 'longbio')
     return (
       <View style={{ backgroundColor: Colors.white, }}>
         <View style={{ padding: Sizes.fixPadding * 0.4, backgroundColor: Colors.grayLight, marginTop: Sizes.fixPadding * 1.5 }}>

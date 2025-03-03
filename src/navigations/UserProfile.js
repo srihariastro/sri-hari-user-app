@@ -9,7 +9,6 @@ import {colors, fonts} from '../config/Constants1';
 const Tab = createMaterialTopTabNavigator();
 
 const UserProfile = props => {
-  console.log(props.profileData)
   return (
     <Tab.Navigator
       screenOptions={{

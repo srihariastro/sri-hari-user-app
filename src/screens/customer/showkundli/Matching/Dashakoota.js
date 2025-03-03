@@ -32,7 +32,6 @@ import MyHeader from '../../../../components/MyHeader';
       dispatch(KundliActions.getDaskootapoint());
   },[]);
   
-  console.log(DashKootReport,'sdf')
     const { t } = useTranslation();
 
     

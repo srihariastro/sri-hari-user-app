@@ -27,10 +27,7 @@ import {
     
     const [isLoading, setIsLoading] = useState(false);
     const [remediesData, setRemediesData] = useState(null);
-
-    console.log('ddd',props.route.params.data1);
-  
- 
+   
     
     useEffect(() => {
       props.navigation.setOptions({
@@ -68,7 +65,6 @@ import {
       })
         .then(res => {
           setIsLoading(false);
-          console.log(res.data);
           if (res.data.status) {
             setRemediesData(res.data.blogs);
           }
@@ -80,7 +76,7 @@ import {
     };
   
     const handle = (data) => {
-      console.log(data);
+      //console.log(data);
     }
   
     

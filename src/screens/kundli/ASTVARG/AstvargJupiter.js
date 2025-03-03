@@ -17,13 +17,6 @@ const AstvargSaturn = ({AshtakvargaReport}) => {
   const [select,setSelect] = useState(1);
 
   const [chartData, setChartData] = useState(null);
-
-  
-
-  console.log(AshtakvargaReport?.jupiterchart,'asdfkjsd')
-
-
-  
   
 
 

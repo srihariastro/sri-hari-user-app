@@ -19,8 +19,6 @@ import MyHeader from '../../components/MyHeader';
 import * as KundliActions from '../../redux/actions/KundliActions'
 
 const KundliBirthDetailes = ({ navigation, basicDetails, birthDetailsData, dispatch }) => {
-  console.log("birthDetailsData,",birthDetailsData)
-  console.log("basicDetails,",basicDetails)
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,8 +29,6 @@ const KundliBirthDetailes = ({ navigation, basicDetails, birthDetailsData, dispa
     }
     dispatch(KundliActions.getKundliBirthDetails(payload))
   }, [dispatch])
-  console.log(birthDetailsData,'birthd')
-
 
 
   return (

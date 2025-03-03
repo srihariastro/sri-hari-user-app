@@ -18,7 +18,6 @@ import {
   const {width, height} = Dimensions.get('screen');
   import RenderHTML from 'react-native-render-html';
   const MarsHouse = props => {
-    console.log('pppp',props?.route?.params?.data);
     const {t} = useTranslation();
     
 
@@ -49,7 +48,6 @@ import {
                 lang:t("lang")
             },
           }).then((res)=>{
-            console.log(res.data);
             if(res.data != null)
             {
                 setIsLoading(false);
@@ -59,7 +57,7 @@ import {
             
           }).catch(err=>{
             setIsLoading(false);
-            console.log('aaa',err)
+            console.log('Error',err)
           });
     };
     const cleanedText = pachang?.house_report?.replace(/<\/?p>/g, '');

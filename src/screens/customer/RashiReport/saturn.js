@@ -18,9 +18,6 @@ import {
   const {width, height} = Dimensions.get('screen');
   
   const SaturnRashi = props => {
-    console.log('pppp',props?.route?.params?.data);
-
-    
 
     const [isLoading, setIsLoading] = useState(false);
     const [pachang, setPachang] = useState(null);
@@ -48,7 +45,6 @@ import {
                 sub:'saturn'
             },
           }).then((res)=>{
-            console.log(res.data);
             if(res.data != null)
             {
                 setIsLoading(false);
@@ -58,7 +54,7 @@ import {
             
           }).catch(err=>{
             setIsLoading(false);
-            console.log('aaa',err)
+            console.log('Error',err)
           });
     };
   

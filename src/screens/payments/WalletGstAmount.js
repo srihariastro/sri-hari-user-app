@@ -57,7 +57,6 @@ const WalletGstAmount = ({ route, navigation, dispatch,customerData}) => {
       dispatch: dispatch
       
     }
-    console.log(payload,'pay')
     dispatch(UserActions.onWalletRecharge(payload))
   };
 

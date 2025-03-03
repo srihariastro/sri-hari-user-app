@@ -29,7 +29,6 @@ const AstroCallList = props => {
     });
   }, []);
 
-  console.log('asf=====================');
 
   const [refreshing, setRefreshing] = useState(false);
 
@@ -51,7 +50,7 @@ const AstroCallList = props => {
   };
 
   const language = (item) => {
-    console.log(item);
+  
     const languageString = item;
     const languagesArray = languageString?.split(',');
   
@@ -70,7 +69,6 @@ const AstroCallList = props => {
       return lang;
     } else {
       // Handle the case where languagesArray is not as expected
-      console.log("Unable to extract languages from the array.");
       return '--'; // or any other appropriate value
     }
   }

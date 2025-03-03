@@ -11,7 +11,7 @@ import MyHeader from '../../components/MyHeader';
 
 const Webpage = (props) => {
     const { url,name } = props?.route?.params || {};
-    console.log('url',url);
+    //console.log('url',url);
 
     useEffect(() => {
         props.navigation.setOptions({
@@ -45,7 +45,7 @@ const Webpage = (props) => {
 
     const handleMessage = (event) => {
         const message = event.nativeEvent.data;
-        console.log(message);
+       // console.log(message);
 
         // Check the message from the WebView
         // if (message === 'goBack') {

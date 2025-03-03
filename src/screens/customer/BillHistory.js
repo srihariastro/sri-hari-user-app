@@ -52,7 +52,6 @@ const BillHistory = props => {
     })
       .then(res => {
         setIsLoading(false);
-        console.log(res.data);
         if (res.data.status == 1) {
           setHistoryData(res.data.records);
         }

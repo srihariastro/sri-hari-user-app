@@ -52,7 +52,6 @@ const RecommendedProfile = props => {
   const [aboutModalVisible, setAboutModalVisible] = useState(false);
   const [isRaining, setIsRaining] = useState(false);
   const [selfAndUserData, setSelfAndUserData] = useState(null);
-  console.log(profileData)
   useEffect(() => {
     props.navigation.setOptions({
       header: () => (
@@ -173,7 +172,6 @@ const RecommendedProfile = props => {
       },
     })
       .then(res => {
-        console.log(res.data);
         setIsLoading(false);
         if (res.data.status) {
           setSelfAndUserData(res.data);
@@ -229,7 +227,6 @@ const RecommendedProfile = props => {
       })
         .then(res => {
           setIsLoading(false);
-          console.log(res.data);
           success_toast('Request send...')
           get_profile_detailes();
         })

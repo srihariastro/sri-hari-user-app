@@ -52,7 +52,6 @@ const NewMatching = ({customerData, navigation, route, dispatch, locationData, s
     }
   }, [])
 
-  console.log(customerData?.address?.latitude,'cdata')
 
   const validation = () => {
     const nameRegex = /^[A-Za-z]+( [A-Za-z]+)*$/;
@@ -134,7 +133,6 @@ const NewMatching = ({customerData, navigation, route, dispatch, locationData, s
         // lat: customerData?.address?.latitude,
         // lon: customerData?.address?.longitude
       };
-      console.log(maleKundliData?.lat,'this data')
       const matchingPayload = {
         m_day: parseInt(moment(maleDate).format('D')),
         m_month: parseInt(moment(maleDate).format('M')),
@@ -153,7 +151,6 @@ const NewMatching = ({customerData, navigation, route, dispatch, locationData, s
         f_lon: femaleKundliData?.lon,
         f_tzone: 5.5,
       }
-      console.log("data-------",femaleKundliData)
       dispatch(KundliActions.setFemaleKundliData(femaleKundliData))
       dispatch(KundliActions.setMaleKundliData(maleKundliData))
       dispatch(KundliActions.getKundliMatchingReport(matchingPayload))
@@ -190,9 +187,7 @@ const NewMatching = ({customerData, navigation, route, dispatch, locationData, s
   };
 
   const handleTextChange = (text) => {
-    console.log("Original text:", text);
     const filteredText = text.replace(/[^a-zA-Z0-9 ]/g, '');
-    console.log("Filtered text:", filteredText);
     setFemaleName(filteredText);
   };
 

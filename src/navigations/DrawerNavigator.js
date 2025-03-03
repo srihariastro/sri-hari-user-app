@@ -43,7 +43,6 @@ import {Colors} from '../assets/style';
 import * as HomeActions from '../redux/actions/HomeActions';
 
 function CustomDrawerContent(props) {
-  console.log('props', props);
   const {t} = useTranslation();
   const navigation = useNavigation();
   const logout = () => {
@@ -104,7 +103,6 @@ function CustomDrawerContent(props) {
 
     try {
       const res = await Share.open(options);
-      console.log(res);
     } catch (err) {
       console.log(err);
     }
@@ -128,7 +126,6 @@ function CustomDrawerContent(props) {
   };
 
   let Imguri = `${img_url}${props.props?.customerData?.image}`;
-  console.log(Imguri, 'image');
   const pic = `${img_url}${props.props?.customerData?.image}`.split('/')[5];
   if (pic === 'user_default.jpg') {
     Imguri = null;

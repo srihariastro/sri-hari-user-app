@@ -36,7 +36,6 @@ const MyLikes = props => {
       },
     })
       .then(res => {
-        console.log(res.data);
         setIsLoading(false);
         setLikesData(res.data.users);
       })

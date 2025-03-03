@@ -59,7 +59,6 @@ function* getAstrologerData(actions) {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
   } catch (e) {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
-    console.log('hii', e);
   }
 }
 
@@ -82,7 +81,6 @@ function* getLiveAstroListData(actions) {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
   } catch (e) {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
-    console.log('hii', e);
   }
 }
 
@@ -105,7 +103,6 @@ function* getRecentLiveStreamings(actions) {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
   } catch (e) {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
-    console.log('hii', e);
   }
 }
 
@@ -128,7 +125,6 @@ function* onRefreshLiveAstrologer(actions) {
     yield put({ type: actionTypes.SET_IS_REFRESHING, payload: false });
   } catch (e) {
     yield put({ type: actionTypes.SET_IS_REFRESHING, payload: false });
-    console.log('hii', e);
   }
 }
 
@@ -155,7 +151,6 @@ function* getCallAstroListData(actions) {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
   } catch (e) {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
-    console.log('hii', e);
   }
 }
 
@@ -184,7 +179,6 @@ function* getMoreCallAstroListData(actions) {
     yield put({ type: actionTypes.SET_IS_MORE_LOADING, payload: false });
   } catch (e) {
     yield put({ type: actionTypes.SET_IS_MORE_LOADING, payload: false });
-    console.log('hii', e);
   }
 }
 
@@ -213,7 +207,6 @@ function* getMoreChatAstroListData(actions) {
     yield put({ type: actionTypes.SET_IS_MORE_LOADING, payload: false });
   } catch (e) {
     yield put({ type: actionTypes.SET_IS_MORE_LOADING, payload: false });
-    console.log('hii', e);
   }
 }
 
@@ -240,7 +233,6 @@ function* getChatAstroListData(actions) {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
   } catch (e) {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
-    console.log('hii', e);
   }
 }
 
@@ -266,7 +258,6 @@ function* onRefreshCallAstrologer(actions) {
     yield put({ type: actionTypes.SET_IS_REFRESHING, payload: false });
   } catch (e) {
     yield put({ type: actionTypes.SET_IS_REFRESHING, payload: false });
-    console.log('hii', e);
   }
 }
 
@@ -291,7 +282,6 @@ function* onRefreshChatAstrologer(actions) {
     yield put({ type: actionTypes.SET_IS_REFRESHING, payload: false });
   } catch (e) {
     yield put({ type: actionTypes.SET_IS_REFRESHING, payload: false });
-    console.log('hii', e);
   }
 }
 
@@ -299,14 +289,12 @@ function* onCallToAstrologer(actions) {
   try {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: true });
     const { payload } = actions;
-    console.log(payload)
     const response = yield postRequest({
       url: api_url + initiate_call_with_exotel,
       header: 'json',
       data: payload,
     })
 
-    console.log(response)
     if (response?.success) {
       resetToScreen('home')
       showToastMessage({ message: 'Call Initiated' })
@@ -325,7 +313,7 @@ function* onCallToAstrologer(actions) {
 function* onVideoCallToAstrologer(actions) {
   try {
     const { customerId, astrologerId, formId, astrologerName, navigation,chatPrice} = actions.payload
-    console.log(customerId,astrologerId,chatPrice,'call id generator part')
+    //console.log(customerId,astrologerId,chatPrice,'call id generator part')
     const newInvitees = [{ userID: astrologerId, userName:astrologerName }]
 
     const data  = {
@@ -337,7 +325,6 @@ function* onVideoCallToAstrologer(actions) {
 
     //generator Call id
     const response = yield axios.post(api_url + generator_call_id,data);
-    console.log('Response Call ID ::::',response.data);
     if(response.data.success) {
       yield makeZegoCall({ isVideo: true, navigation, newInvitees, data: response.data.data })
     } else {
@@ -346,17 +333,14 @@ function* onVideoCallToAstrologer(actions) {
 
     
   } catch (e) {
-    console.log(e,'video error')
     yield put({ type: actionTypes.SET_IS_LOADING, payload: true });
   }
 }
 
 function* onAstrolgoerRating(actions) {
-  console.log('1')
   try {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
     const { payload } = actions
-    console.log(payload,'astropayload')
     const customerData = yield select(state => state.customer.customerData)
     const response = yield postRequest({
       url: api_url + add_review,
@@ -365,10 +349,8 @@ function* onAstrolgoerRating(actions) {
         customerId: customerData?._id
       }
     })
-    console.log('2')
     if (response?.success) {
       yield put({ type: actionTypes.SET_ASTRO_RATING_VISIBLE, payload: { data: null, ratingVisible: false } })
-      console.log('3')
       showToastMessage({message: 'Rating submit successfully'})
     }
 
@@ -377,7 +359,6 @@ function* onAstrolgoerRating(actions) {
   } catch (e) {
     console.log(e)
     yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
-    console.log('er4')
   }
 }
 
@@ -439,7 +420,6 @@ function* getVideoCallAstroListData(actions) {
         search: payload
       }
     });
-    console.log(response,'alldata')
     if (response?.success) {
       yield put({
         type: actionTypes.SET_VIDEO_CALL_ASTROLOGERS,
@@ -450,7 +430,7 @@ function* getVideoCallAstroListData(actions) {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
   } catch (e) {
     yield put({ type: actionTypes.SET_IS_LOADING, payload: false });
-    console.log('hii', e);
+    console.log('error', e);
   }
 }
 

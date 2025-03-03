@@ -24,9 +24,6 @@ const Tab = createMaterialTopTabNavigator();
 
 const ShowHoroscope = props => {
   const {t} = useTranslation();
-  
- 
-  console.log(props?.route?.params?.data,'asdfasdf111')
 
   useEffect(() => {
     props.navigation.setOptions({

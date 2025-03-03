@@ -29,7 +29,6 @@ const PoojaDetails2 = ({ navigation, route, dispatch, customerData }) => {
     const [open, setOpen] = useState(false)
     const [date, setDate] = useState(new Date())
     const [time, setTime] = useState()
-    console.log(time,"priyanshu time")
     const [checked, setChecked] = useState('first');
     const [timeopen, setTimeopen] = useState(false)
     const [showtime, setShowtime] = useState({ HH: "01", MM: "10", SEC: "12" })
@@ -87,7 +86,6 @@ const PoojaDetails2 = ({ navigation, route, dispatch, customerData }) => {
 
    const pujaPrice = Pooja?.price
     function bookPujaHandle() {
-        console.log(BookPujaData,">>HHH")
           dispatch(PoojaActions.getBookPooja({ BookPujaData, customerData,dispatch ,pujaPrice}));
         // dispatch(PoojaActions.openModal({ BookPujaData, customerData }))
     }
@@ -120,7 +118,6 @@ const PoojaDetails2 = ({ navigation, route, dispatch, customerData }) => {
     function Banner() {
         let DATA = [];
         DATA.push(Pooja)
-        console.log("qqqqq", DATA)
         return (
             <View style={{ marginTop: "4%", paddingHorizontal: 3, flex: 0.38 }}>
                 <Carousel
@@ -237,7 +234,6 @@ const PoojaDetails2 = ({ navigation, route, dispatch, customerData }) => {
 
 
         function datepick() {
-            console.log("date.......")
             return <DatePicker
                 modal
                 open={open}
@@ -260,7 +256,6 @@ const PoojaDetails2 = ({ navigation, route, dispatch, customerData }) => {
             const currentDate = date || new Date();
         
             const isoString = currentDate.toISOString(); // Converts to ISO 8601 format
-          console.log("ISO String: ", isoString);
         
             return (
                 <DatePicker
@@ -275,7 +270,7 @@ const PoojaDetails2 = ({ navigation, route, dispatch, customerData }) => {
                             SEC: time.getSeconds()
                         });
                         setTime(time.toISOString())
-                        console.log("Selected time (ISO):", time.toISOString()); // Log the selected time in ISO format
+                        //console.log("Selected time (ISO):", time.toISOString()); // Log the selected time in ISO format
                         setTimeopen(false);
                         setBookPujaData({
                             ...BookPujaData,
@@ -342,9 +337,6 @@ const PoojaDetails2 = ({ navigation, route, dispatch, customerData }) => {
                    onPress={() => {
                     const currentTime = new Date();
                     const selectedTime = new Date(time);
-                
-                    console.log(currentTime, "currentTime");
-                    console.log(selectedTime, "selectedTime");
                 
                     // Check if selectedTime is a valid date
                     if (isNaN(selectedTime.getTime())) {

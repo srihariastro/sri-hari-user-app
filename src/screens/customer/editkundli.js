@@ -37,8 +37,7 @@ const genderData = [
 
 const EditKundli = props => {
   const time = props.route.params.data1.dob + ' ' + props.route.params.data1.tob;
-  console.log(time)
-  
+
   // Convert to Indian Standard Time (IST)
   const istTime = time;
   // Format the IST time as a string
@@ -63,7 +62,6 @@ const EditKundli = props => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    console.log('dd');
     props.navigation.setOptions({
       header: () => (
         <MyHeader
@@ -119,7 +117,6 @@ const EditKundli = props => {
   };
 
   const create_kundli = async () => {
-    console.log(name);
     if (validation()) {
       setIsLoading(true);
       await axios({
@@ -140,7 +137,6 @@ const EditKundli = props => {
         },
       })
         .then(res => {
-          console.log('ssss', res.data);
           setIsLoading(false)
           Alert.alert('kundali Updated successfully.')
           props.navigation.goBack()
@@ -153,12 +149,12 @@ const EditKundli = props => {
   };
 
   var d = new Date(tob);
-  console.log(d.getUTCHours()); // Hours
-  console.log(d.getUTCMinutes());
-  console.log(d.getUTCSeconds());
+  //console.log(d.getUTCHours()); // Hours
+  //console.log(d.getUTCMinutes());
+  //console.log(d.getUTCSeconds());
 
   const formattedTime = tob ? d.getUTCHours() + ':' + d.getUTCMinutes() : 'Date and Time';
-  console.log('tob:  ', tob, 'formattedTime', formattedTime);
+  //console.log('tob:  ', tob, 'formattedTime', formattedTime);
 
 
   return (

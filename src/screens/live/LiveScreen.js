@@ -51,7 +51,6 @@ export class LiveScreen extends Component {
     } else if (this.props.layout == 'VEDIO_CALL') {
       this.startCall();
     } else if (this.props.layout == 'CO_HOSTING') {
-      console.log('hii124');
       this.startCoHosting()
     }
   }
@@ -59,7 +58,6 @@ export class LiveScreen extends Component {
   componentWillUnmount() {
     this.props.dispatch(LiveActions.resetLiveState());
     if (ZegoExpressEngine?.instance()) {
-      console.log('[LZP] destroyEngine');
       ZegoExpressEngine?.destroyEngine();
     }
     if (this.appStateListener) {
@@ -72,10 +70,10 @@ export class LiveScreen extends Component {
     const { appState } = this.state;
 
     if (appState === 'active' && nextAppState.match(/inactive|background/)) {
-      console.log('App has gone to the background!');
+      //console.log('App has gone to the background!');
       dispatch(LiveActions.onAppStateChangeInLive(true));
     } else if (appState.match(/inactive|background/) && nextAppState === 'active') {
-      console.log('App has come to the foreground!');
+     // console.log('App has come to the foreground!');
       dispatch(LiveActions.onAppStateChangeInLive(false));
     }
     this.setState({ appState: nextAppState });

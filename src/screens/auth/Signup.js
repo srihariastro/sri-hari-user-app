@@ -327,7 +327,6 @@ const Signup = ({ customerData, dispatch, navigation, locationData, route }) => 
                 data: 'India',
             }
         ];
-        console.log("12--------",data)
 
         if (profileImage) {
             data.push({
@@ -348,7 +347,6 @@ const Signup = ({ customerData, dispatch, navigation, locationData, route }) => 
 };
 
 const validation1 = () => {
-  console.log(profileImage,'aa')
   if (!profileImage) {
       warnign_toast('Please Upload Your Profile Photo')
   } else {

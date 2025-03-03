@@ -67,7 +67,6 @@ function* createLiveProfile(actions) {
     };
     const response = yield ZegoExpressEngine.createEngineWithProfile(profile);
     response.getVersion().then(ver => {
-      console.log('Express SDK Version: ' + ver);
       // yield put({type: actionTypes.SET_LIVE_ID, payload: payload?.liveId})
       navigate('liveScreen', { data: payload });
     });
@@ -277,7 +276,7 @@ function* addLiveListeners(actions) {
 
     yield put({ type: actionTypes.SET_IS_LIVE_START, payload: true });
   } catch (e) {
-    console.log('sdfnjsdfksdfksd', e);
+    console.log('error', e);
   }
 }
 

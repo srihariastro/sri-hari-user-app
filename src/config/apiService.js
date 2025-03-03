@@ -24,7 +24,7 @@ api.interceptors.request.use((config) => {
 
 export const getChart = async (chartId, data,header) => {
     const url = `${API_ENDPOINT}/${chartId}`;
-    console.log('Request URL:', baseURL + url);
+    //console.log('Request URL:', baseURL + url);
   
     try {
       const response = await api.post(url, data,header);
@@ -38,7 +38,7 @@ export const getChart = async (chartId, data,header) => {
 
   export const getAscentReport = async (data,header) => {
     const url = `${general_ascendant_report}`;
-    console.log('Request URL:', baseURL + url);
+    //console.log('Request URL:', baseURL + url);
   
     try {
       const response = await api.post(url, data,header);
@@ -52,7 +52,7 @@ export const getChart = async (chartId, data,header) => {
 
   export const getBasicPanchang = async (data,header) => {
     const url = `${basic_panchang}`;
-    console.log('Request URL:', baseURL + url);
+    //console.log('Request URL:', baseURL + url);
   
     try {
       const response = await api.post(url, data,header);
@@ -66,7 +66,7 @@ export const getChart = async (chartId, data,header) => {
 
   export const getKpHoroscope = async (data,header) => {
     const url = `${horoscope}`;
-    console.log('Request URL:', baseURL + url);
+    //console.log('Request URL:', baseURL + url);
   
     try {
       const response = await api.post(url, data,header);
@@ -80,7 +80,7 @@ export const getChart = async (chartId, data,header) => {
 
   export const getPlanets = async (data,header) => {
     const url = `${planets}`;
-    console.log('Request URL:', baseURL + url);
+    //console.log('Request URL:', baseURL + url);
   
     try {
       const response = await api.post(url, data,header);
@@ -94,7 +94,7 @@ export const getChart = async (chartId, data,header) => {
 
   export const getBirthChart = async (data) => {
     const url = `${Birth_horo_chart}`;
-    console.log('Request URL:', baseURL + url);
+    //console.log('Request URL:', baseURL + url);
   
     try {
       const response = await api.post(url, data,{
@@ -113,7 +113,6 @@ export const getChart = async (chartId, data,header) => {
 
   export const horoscopename = async (data,name) => {
     const url = `${sun_sign_prediction}/daily/${name}`;
-console.log('adsf',url,data)
     try {
       const response = await api.post(baseURL + url, data,{
         headers: {
@@ -131,7 +130,6 @@ console.log('adsf',url,data)
 
   export const horoscopenamemonthly = async (data,name) => {
     const url = `${horoscope_prediction}/monthly/${name}`;
-console.log('adsf',url,data)
     try {
       const response = await api.post(baseURL + url, data,{
         headers: {

@@ -864,7 +864,6 @@ const AstroDateRegister = props => {
     if (image_validation()) {
       for (let i = 0; i < 5; i++) {
         if (imageData[i].base64 != null) {
-          console.log('sfdfs');
           setIsLoading(true);
           await RNFetchBlob.fetch(
             'POST',

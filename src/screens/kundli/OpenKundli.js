@@ -31,7 +31,6 @@ const OpenKundli = ({ navigation, dispatch, kundliListData, masterKundliListData
   const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState(search);
   const [refreshing, setRefreshing] = useState(false);
-console.log("kundliListData",kundliListData)
   useEffect(() => {
     navigation.setOptions({
       tabBarLabel: t("previous_kundli"),
@@ -41,7 +40,6 @@ console.log("kundliListData",kundliListData)
   const onRefresh = () => {
     setRefreshing(true);
     setIsLoading(true)
-    console.log("refreshingggg")
     setTimeout(() => {
       setRefreshing(false);
     }, 1000); 

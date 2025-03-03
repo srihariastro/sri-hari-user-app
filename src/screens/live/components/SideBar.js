@@ -8,8 +8,7 @@ import { showNumber, showToastMessage } from '../../../utils/services';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const SideBar = ({ dispatch, liveData, coHostData, customerData, isMute }) => {
-  console.log(customerData?.wallet_balance,'wallet')
-  console.log(liveData?.vedioCallPrice,'data')
+  
   const handledata = () => {
     if (customerData?.wallet_balance < liveData?.vedioCallPrice * 5) {
       showToastMessage({ message: 'Insufficient Balance' });

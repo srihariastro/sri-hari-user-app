@@ -33,9 +33,6 @@ const NumerologyForU = props => {
 
   const data1 = props.route.params.data;
 
-  console.log('res==', data1);
-  console.log('res==', data1);
-
   //   const ProductCard = ({data1.getNumeroTable, index}) => {
   //     return (
   //       <View>

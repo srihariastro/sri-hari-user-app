@@ -12,7 +12,6 @@ import { img_url } from '../../config/constants';
 const { width, height } = Dimensions.get('screen');
 
 const Notifications = props => {
-  console.log("first::::>", props.notificationData);
 
   useEffect(() => {
     props.dispatch(HomeActions.getNotificationData())

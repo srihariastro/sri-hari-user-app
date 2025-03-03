@@ -56,7 +56,6 @@ const NotificationDetailes = props => {
     })
       .then(res => {
         setIsLoading(false);
-        console.log(res.data);
         get_my_notifications();
       })
       .catch(err => {

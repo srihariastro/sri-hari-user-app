@@ -130,7 +130,6 @@ const CallIntakeForm = props => {
   }, [countdownFinished, props.navigation]);
 
   const check_status = async () => {
-    console.log(birthPlace);
     if (validation()) {
     setIsLoading(true);
     await axios({
@@ -142,7 +141,7 @@ const CallIntakeForm = props => {
     })
       .then(res => {
         setIsLoading(false);
-        console.log(res.data.online);
+       
         if (res.data.online) {
           setModalVisible(true);
         }
@@ -169,7 +168,7 @@ const CallIntakeForm = props => {
  
 
   const on_submit = async () => {
-    console.log('dfas');
+    
     let data = {
       user_id: props.customerData.id,
       customer_name: name,
@@ -180,7 +179,7 @@ const CallIntakeForm = props => {
       longitude: latLong?.lon,
       place: birthPlace,
     };
-    console.log(data);
+    
      await axios({
       method:'post',
       url: api_url + create_kundali_call,
@@ -199,7 +198,7 @@ const CallIntakeForm = props => {
       },
     }).then(res => {
       setIsLoading(false);
-      console.log('asdfsa--',res.data);
+      
       setKundliId(res.data.kundli_id);
       details(res.data.kundli_id);
     })
@@ -244,7 +243,6 @@ const CallIntakeForm = props => {
         },
     })
     .then(res =>{
-      console.log(res.data);
       invoice_id(id);
     })
     .catch(err => {
@@ -270,7 +268,6 @@ const CallIntakeForm = props => {
       },
     })
     .then(res => {
-      console.log('tttddd',res.data);
       setModalVisible(false);
       if(res.data.status == 0)
       {
@@ -295,7 +292,6 @@ const CallIntakeForm = props => {
     .catch(err => {
       console.log(err);
     })
-    console.log('test1');
     props.dispatch(UserActions.setCallInvoiceId(invoiceid));
     
   } 
@@ -310,7 +306,6 @@ const CallIntakeForm = props => {
         },
       }).then(res => {
         setIsLoading(false);
-        console.log(res.data);
         props.navigation.navigate('callInvoice', {
           
         });
@@ -360,7 +355,7 @@ const CallIntakeForm = props => {
   };
 
   const get_kundali = async () => {
-    console.log('test1');
+    
     setIsLoading(true);
       await axios({
         method: 'post',
@@ -380,7 +375,6 @@ const CallIntakeForm = props => {
         },
       })
         .then(res => {
-          console.log(res.data);
           setIsLoading(false)
           setKundliId(res.data.kundli_id);
         })
@@ -426,7 +420,6 @@ const CallIntakeForm = props => {
     })
       .then(res => {
         setIsLoading(false);
-        console.log(res.data);
         props.dispatch(UserActions.setCallInvoiceId(res.data));
       })
       .catch(err => {

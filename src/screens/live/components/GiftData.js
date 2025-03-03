@@ -10,7 +10,6 @@ import { base_url } from '../../../config/constants';
 import { replace } from '../../../navigations/NavigationServices';
 
 const GiftData = ({ dispatch, giftDataVisible, customerData, giftData }) => {
-  console.log(giftDataVisible)
   const [selectedGift, setSelectedGift] = useState(null);
   const [isLowBalance, setIsLowBalance] = useState(false);
 

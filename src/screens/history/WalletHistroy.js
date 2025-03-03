@@ -14,7 +14,6 @@ const WalletHistroy = ({ dispatch, navigation, walletHistory }) => {
     useEffect(() => {
         dispatch(HistoryActions.getWalletHistory())
     }, [])
-    console.log("paym", walletHistory)
     if (walletHistory === null || walletHistory === 0) {
         walletHistory = 0;
     }

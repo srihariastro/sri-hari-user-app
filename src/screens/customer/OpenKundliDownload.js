@@ -66,7 +66,6 @@ const OpenKundliDownload = props => {
       },
     })
       .then(res => {
-        console.log(res.data);
         setKundliList(res.data.kudali);
         setMasterDataSource(res.data.kudali);
         setIsLoading(false);
@@ -77,7 +76,6 @@ const OpenKundliDownload = props => {
   };
 
   const handel_delete = (id) => {
-    console.log(id);
     setIsLoading(true);
      axios({
       method: 'post',
@@ -90,7 +88,6 @@ const OpenKundliDownload = props => {
       },
     })
       .then(res => {
-        console.log(res.data);
         setIsLoading(false);
         handleRefresh();
        

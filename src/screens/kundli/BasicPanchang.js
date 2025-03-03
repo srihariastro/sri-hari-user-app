@@ -19,7 +19,6 @@ import {
   import * as KundliActions from '../../redux/actions/KundliActions'
   
   const BasicPanchang = ({ navigation, basicDetails, birthDetailsData, dispatch,Panchang }) => {
-    console.log(birthDetailsData)
     const { t } = useTranslation();
     const [isLoading, setIsLoading] = useState(false);
   
@@ -30,8 +29,6 @@ import {
       dispatch(KundliActions.getbasicpanchange(payload))
     }, [dispatch])
 
-    console.log(Panchang?.Panchang,'ujhdfjhdfjhdfjh')
-  
   
     return (
       <View style={{ flex: 1, backgroundColor: colors.black_color1 }}>

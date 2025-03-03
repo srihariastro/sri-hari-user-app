@@ -22,7 +22,7 @@ const AskQuestion = (props) => {
             method: 'get',
             url: api_url + get_question,
         }).then(res => {
-            console.log(res.data.data);
+            //console.log(res.data.data);
             setRemediesData(res.data.data)
             setIsLoading(false);
         }).catch(err => {

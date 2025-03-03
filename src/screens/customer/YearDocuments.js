@@ -55,7 +55,6 @@ const YearDoucments = ({ route, navigation, dispatch, companionData, isLoading }
     };
 
     const banner_redirect = (item) => {
-        console.log('asdfas', item)
         if (item?.youtube != null) {
             Linking.openURL(item.youtube);
         }

@@ -81,7 +81,6 @@ import {
         },
       })
         .then(res => {
-          console.log(res.data);
           setKundliList(res.data.kudali);
           setMasterDataSource(res.data.kudali);
           setIsLoading(false);
@@ -92,7 +91,6 @@ import {
     };
   
     const handel_delete = (id) => {
-      console.log(id);
       setIsLoading(true);
        axios({
         method: 'post',
@@ -105,7 +103,6 @@ import {
         },
       })
         .then(res => {
-          console.log(res.data);
           setIsLoading(false);
           handleRefresh();
          
@@ -147,8 +144,6 @@ import {
         </View>
       );
     };
-  
-    console.log('dafs',props.route.params.male);
   
     return (
       <View style={{flex: 1, backgroundColor: colors.black_color1}}>

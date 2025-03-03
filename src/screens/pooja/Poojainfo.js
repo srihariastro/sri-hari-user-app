@@ -13,7 +13,6 @@ import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../config/Screen'
 
 const PoojaDetails = ({ navigation, route, dispatch }) => {
     const poojaData = route?.params
-    console.log(poojaData)
     return (
         <View style={{ flex: 1, backgroundColor: Colors.white }}>
             <MyStatusBar backgroundColor={colors.background_theme2} barStyle={'light-content'} />

@@ -12,7 +12,6 @@ import { showNumber } from '../../utils/services';
 const Productfull = ({ navigation, route }) => {
     const orderData = route.params; // Expecting an array of orders
     const order = orderData; // Assuming you want to display the first order
-    console.log(order,'oo')
 
     const formatTime = (isoDate) => {
         const date = new Date(isoDate);
@@ -58,7 +57,6 @@ const Productfull = ({ navigation, route }) => {
         <View style={styles.card}>
             <Text style={styles.statusText}>Products</Text>
             {order?.products?.map((product, index) => {
-                console.log(product,'pm')
                 return(
                 <View key={index} style={styles.row}>
                     <View>

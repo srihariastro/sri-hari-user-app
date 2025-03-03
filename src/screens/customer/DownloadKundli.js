@@ -62,7 +62,6 @@ const DownloadKundli = props => {
               .fetch('GET', api)
               .then((res) => {
                 setIsLoading(false);
-                console.log('The file saved to ', res.path());
               })
               .catch((e) => {
                 console.log(e);
@@ -99,7 +98,6 @@ const DownloadKundli = props => {
           .fetch('GET', api)
           .then((res) => {
               setIsLoading(false);
-              console.log('The file saved to', res.path());
             
           })
           .catch((e) => {

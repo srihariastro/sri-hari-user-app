@@ -11,11 +11,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import { colors } from '../../../config/Constants1'
 
 const VideocallInvoice = ({ dispatch, videocallInvoiceVisble, videoinvoiceData }) => {
-    console.log("check video",videocallInvoiceVisble)
-    console.log("call-inv2",videoinvoiceData)
+   
     const data = videoinvoiceData ;
 
-    console.log()
     const onDismise = () => {
         const payload = {
             data: data,
@@ -26,7 +24,6 @@ const VideocallInvoice = ({ dispatch, videocallInvoiceVisble, videoinvoiceData }
         dispatch(ChatActions.setvideoInvoiceData(null))
     }
     const videoprice = parseInt(data?.chatPrice) + parseInt(data?.commissionPrice);
-    console.log(videoprice,'videoprice')
     return (
         <Modal visible={videocallInvoiceVisble} onDismiss={() => onDismise()}>
             <View style={styles.container}>

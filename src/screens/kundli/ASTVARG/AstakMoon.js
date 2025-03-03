@@ -16,15 +16,7 @@ const AstakMoon = ({AshtakvargaReport}) => {
   const [Data, setData] = useState(null);
   const [select,setSelect] = useState(1);
 
-  const [chartData, setChartData] = useState(null);
-
-  
-
-  console.log(AshtakvargaReport?.moonchart,'asdfkjsd')
-
-
-  
-  
+  const [chartData, setChartData] = useState(null);  
 
 
   return (

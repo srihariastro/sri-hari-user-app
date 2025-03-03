@@ -112,7 +112,7 @@ const PoojaList = ({ route, dispatch, newPoojaData, customerData, bookpujaHistor
 function HistoryData(bookpujaHistoryData) {
     const navigation = useNavigation()
     const renderItem = ({ item }) => (
-        console.log("first11111", item),
+        //console.log("first11111", item),
         <View style={styles.pujaMainContainer}>
             <View>
                 <Image

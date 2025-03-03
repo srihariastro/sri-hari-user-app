@@ -15,7 +15,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { navigate } from '../../NavigationService'
 
 const ProductCategory = ({ navigation, productCategoryData, dispatch,cartData }) => {
-    console.log(cartData?.cart?.length,'ccdatad')
 
     useEffect(() => {
         dispatch(EcommerceActions.getProductCategory())

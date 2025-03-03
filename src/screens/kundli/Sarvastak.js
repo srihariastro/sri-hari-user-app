@@ -27,15 +27,6 @@ const Sarvastak = ({dispatch,SarvaReport, navigation}) => {
     dispatch(KundliActions.getSarvaReports(payload))
   }, [])
 
-
-
-  console.log(SarvaReport?.sarvashtak?.ashtak_varga,'asdfkjsd1')
-
-
-  
-  
-
-
   return (
     <ScrollView style={{ backgroundColor: 'white' }}>
 <MyHeader title={t('sarvAstak')} navigation={navigation} />

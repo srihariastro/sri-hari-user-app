@@ -102,28 +102,18 @@ const Numerology = props => {
   };
   
 
-  console.log(props?.customerData?._id, 'asdfasdf')
-
   const credentials = `${630051}:${'861bba6a92587a326a9b11ab9dfb9b7ca3492fab'}`;
   const token = btoa(credentials);
 
-
-  console.log(new Date(tob).getMinutes(), 'asdfasdf')
   const tobnew = moment(dob).format('HH:mm:ss')
   const dobnew = moment(dob).format('YYYY:MM:DD');
-  console.log(dobnew.split(':')[0])
-  console.log(dob,dobnew,'new date')
   const year = dobnew.split(':')[0];
   const date = dobnew.split(':')[2];
   const month = dobnew.split(':')[1];
 
-  console.log(year, date, month, 'time')
- console.log(dob,'date numero',tobnew)
-
 
 
   const submit = async () => {
-    console.log(dobnew,'datenum',tobnew,'all da')
     if (validation()) {
       setIsLoading(true);
       try {
@@ -147,7 +137,6 @@ const Numerology = props => {
           },
         });
 
-        console.log('Data received:', response.data);
         const res = response.data;
         if (response.data) {
           submit1();
@@ -170,12 +159,12 @@ const Numerology = props => {
     if (validation()) {
       setIsLoading(true);
 
-      console.log( {
+     /* console.log( {
         customerId:props?.customerData?._id,
         name:name ,
         time: tobnew,
         date: dobnew
-      },'asdfasdfsadf')
+      },'asdfasdfsadf')*/
       try {
         const response = await axios({
           method: 'post',
@@ -191,7 +180,6 @@ const Numerology = props => {
           },
         });
 
-        console.log('Data received:', response.data);
         const res = response.data;
         if (response.data.success == true) {
           props.dispatch(KundliActions.getOpenNumerology())
@@ -203,7 +191,7 @@ const Numerology = props => {
         setIsLoading(false);
       } catch (err) {
         setIsLoading(false);
-        console.log(err,'2222');
+        console.log(err,'Error');
       }
     }
   };

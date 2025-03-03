@@ -11,7 +11,6 @@ import * as LiveActions from '../../../redux/actions/LiveActions'
 export class AnimatedHeart extends Component {
   constructor(props) {
     super(props);
-    console.log('hii', this.props.heartData)
   }
 
   render() {

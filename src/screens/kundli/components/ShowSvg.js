@@ -13,7 +13,6 @@ import {
 } from 'react-native-svg';
 
 const ShowSvg = ({ data }) => {
-  console.log( data[4]?.sign)
   return (
     <View style={{ flex: 0, justifyContent: 'center', alignItems: 'center' }}>
      {data &&  <Svg width="350" height="330">

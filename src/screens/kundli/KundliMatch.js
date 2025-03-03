@@ -34,7 +34,6 @@ const { width, height } = Dimensions.get('screen');
 const KundliMatch = ({ navigation, matchingAshtakootPointsData, maleKundliData, femaleKundliData, dispatch }) => {
   const { t } = useTranslation();
   const [modalVisible, setModalVisible] = useState(false);
-    console.log(matchingAshtakootPointsData?.total?.received_points,'alldata')
   const ref = useRef();
 
   useEffect(() => {
@@ -135,7 +134,6 @@ const KundliMatch = ({ navigation, matchingAshtakootPointsData, maleKundliData, 
   const share_matching = async () => {
     setModalVisible(false);
     ref.current.capture().then(uri => {
-      console.log(uri);
       let options = {
         title:
           'Checkout the Sri Hari Astro marriage compatibility report for Ranjeet and xxx.',
@@ -143,7 +141,6 @@ const KundliMatch = ({ navigation, matchingAshtakootPointsData, maleKundliData, 
       };
       Share.open(options)
         .then(res => {
-          console.log(res);
         })
         .catch(err => {
           err && console.log(err);

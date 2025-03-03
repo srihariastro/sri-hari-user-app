@@ -23,14 +23,12 @@ import DatePicker from 'react-native-date-picker'
 
 const PoojaStatus = ({ navigation, route, dispatch, customerData }) => {
     const Pooja = route?.params
-    console.log("data22", Pooja.astrologerId)
     const [activeIndex, setActiveIndex] = useState(0);
     const [open, setOpen] = useState(false)
     const [date, setDate] = useState(new Date(Pooja?.poojaDate).toLocaleString().split(",")[0])
     const [time, setTime] = useState(new Date(Pooja?.poojaTime).toLocaleString().split(",")[1])
     const [checked, setChecked] = useState('first');
     const [timeopen, setTimeopen] = useState(false)
-    console.log("customerData", new Date(Pooja?.poojaTime).toLocaleString().split(",")[1])
     useEffect(() => {
         dispatch(HomeActions.getHomeData());
     })
@@ -64,7 +62,6 @@ const PoojaStatus = ({ navigation, route, dispatch, customerData }) => {
     function Banner() {
         let DATA = [];
         DATA.push(Pooja)
-        console.log("qqqqq", DATA)
         return (
             <View style={{ marginTop: "4%", paddingHorizontal: 3, flex: 0.38 }}>
                 <Carousel
@@ -107,7 +104,6 @@ const PoojaStatus = ({ navigation, route, dispatch, customerData }) => {
     }
 
     function AllPooja() {
-        console.log("Pooja.pujaName", Pooja)
         return (
             <View style={{ marginTop: "5%" }}>
                 <Text style={{ fontSize: getFontSize(1.8), color: "black", paddingHorizontal: 14 }}>{Pooja.poojaId.pujaName}</Text>
@@ -175,7 +171,6 @@ const PoojaStatus = ({ navigation, route, dispatch, customerData }) => {
 
 
         function datepick() {
-            console.log("date.......")
             return <DatePicker
                 modal
                 open={open}
@@ -203,7 +198,7 @@ const PoojaStatus = ({ navigation, route, dispatch, customerData }) => {
                 minute: '2-digit',
                 hour12: true // Set to false for 24-hour format
             });
-            console.log("date.......",)
+         
             return <DatePicker
                 modal
                 open={timeopen}
@@ -216,7 +211,6 @@ const PoojaStatus = ({ navigation, route, dispatch, customerData }) => {
                         MM: time.getMinutes(),
                         SEC: time.getSeconds()
                     })
-                    console.log("time0000", time.getHours())
                     setTimeopen(false)
                     setTime(time)
                     setBookPujaData({
@@ -291,7 +285,6 @@ const PoojaStatus = ({ navigation, route, dispatch, customerData }) => {
 
 
 function AstroDetails(astrologerId) {
-    console.log("Astro1111", astrologerId)
     return (
         <View style={{ marginTop: "6%", paddingHorizontal: SCREEN_WIDTH * 0.03 }}>
             <Text style={{fontSize:getFontSize(2.),color:"red",textAlign:"center"}}>Astrologer</Text>
@@ -330,9 +323,8 @@ function BottomImages(Pooja) {
     const img = 'https://astroremedy.com/static/media/hand-1.d82764a39c8de99556a4.png'
     let data = [{ id: 1, imageuri: img }]
     // data.push(Pooja.images.length())
-    console.log("qqqq", Pooja.images.length);
     const renderItem = ({ item }) => (
-        console.log("iteamwa", item),
+        //console.log("iteamwa", item),
         <>
             <View style={{ marginTop: 18 }}>
                 <Text style={{ color: "#00801C", fontSize: getFontSize(1.8), textAlign: "center" }}>Uploaded photos and videos by Astrologer</Text>

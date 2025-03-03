@@ -36,8 +36,6 @@ import MyHeader from '../../../../components/MyHeader';
       dispatch(KundliActions.getMatchBasicAstro());
   },[]);
 
-  console.log(BasicAstroMatching?.female_astro_details, 'datatat')
-
    
     
   

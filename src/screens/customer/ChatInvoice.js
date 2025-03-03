@@ -5,10 +5,8 @@ import MyStatusBar from '../../components/MyStatusbar';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const ChatInvoice = props => {
-  console.log(props.route.params.total_time);
   const [astroData] = useState(props.route.params.astroData);
   const [result] = useState(props.route.params.result);
-  console.log('dddd==',result);
   const next_page = () => {
     props.navigation.navigate('chatRating', {
       astroData: astroData,

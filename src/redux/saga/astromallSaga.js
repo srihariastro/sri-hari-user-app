@@ -20,7 +20,6 @@ function* getAstromallData() {
             }
         })
         if (historyResponse?.success) {
-            console.log('sdfsdfd')
             yield put({ type: actionTypes.SET_ASTROMALL_HISTORY, payload: historyResponse?.pooja })
         }
 
@@ -51,8 +50,6 @@ function* getAstrologerPoojaData(actions) {
                 poojaId: payload
             }
         })
-
-        console.log(response)
 
         if (response?.success) {
             yield put({ type: actionTypes.SET_ASTROLOGER_POOJA_DATA, payload: response?.orders })

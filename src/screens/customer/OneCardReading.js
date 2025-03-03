@@ -168,7 +168,6 @@ const TapCardView = ({props, setNextView, setTarotDetailes}) => {
     })
       .then(res => {
         setIsLoading(false);
-        console.log(res.data);
         setTarotDetailes(prev => [
           ...prev,
           {...res.data.data, imageData: imageData},
@@ -343,7 +342,6 @@ const TapCardView = ({props, setNextView, setTarotDetailes}) => {
 };
 
 const ShowDetails = ({props, setNextView, tarotDetailes}) => {
-  console.log(tarotDetailes);
   return (
     <View style={{flex: 1, backgroundColor: colors.black_color1}}>
       <ScrollView>

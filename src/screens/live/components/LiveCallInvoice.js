@@ -12,7 +12,6 @@ import { colors } from '../../../config/Constants1'
 
 
 const LiveCallInvoice = ({ dispatch, liveInvoiceData, liveInvoiceVisible }) => {
-    console.log(liveInvoiceData,'Live Invoice')
     const data = JSON.parse(liveInvoiceData)
     const onDismise = () => {
         const payload = {

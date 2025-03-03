@@ -36,7 +36,6 @@ const { width, height } = Dimensions.get('screen');
 const Splash = ({ props, route, data, navigation, data1, dispatch }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [message, setMessage] = useState(null);
-  console.log(data,'this onskdf')
   useEffect(() => {
     navigation.setOptions({
       headerShown: false,

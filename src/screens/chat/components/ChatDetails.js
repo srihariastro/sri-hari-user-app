@@ -39,7 +39,7 @@ const ChatDetails = ({ dispatch, chatData, customerData, chatImageData }) => {
     }
     onSend({ text: text.trim() }, true);
     if (text && onSend) {
-      console.log('first')
+      //console.log('first')
     }
   
   };

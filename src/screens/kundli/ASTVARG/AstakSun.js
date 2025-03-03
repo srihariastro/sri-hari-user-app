@@ -15,14 +15,7 @@ const AstakSun = ({AshtakvargaReport}) => {
  
   const [select,setSelect] = useState(1);
 
-  const [chartData, setChartData] = useState(null);
-
-  
-
-  console.log(AshtakvargaReport?.sunchart,'asdfkjsd')
-
-
-  
+  const [chartData, setChartData] = useState(null);  
   
 
 

@@ -9,7 +9,6 @@ const environmentDropDownValue = 'PRODUCTION';
 
 // Wallet
 export const PhonepeWallet = async ({ orderId = '', customerId = '' , amount = '', phone = '' , dispatch }) => {
-    console.log('order',orderId, amount,customerId,phone)
         PhonePePaymentSDK.init(
         environmentDropDownValue,
         merchantId,
@@ -43,7 +42,6 @@ export const PhonepeWallet = async ({ orderId = '', customerId = '' , amount = '
             null,
             null
           ).then(res => {
-            console.log('Result ',res);
             dispatch(CustomerActions.getCustomerData());
             dispatch(CustomerActions.goToHome());
             return true;
@@ -60,7 +58,6 @@ export const PhonepeWallet = async ({ orderId = '', customerId = '' , amount = '
 
 //Mall
 export const PhonepeMall = async ({ orderId = '', customerId = '' , amount = '', phone = '' , dispatch }) => {
-  console.log('order ecommerce',orderId, amount,customerId,phone)
       PhonePePaymentSDK.init(
       environmentDropDownValue,
       merchantId,
@@ -84,7 +81,6 @@ export const PhonepeMall = async ({ orderId = '', customerId = '' , amount = '',
         const salt_key = "79c3544b-a336-4594-9164-8588a51427a1";
         const salt_Index = "1";
         const payload = JSON.stringify(data);
-        console.log(payload, "e-coomerce payload")
         const payload_main = base64.encode(payload);
         const string = payload_main+"/pg/v1/pay"+salt_key;
         const checksum = sha256(string)+"###"+salt_Index;
@@ -95,7 +91,6 @@ export const PhonepeMall = async ({ orderId = '', customerId = '' , amount = '',
           null,
           null
         ).then(res => {
-          console.log('Result ',res);
           dispatch(CustomerActions.getCustomerData());
           dispatch(CustomerActions.goToHome());
           return true;
@@ -139,14 +134,12 @@ export const PhonepePuja = async ({ orderId = '', customerId = '' , amount = '',
         const payload_main = base64.encode(payload);
         const string = payload_main+"/pg/v1/pay"+salt_key;
         const checksum = sha256(string)+"###"+salt_Index;
-       console.log(payload,"payload Puja")
         PhonePePaymentSDK.startTransaction(
           payload_main,
           checksum,
           null,
           null
         ).then(res => {
-          console.log('Result ',res);
           dispatch(CustomerActions.getCustomerData());
           dispatch(CustomerActions.goToHome());
           return true;

@@ -18,7 +18,7 @@ const AstroRating = ({ dispatch, astroRatingVisible, ratingData, }) => {
         dispatch(AstrologerActions.setAstroRatingVisible({ data: null, ratingVisible: false }))
         setComments('')
     }
-    console.log(ratingData,'alldataasro ')
+    
     const onSubmit = () => {
         try {
             const payload = {
@@ -26,7 +26,6 @@ const AstroRating = ({ dispatch, astroRatingVisible, ratingData, }) => {
                 ratings: rating,
                 comments: comments
             }
-            console.log(payload,'all data ')
             setComments('')
             dispatch(AstrologerActions.onAstroRating(payload))
         } catch (e) {

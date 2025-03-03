@@ -64,7 +64,6 @@ const HowToScreenshots = ({ tutorialsImages, navigation }) => {
 
   function listInfo() {
     const renderItem = ({ item, index }) => {
-      console.log(item,'all data')
       return (
         <TouchableOpacity
           onPress={() => { setPhoto(base_url + item?.image), setVisible(true) }}

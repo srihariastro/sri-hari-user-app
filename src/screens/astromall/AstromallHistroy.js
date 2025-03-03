@@ -11,7 +11,6 @@ import moment from 'moment'
 import { showNumber } from '../../utils/services'
 
 const AstromallHistroy = ({ dispatch, navigation, astromallHistroyData }) => {
-    console.log('chii', astromallHistroyData);
     return (
         <View style={{ flex: 1, backgroundColor: Colors.whiteDark }}>
             <MyStatusBar backgroundColor={Colors.primaryDark} barStyle={'light-content'} />

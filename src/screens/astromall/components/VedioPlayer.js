@@ -30,7 +30,6 @@ export class VedioPlayer extends Component {
 
   onProgress = data => {
     this.setState({currentTime: data.currentTime});
-    console.log(data);
   };
 
   onPlayPausePress = () => {

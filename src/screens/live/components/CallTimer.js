@@ -16,7 +16,6 @@ const CallTimer = ({totalDuration, dispatch, layout}) => {
           if(layout === 'VEDIO_CALL'){
             dispatch(LiveActions.onEndCalling())
           }
-          console.log('Ended');
         }
         return prev - 1;
       });

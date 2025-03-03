@@ -12,7 +12,6 @@ import {colors} from '../../config/Constants1';
 import * as AstrologerActions from '../../redux/actions/AstrologerActions'
 
 const Call = props => {
-  console.log(props.callListData)
   useEffect(() => {
     props.navigation.setOptions({
       headerShown: false,

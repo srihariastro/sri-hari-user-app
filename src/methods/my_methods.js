@@ -72,7 +72,7 @@ class _MyMethods {
     try {
       Linking.openURL(uri)
         .then(() => {
-          console.log('opened');
+          //console.log('opened');
         })
         .catch(err => {
           console.log(e);
@@ -116,7 +116,7 @@ class _MyMethods {
     try {
       const data = await AsyncStorage.getItem('eCommerceCart');
       const eCommerceCart = JSON.parse(data);
-      console.log(eCommerceCart)
+      //console.log(eCommerceCart)
       if (eCommerceCart) {
         return false;
       }

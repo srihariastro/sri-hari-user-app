@@ -70,7 +70,6 @@ import {
   
   
     const phonepe = async(amount,gift,sub) => {
-      console.log('ddd',amount,gift);
       setIsLoading(true);
       await axios({
         method: 'post',
@@ -87,7 +86,6 @@ import {
         },
       })
         .then(res => {
-          console.log('amount===', res.data);
           if (res.data.success == true) {
             setIsLoading(false);
             props.navigation.navigate('phoneView', { url: res.data.data.instrumentResponse.redirectInfo.url });

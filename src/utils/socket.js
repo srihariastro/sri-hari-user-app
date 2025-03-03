@@ -24,7 +24,7 @@ class socketServices {
       });
 
       this.socket.on('connect', () => {
-        console.log('Socket Connected:', this.socket.id);
+       // console.log('Socket Connected:', this.socket.id);
         // this.emit('reconnect');
       });
 
@@ -83,18 +83,15 @@ class socketServices {
       });
 
       this.socket.on('updateChatTimer', data => {
-        console.log("datadata>>", data);
         
         dispatch(ChatActions.setChatTimerCountdown(data));
       });
 
       this.socket.on('timerStopped', data => {
-        console.log('runne......................')
         dispatch(ChatActions.onCloseChat());
       });
 
       this.socket.on('chatEnded', data => {
-        console.log('not runne......................')
         dispatch(ChatActions.onCloseChat());
       });
 
@@ -111,7 +108,6 @@ class socketServices {
   };
 
   static emit(event, data = {}) {
-    console.log(data);
     this.socket.emit(event, data);
   }
 

@@ -57,13 +57,12 @@ const DailyRashi = props => {
       for (let i = 0; i < 1; i++) {
 
         await new Promise(resolve => setTimeout(resolve, 1000));
-        console.log(viewRef)
         const uri = await captureRef(viewRef, {
           format: 'png',
           quality: 1,
           result: 'tmpfile',
         });
-        console.log('uri====', uri);
+        //console.log('uri====', uri);
        
         // Store the captured image URI
         imageURIs.push(uri);
@@ -100,7 +99,6 @@ const DailyRashi = props => {
   };
 
   const horoscope_renderItems = ({ item, index }) => {
-    console.log(item?.option);
     const show =
       item?.option == "weekly" ? false : true
       ;

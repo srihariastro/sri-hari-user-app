@@ -21,7 +21,6 @@ import * as KundliAction from '../../../redux/actions/KundliActions'
 import { Portal } from 'react-native-paper';
 
 const mars = props => {
-  console.log('pppp',props?.route?.params?.data);
   const {t} = useTranslation();
   
 
@@ -40,8 +39,6 @@ const mars = props => {
     }
     props.dispatch(KundliAction.getRashiReports(payload));
   },[])
-  
-  console.log(props.kundliRashiReport);
 
   return (
     <View style={{flex: 1, backgroundColor: colors.black_color1}}>

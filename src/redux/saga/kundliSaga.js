@@ -89,8 +89,6 @@ function* getKundliData(actions) {
             }
         })
 
-        console.log({ ...basicDetailsResponse?.payload, hour: parseInt(moment(basicDetailsResponse?.data?.tob).format("HH")), min: parseInt(moment(basicDetailsResponse?.data?.tob).format("mm")) })
-
         if (basicDetailsResponse.success) {
             yield put({ type: actionTypes.SET_KUNDLI_BASIC_DETAILS, payload: basicDetailsResponse?.data })
             yield put({ type: actionTypes.SET_KUNDLI_PAYLOADS, payload: { ...basicDetailsResponse?.payload, hour: parseInt(moment(basicDetailsResponse?.data?.tob).format("HH")), min: parseInt(moment(basicDetailsResponse?.data?.tob).format("mm")) } })
@@ -249,7 +247,7 @@ function* RashiReportData(actions) {
 
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     } catch (e) {
-        console.log(e, 'hi')
+        console.log(e, 'error')
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     }
 }
@@ -259,8 +257,6 @@ function* AstakVargaData(actions) {
         const { payload } = actions
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
         const kundliPayloads = yield select(state => state.kundli.kundliPayloads)
-
-        console.log(kundliPayloads)
 
         const ascendantReports = yield kundliRequest({
             url: `https://json.astrologyapi.com/v1/planet_ashtak/ascendant`,
@@ -411,7 +407,7 @@ function* AstakVargaData(actions) {
 
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     } catch (e) {
-        console.log(e, 'hi')
+        console.log(e, 'error')
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     }
 }
@@ -421,7 +417,6 @@ function* SarVargaData(actions) {
         const { payload } = actions
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
         const kundliPayloads = yield select(state => state.kundli.kundliPayloads)
-        console.log('adfas', kundliPayloads)
         const sarvashtak = yield kundliRequest({
             url: `https://json.astrologyapi.com/v1/sarvashtak`,
             data: {
@@ -448,7 +443,7 @@ function* SarVargaData(actions) {
 
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     } catch (e) {
-        console.log(e, 'hi')
+        console.log(e, 'error')
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     }
 }
@@ -458,7 +453,6 @@ function* AscendantData(actions) {
         const { payload } = actions
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
         const kundliPayloads = yield select(state => state.kundli.kundliPayloads)
-        console.log('adfas', kundliPayloads)
         const AscedentReport = yield kundliRequest({
             url: `https://json.astrologyapi.com/v1/general_ascendant_report`,
             data: {
@@ -477,7 +471,7 @@ function* AscendantData(actions) {
 
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     } catch (e) {
-        console.log(e, 'hi')
+        console.log(e, 'error')
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     }
 }
@@ -486,11 +480,9 @@ function* MatchingAscendantData(actions) {
         const { payload } = actions
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
         const kundliPayloads = yield select(state => state.kundli.kundliPayloads)
-        console.log('adfas', kundliPayloads)
         const kundliDataMale = yield select(state => state.kundli.maleKundliData)
         const kundliDataFemale = yield select(state => state.kundli.femaleKundliData)
 
-        console.log(kundliDataMale, 'sdfsdfsdf')
         const m_data = {
             day: parseInt(moment(kundliDataMale?.dob).format('D')),
             month: parseInt(moment(kundliDataMale?.dob).format('M')),
@@ -538,7 +530,7 @@ function* MatchingAscendantData(actions) {
 
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     } catch (e) {
-        console.log(e, 'hi')
+        console.log(e, 'error')
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     }
 }
@@ -547,7 +539,6 @@ function* BasicPanchangData(actions) {
         const { payload } = actions
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
         const kundliPayloads = yield select(state => state.kundli.kundliPayloads)
-        console.log('adfas', kundliPayloads)
         const Panchang = yield kundliRequest({
             url: `https://json.astrologyapi.com/v1/basic_panchang`,
             data: {
@@ -564,7 +555,7 @@ function* BasicPanchangData(actions) {
 
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     } catch (e) {
-        console.log(e, 'hi')
+        console.log(e, 'error')
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     }
 }
@@ -574,7 +565,6 @@ function* NumerologyData(actions) {
         const { payload } = actions
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
         const kundliPayloads = yield select(state => state.kundli.kundliPayloads)
-        console.log('adfas', kundliPayloads)
         const Numero = yield kundliRequest({
             url: `https://json.astrologyapi.com/v1/numero_table`,
             data: {
@@ -591,7 +581,7 @@ function* NumerologyData(actions) {
 
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     } catch (e) {
-        console.log(e, 'hi')
+        console.log(e, 'error')
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     }
 }
@@ -634,7 +624,6 @@ function* getChartImage(actions) {
         lang: payload?.lang
     };
     const url = `https://json.astrologyapi.com/v1/horo_chart/${payload?.data}`
-    console.log('payload :::', kundliRequestData, url);
     try {
         if (payload?.data == 'chalit') {
             const data = yield kundliRequest({
@@ -672,7 +661,7 @@ function* getChartImage(actions) {
 
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     } catch (e) {
-        console.log(e, 'hi')
+        console.log(e, 'error')
         yield put({ type: actionTypes.SET_IS_LOADING, payload: false })
     }
 };
@@ -687,7 +676,6 @@ function* getSaptmashaChart(actions) {
         const kundliDataMale = yield select(state => state.kundli.maleKundliData)
         const kundliDataFemale = yield select(state => state.kundli.femaleKundliData)
 
-        console.log(kundliDataMale, 'sdfsdfsdf')
         const dataM = {
             day: parseInt(moment(kundliDataMale?.dob).format('D')),
             month: parseInt(moment(kundliDataMale?.dob).format('M')),
@@ -714,7 +702,6 @@ function* getSaptmashaChart(actions) {
             data: dataM,
             lang: payload?.lang
         });
-        console.log('res ==', chartResponseMA);
 
         const chartResponseFA = yield kundliRequest({
             url: `https://json.astrologyapi.com/v1/horo_chart/D7`,
@@ -730,7 +717,6 @@ function* getSaptmashaChart(actions) {
         }
 
 
-        console.log(chartResponseFA, 'this response of chart')
         if (response) {
             yield put({ type: actionTypes.SET_KUNDLI_D7_CHARTS, payload: response })
         }
@@ -750,7 +736,6 @@ function* getNavmashaChart(actions) {
         const kundliDataMale = yield select(state => state.kundli.maleKundliData)
         const kundliDataFemale = yield select(state => state.kundli.femaleKundliData)
 
-        console.log(kundliDataMale, 'sdfsdfsdf')
         const dataM = {
             day: parseInt(moment(kundliDataMale?.dob).format('D')),
             month: parseInt(moment(kundliDataMale?.dob).format('M')),
@@ -792,7 +777,6 @@ function* getNavmashaChart(actions) {
             chartResponseF
         }
 
-        console.log('navamashaa cart', response)
         if (response) {
             yield put({ type: actionTypes.SET_KUNDLI_D9_CHARTS, payload: response })
         }
@@ -809,7 +793,6 @@ function* getKundliBirthDetails(actions) {
         const { payload } = actions
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
         const kundliPayloads = yield select(state => state.kundli.kundliPayloads)
-        console.log(kundliPayloads, 'kundli payload')
 
         const response = yield kundliRequest({
             url: `https://json.astrologyapi.com/v1/birth_details`,
@@ -889,8 +872,6 @@ function* getKundliSubSubVDasha(actions) {
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
         const kundliPayloads = yield select(state => state.kundli.kundliPayloads)
         const dashaPath = yield select(state => state.kundli.dashaPath)
-        console.log(dashaPath)
-        console.log(`https://json.astrologyapi.com/v1/sub_sub_vdasha/${dashaPath}${payload?.plant}`)
         const response = yield kundliRequest({
             url: `https://json.astrologyapi.com/v1/sub_sub_vdasha/${dashaPath}${payload?.plant}`,
             data: {
@@ -943,7 +924,6 @@ function* getKundliSubSubSubSubVDasha(actions) {
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
         const kundliPayloads = yield select(state => state.kundli.kundliPayloads)
         const dashaPath = yield select(state => state.kundli.dashaPath)
-        console.log(payload?.plant)
         const response = yield kundliRequest({
             url: `https://json.astrologyapi.com/v1/sub_sub_sub_sub/vdasha/${dashaPath}${payload?.plant}`,
             data: {
@@ -1052,7 +1032,6 @@ function* getAsstkoota(actions) {
         const kundliDataMale = yield select(state => state.kundli.maleKundliData)
         const kundliDataFemale = yield select(state => state.kundli.femaleKundliData)
 
-        console.log(kundliDataMale, 'sdfsdfsdf')
         const data = {
             m_day: parseInt(moment(kundliDataMale?.dob).format('D')),
             m_month: parseInt(moment(kundliDataMale?.dob).format('M')),
@@ -1103,7 +1082,6 @@ function* getDaskoota(actions) {
         const kundliDataMale = yield select(state => state.kundli.maleKundliData)
         const kundliDataFemale = yield select(state => state.kundli.femaleKundliData)
 
-        console.log(kundliDataMale, 'sdfsdfsdf')
         const data = {
             m_day: parseInt(moment(kundliDataMale?.dob).format('D')),
             m_month: parseInt(moment(kundliDataMale?.dob).format('M')),
@@ -1153,7 +1131,6 @@ function* getMatchConclusion(actions) {
         const kundliDataMale = yield select(state => state.kundli.maleKundliData)
         const kundliDataFemale = yield select(state => state.kundli.femaleKundliData)
 
-        console.log(kundliDataMale, 'sdfsdfsdf')
         const data = {
             m_day: parseInt(moment(kundliDataMale?.dob).format('D')),
             m_month: parseInt(moment(kundliDataMale?.dob).format('M')),
@@ -1203,7 +1180,6 @@ function* getMatchReport(actions) {
         const kundliDataMale = yield select(state => state.kundli.maleKundliData)
         const kundliDataFemale = yield select(state => state.kundli.femaleKundliData)
 
-        console.log(kundliDataMale, 'sdfsdfsdf')
         const data = {
             m_day: parseInt(moment(kundliDataMale?.dob).format('D')),
             m_month: parseInt(moment(kundliDataMale?.dob).format('M')),
@@ -1254,7 +1230,6 @@ function* getMatchBasicAstro(actions) {
         const kundliDataMale = yield select(state => state.kundli.maleKundliData)
         const kundliDataFemale = yield select(state => state.kundli.femaleKundliData)
 
-        console.log(kundliDataMale, 'sdfsdfsdf')
         const data = {
             m_day: parseInt(moment(kundliDataMale?.dob).format('D')),
             m_month: parseInt(moment(kundliDataMale?.dob).format('M')),
@@ -1301,8 +1276,6 @@ function* getKundliMatchingReport(actions) {
     try {
         const { payload } = actions
         yield put({ type: actionTypes.SET_IS_LOADING, payload: true })
-
-        console.log(payload)
 
         const response = yield kundliRequest({
             url: `https://json.astrologyapi.com/v1/match_birth_details`,
@@ -1375,8 +1348,6 @@ function* getOpenNumerology(actions) {
                 customerId: customerData?._id
             }
         })
-        console.log("Get Open Num Saga Response ::: ", response)
-        console.log("Get Open Num Saga Response Data ::: ", response?.data)
         if (response?.success) {
             yield put({ type: actionTypes.SET_OPEN_NUMEROLOGY, payload: response?.data })
         } else {
@@ -1401,8 +1372,7 @@ function* getDeleteNumerology(actions) {
                 ...payload,
             }
         })
-        console.log('Delete Numerology Saga ::: ', response)
-        console.log(response?.message, 'delete data ')
+ 
         if (response?.success) {
             // yield put({ type: actionTypes.SET_DELETE_NUMEROLOGY, payload: response?.data })
             yield put({ type: actionTypes.GET_OPEN_NUMEROLOGY, payload: null })

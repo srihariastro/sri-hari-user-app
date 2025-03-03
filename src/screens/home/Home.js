@@ -79,7 +79,6 @@ const Home = ({
   const [masterDataSource, setMasterDataSource] = useState([]);
 
   const {t} = useTranslation();
-  console.log(customerData?._id);
 
   useEffect(() => {
     dispatch(HomeActions.getHomeData());

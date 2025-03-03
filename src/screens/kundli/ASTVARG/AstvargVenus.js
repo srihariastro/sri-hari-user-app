@@ -18,14 +18,6 @@ const AstvargVenus = ({AshtakvargaReport}) => {
 
   const [chartData, setChartData] = useState(null);
 
-  
-
-  console.log(AshtakvargaReport?.venuschart,'asdfkjsd')
-
-
-  
-  
-
 
   return (
     <ScrollView style={{ backgroundColor: 'white' }}>

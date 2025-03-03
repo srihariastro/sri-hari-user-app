@@ -86,7 +86,6 @@ const SelectSign = props => {
     }
     
    const response = await horoscopename({timezone: 5.5},data)
-        console.log('hoo',response);
         props.navigation.navigate('dailyhoro', {data: response?.prediction,items: images,horoscope});
   };
   

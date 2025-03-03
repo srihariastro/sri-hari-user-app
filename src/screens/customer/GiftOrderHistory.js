@@ -48,7 +48,6 @@ const GiftOrderHistory = props => {
     })
       .then(res => {
         setOrderHistoryData(res.data.gift);
-        console.log(res.data.gift);
         setIsLoading(false);
       })
       .catch(err => {

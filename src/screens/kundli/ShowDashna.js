@@ -40,7 +40,6 @@ const ShowDashna = ({
 }) => {
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
-  console.log(subVDashaData,'asdfsadf');
 
 
   useEffect(() => {

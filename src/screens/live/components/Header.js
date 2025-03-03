@@ -10,8 +10,6 @@ import { goBack } from '../../../navigations/NavigationServices';
 
 const Header = ({ roomUserCount, dispatch, coHostData, astroData, customerData }) => {
   const [duration, setDuration] = useState(null);
-  console.log(customerData?._id,'uid')
-  console.log(coHostData,'id')
   useEffect(() => {
     if (coHostData) {
       const currentTime = new Date().getTime();

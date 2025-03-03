@@ -17,7 +17,6 @@ const UpdateAddress = ({ navigation, dispatch,customerData,route }) => {
     const [houseNo, setHouseNo] = useState(updateData?.house);
     const [area, setArea] = useState(updateData?.area);
     const [select, setSelect] = useState('');
-     console.log(updateData?.pincode,"sdfsdf>>>:>")
     // Function to validate phone numbers (10 digits)
     const validatePhone = (phone) => {
         const phonePattern = /^[0-9]{10}$/;
@@ -63,7 +62,6 @@ const UpdateAddress = ({ navigation, dispatch,customerData,route }) => {
             area: area,
             id:updateData?._id
         };
-    console.log(payload,"payload")
         dispatch(EcommerceActions.getupdateaddressCart(payload));
     };
 

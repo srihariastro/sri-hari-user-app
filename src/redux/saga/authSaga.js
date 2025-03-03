@@ -33,27 +33,24 @@ import {Alert} from 'react-native';
 function* onLogin(actions) {
   try {
     const {payload} = actions;
-    console.log(payload, 'login paylod');
     yield put({type: actionTypes.SET_IS_LOADING, payload: true});
 
     const response = yield postRequest({
       url: api_url + customer_login,
       data: payload,
     });
-    console.log(':::::response>>>', response);
     if (response?.success) {
       yield call(navigate, 'otp', {...payload, otp: response?.otp});
     } else {
       // Alert.alert("Astro Remedy",response?.message)
       showToastMessage({message: response?.message});
-      console.log('starat');
       // showToastMessage({ message: 'Please connect your Internet connection' })
     }
 
     yield put({type: actionTypes.SET_IS_LOADING, payload: false});
   } catch (e) {
     yield put({type: actionTypes.SET_IS_LOADING, payload: false});
-    console.log('hii', e);
+    console.log('error', e);
   }
 }
 
@@ -62,7 +59,6 @@ function* onGoogleLogin(actions) {
     const {payload} = actions;
     const test = yield GoogleSignin.hasPlayServices();
     const userInfo = yield GoogleSignin.signIn();
-    console.log(userInfo, 'useri');
     yield put({type: actionTypes.SET_IS_LOADING, payload: true});
     const response = yield postRequest({
       url: api_url + customer_google_login,
@@ -73,7 +69,6 @@ function* onGoogleLogin(actions) {
         customerName: userInfo.user.name,
       },
     });
-    console.log(response, 'thisresposne');
 
     if (response?.success) {
       yield AsyncStorage.setItem(
@@ -97,20 +92,17 @@ function* onGoogleLogin(actions) {
     yield put({type: actionTypes.SET_IS_LOADING, payload: false});
   } catch (e) {
     yield put({type: actionTypes.SET_IS_LOADING, payload: false});
-    console.log('hii1111s', e);
   }
 }
 
 function* onOtpVerification(actions) {
   try {
     const {payload} = actions;
-    console.log(payload?.data, 'payload datqa');
     yield put({type: actionTypes.SET_IS_LOADING, payload: true});
     const response = yield postRequest({
       url: api_url + verify_customer,
       data: payload?.data,
     });
-    console.log('response::::>>>>', response);
 
     if (response?.success) {
       yield AsyncStorage.setItem(
@@ -121,7 +113,6 @@ function* onOtpVerification(actions) {
         type: actionTypes.SET_CUSTOMER_DATA,
         payload: response?.customer,
       });
-      console.log(response, 'thissdf');
       if (response?.type == 'home') {
         yield call(resetToScreen, 'home');
         yield registerZegoCall({
@@ -137,14 +128,13 @@ function* onOtpVerification(actions) {
     yield put({type: actionTypes.SET_IS_LOADING, payload: false});
   } catch (e) {
     yield put({type: actionTypes.SET_IS_LOADING, payload: false});
-    console.log('hii', e);
+    console.log('error', e);
   }
 }
 
 function* onRegister(actions) {
   try {
     const {payload} = actions;
-    console.log(payload, 'customer data');
     yield put({type: actionTypes.SET_IS_LOADING, payload: true});
     const response = yield blobRequest({
       url: api_url + update_customer_details,
@@ -166,13 +156,12 @@ function* onRegister(actions) {
       });
     } else {
       yield call(showToastMessage, {message: response?.message});
-      console.log('error h');
     }
 
     yield put({type: actionTypes.SET_IS_LOADING, payload: false});
   } catch (e) {
     yield put({type: actionTypes.SET_IS_LOADING, payload: false});
-    console.log('hii', e);
+    console.log('error', e);
   }
 }
 

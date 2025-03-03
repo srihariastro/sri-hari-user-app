@@ -11,15 +11,10 @@ import {SvgWithCss } from 'react-native-svg/css';
 import { connect } from 'react-redux';
 
 const AstvargAscendant = ({AshtakvargaReport}) => {
-  console.log(AshtakvargaReport)
   const { t } = useTranslation();
 
   const [Data, setData] = useState(null);
   const [select,setSelect] = useState(1);
-
-  
-
-  console.log(AshtakvargaReport?.ascendantchart,'asdfkjsd')
 
   
   return (

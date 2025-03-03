@@ -25,7 +25,6 @@ export const onNotification = (message, dispatch) => {
   try {
     const { data } = message;
     const { type } = data;
-    console.log('data :::::::: ',JSON.stringify(data));
     switch (type) {
       case 'chat_request': {
         dispatch(ChatActions.onAcceptRejectChat({ status: 'accept', requestedData: data }))
@@ -40,7 +39,6 @@ export const onNotification = (message, dispatch) => {
       }
 
       case 'call_invoice': {
-        console.log('call invoice',data?.data)
         resetToScreen('home')
         dispatch(CustomerActions.getCustomerData())
         dispatch(ChatActions.setCallInvoiceData(data?.data))
@@ -53,7 +51,6 @@ export const onNotification = (message, dispatch) => {
       }
 
       case 'VideoCall': {
-        console.log('video call',data)
         resetToScreen('home')
         dispatch(ChatActions.setvideoInvoiceData(data));
         dispatch(ChatActions.setVideoCallInvoiceVisible(true))
@@ -80,7 +77,6 @@ export const onNotification = (message, dispatch) => {
 
 export const onBackgroundNotification = message => {
   try {
-    console.log(message, 'video::::::::');
     const { data } = message;
     const { type } = data;
     switch (type) {
