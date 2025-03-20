@@ -63,7 +63,7 @@ const Products = ({ navigation, route, productsData, dispatch }) => {
     )
 
     function submitInfo() {
-        const phoneNumber = '8800247824';
+        const phoneNumber = '9811623462';
 
         const handlePress = () => {
             Linking.openURL(`tel:${phoneNumber}`);

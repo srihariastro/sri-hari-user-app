@@ -75,7 +75,7 @@ function CustomDrawerContent(props) {
 
   const openWhatsApp = () => {
     // Replace PHONE_NUMBER with the desired phone number (including the country code)
-    const phoneNumber = '+91 8800247824';
+    const phoneNumber = '+91 9811623462';
 
     // Replace YOUR_MESSAGE with the optional message (URL-encoded if necessary)
     const message = 'Hello%2C%20I%20have%20a%20question';
